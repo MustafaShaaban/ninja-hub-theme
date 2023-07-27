@@ -1,0 +1,18 @@
+.nh_form {
+
+  .nh-error {
+    display: block;
+    color: #a94442 !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+  }
+
+  .nh-error-input {
+    border-color: #A94442 !important;
+    outline: 0 !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(169, 68, 66, 0.42);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(169, 68, 66, 0.42);
+    background-color: #FFF !important;
+  }
+
+}

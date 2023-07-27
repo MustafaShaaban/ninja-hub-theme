@@ -1,0 +1,14 @@
+/node_modules
+/vendor
+/package-lock.json
+/style.css
+/style.min.css
+/style.min.css.map
+/style-rtl.css
+/style-rtl.min.css
+/style-rtl.min.css.map
+/app/Models/admin/css/
+/app/Models/admin/img/
+/app/Models/admin/js/
+/app/Models/public/js/
+/app/Models/public/img/

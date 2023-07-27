@@ -1,0 +1,887 @@
+# Copyright (C) 2023 Medica Scope
+# This file is distributed under the same license as the Medica Scope package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Medica Scope\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Medica Scope Team\n"
+"Last-Translator: Mustafa Shaaban <mushaaban@medicascopeco.com>\n"
+"POT-Creation-Date: 2023-07-27 13:26+0000\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:21
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: 404.php:30
+msgid "Most Used Categories"
+msgstr ""
+
+#. translators: %1$s: smiley
+#: 404.php:46
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: app/Classes/class-nh_module.php:147
+msgid "No invalid post id"
+msgstr ""
+
+#: app/Classes/class-nh_module.php:159
+msgid "No posts available."
+msgstr ""
+
+#: app/Classes/class-nh_module.php:280, app/Models/public/modules/class-nh_notification.php:341, app/Models/public/modules/class-nh_notification.php:386, app/Models/public/modules/class-nh_notification.php:414
+msgid "Successful Response!"
+msgstr ""
+
+#: app/Classes/class-nh_user.php:345, app/Classes/class-nh_user.php:441
+msgid "Sorry, this phone number already exists!"
+msgstr ""
+
+#: app/Classes/class-nh_user.php:353
+msgid "Sorry, that email already exists!"
+msgstr ""
+
+#: app/Classes/class-nh_user.php:744, app/Classes/class-nh_user.php:737, app/Classes/class-nh_user.php:814, app/Classes/class-nh_user.php:806, app/Classes/class-nh_user.php:798, app/Classes/class-nh_user.php:790, app/Classes/class-nh_user.php:845
+msgid "Your reset key is invalid!."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:782, app/Classes/class-nh_user.php:852
+msgid "Your reset key is expired."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:899
+msgid "This user does not exist!."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:1038, app/Classes/class-nh_user.php:1053
+msgid "Your login credentials are invalid."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:1086
+msgid "Your account is pending! Please check your E-mail/Mobile/WhatsApp to activate your account."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:1105
+msgid "This account is temporarily disabled or blocked. Please contact us."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:1114
+msgid "You have to use at least 1 industry."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:1190
+msgid "The verification code didn't send!"
+msgstr ""
+
+#: app/Classes/class-nh_user.php:1242, app/Classes/class-nh_user.php:1295
+msgid "Your verification code for NH is %s"
+msgstr ""
+
+#: app/Classes/class-nh_user.php:1228, app/Classes/class-nh_user.php:1281
+msgid "Your authentication code for NH is %s"
+msgstr ""
+
+#: app/Classes/class-nh_user.php:1350, app/Classes/class-nh_user.php:1365
+msgid "Response Error!"
+msgstr ""
+
+#: app/helpers/class-nh_forms.php:419
+msgid "Upload your University ID"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:116, app/Models/public/modules/class-nh_auth.php:230, app/Models/public/modules/class-nh_auth.php:605
+msgid "You are already logged In!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:120
+msgid "Can't register with empty credentials."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:124, app/Models/public/modules/class-nh_auth.php:238, app/Models/public/modules/class-nh_auth.php:321, app/Models/public/modules/class-nh_auth.php:445, app/Models/public/modules/class-nh_auth.php:560, app/Models/public/modules/class-nh_auth.php:613, app/Models/public/modules/class-nh_auth.php:659, app/Models/public/modules/class-nh_auth.php:724, app/Models/public/modules/class-nh_auth.php:843
+msgid "Something went wrong!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:128, app/Models/public/modules/class-nh_auth.php:728
+msgid "The first name field shouldn't be empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:132, app/Models/public/modules/class-nh_auth.php:732
+msgid "The last name field is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:136, app/Models/public/modules/class-nh_auth.php:736
+msgid "The phone number field is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:140, app/Models/public/modules/class-nh_auth.php:740
+msgid "The E-mail field shouldn't be empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:144, app/Models/public/modules/class-nh_auth.php:663
+msgid "The password field is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:148
+msgid "The confirm password field shouldn't be empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:152
+msgid "The passwords should be identical!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:156
+msgid "The user type is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:160
+msgid "Invalid user type!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:164
+msgid "You should select a verification type."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:168
+msgid "Invalid verification type."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:202
+msgid "E-mail"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:200
+msgid "WhatsApp"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:198
+msgid "Mobile"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:205
+msgid "Your account has been created successfully, Please check your %s to activate your account"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:234, app/Models/public/modules/class-nh_auth.php:609, app/Models/public/modules/class-nh_auth.php:655, app/Models/public/modules/class-nh_auth.php:839
+msgid "Can't login with empty credentials."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:242
+msgid "The username field is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:246
+msgid "The password field shouldn't be empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:272, app/Models/public/modules/class-nh_auth.php:288, app/Models/public/modules/class-nh_auth.php:582
+msgid "You have been logged in successfully."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:313, app/Models/public/modules/class-nh_auth.php:390, app/Models/public/modules/class-nh_auth.php:437, app/Models/public/modules/class-nh_auth.php:511
+msgid "You are not allowed to perform this action!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:317, app/Models/public/modules/class-nh_auth.php:441
+msgid "invalid code."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:325, app/Models/public/modules/class-nh_auth.php:329, app/Models/public/modules/class-nh_auth.php:333, app/Models/public/modules/class-nh_auth.php:337, app/Models/public/modules/class-nh_auth.php:449, app/Models/public/modules/class-nh_auth.php:453, app/Models/public/modules/class-nh_auth.php:457, app/Models/public/modules/class-nh_auth.php:461
+msgid "Please enter the correct code."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:368
+msgid "Your account has been verified successfully!"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:394, app/Models/public/modules/class-nh_auth.php:515
+msgid "invalid action."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:408, app/Models/public/modules/class-nh_auth.php:529
+msgid "Your code didn't expire yet!"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:411, app/Models/public/modules/class-nh_auth.php:532
+msgid "Your code has been sent successfully!"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:490
+msgid "Your account has been authenticated successfully!"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:556
+msgid "Form submission can't be empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:564, app/Models/public/modules/class-nh_auth.php:568
+msgid "You have to select at least one industry."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:617
+msgid "The email field is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:632
+msgid "Please check your stored email or phone number to get your reset code."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:667
+msgid "The confirm password field is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:671, app/Models/public/modules/class-nh_auth.php:859
+msgid "Your password is not identical!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:675, app/Models/public/modules/class-nh_auth.php:867
+msgid "Your password is not complex enough!"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:690
+msgid "Your password has been changed successfully!. you can login with your new password from <a href=\"%s\">here</a>"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:720
+msgid "Profile data can't be empty."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:807
+msgid "Your profile has been updated successfully, But you need to re-login again."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:813
+msgid "Your profile has been updated successfully"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:847
+msgid "The current password field is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:851
+msgid "The new password field is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:855
+msgid "The confirm new password field is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:863
+msgid "Your current password is incorrect!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:879
+msgid "Your password has been changed successfully, But you need to re-login again."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:231
+msgid "New Bidding"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:232
+msgid "You have a new bidding from <strong>%s</strong> on your project <strong>%s</strong>"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:307
+msgid "Notifications status has been changed successfully"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:443
+msgid "y"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:444, app/Models/public/modules/class-nh_notification.php:450
+msgid "m"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:447
+msgid "w"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:448
+msgid "d"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:449
+msgid "h"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:451
+msgid "s"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:465
+msgid "ago"
+msgstr ""
+
+#: app/Models/public/modules/class-nh_notification.php:465
+msgid "just now"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: app/Views/blogs.php:33
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: app/Views/blogs.php:40, app/Views/page.php:21
+msgid "Pages:"
+msgstr ""
+
+#: app/Views/headers/dashboard.php:48, search.php:27
+msgid "Search"
+msgstr ""
+
+#: app/Views/none.php:11
+msgid "Nothing Found"
+msgstr ""
+
+#: app/Views/none.php:34
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: app/Views/none.php:27
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: app/Views/none.php:18
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: app/Views/page.php:30, inc/template-tags.php:76
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#: app/Views/template-parts/notifications/notification-ajax.php:22, app/Views/template-parts/notifications/notification.php:47
+msgid "Notification Thumbnail"
+msgstr ""
+
+#: app/Views/template-parts/notifications/notification-empty.php:11
+msgid "You have no new notifications"
+msgstr ""
+
+#. translators: 1: title.
+#: comments.php:35
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:33
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#: comments.php:58
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:29
+msgid "Articles"
+msgstr ""
+
+#: footer.php:39
+msgid "As Investor"
+msgstr ""
+
+#: footer.php:49
+msgid "As Owner"
+msgstr ""
+
+#: footer.php:60
+msgid "Reach US"
+msgstr ""
+
+#: functions.php:151
+msgid "Default"
+msgstr ""
+
+#: functions.php:152
+msgid "Dashboard Owner"
+msgstr ""
+
+#: functions.php:153
+msgid "Dashboard Investor"
+msgstr ""
+
+#: functions.php:154
+msgid "Footer"
+msgstr ""
+
+#: functions.php:155
+msgid "Bottom Footer"
+msgstr ""
+
+#: functions.php:156
+msgid "Account Login"
+msgstr ""
+
+#: functions.php:157
+msgid "Account Logout"
+msgstr ""
+
+#: functions.php:204
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:206
+msgid "Add widgets here."
+msgstr ""
+
+#: functions.php:236
+msgid "Second Logo"
+msgstr ""
+
+#. translators: %s: post date.
+#: inc/template-tags.php:23
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr ""
+
+#. translators: %s: post author.
+#: inc/template-tags.php:36
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:52
+msgid ", "
+msgstr ""
+
+#. translators: 1: list of categories.
+#: inc/template-tags.php:55
+msgid "Posted in %1$s"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:59
+msgctxt "list item separator"
+msgid ", "
+msgstr ""
+
+#. translators: 1: list of tags.
+#: inc/template-tags.php:62
+msgid "Tagged %1$s"
+msgstr ""
+
+#. translators: %s: post title
+#: inc/template-tags.php:68
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#. translators: %s: search query.
+#: search.php:41
+msgid "Search Results for: %s"
+msgstr ""
+
+#: templates/template-page-about.php:8
+msgid "About Page"
+msgstr ""
+
+#: templates/template-page-authentication.php:8
+msgid "Authentication Page"
+msgstr ""
+
+#: templates/template-page-authentication.php:41, templates/template-page-authentication.php:53, templates/template-page-authentication.php:64, templates/template-page-authentication.php:75, templates/template-page-verification.php:41, templates/template-page-verification.php:53, templates/template-page-verification.php:64, templates/template-page-verification.php:75
+msgid "0"
+msgstr ""
+
+#: templates/template-page-authentication.php:107
+msgid "Authenticate"
+msgstr ""
+
+#: templates/template-page-contact-us.php:8
+msgid "Contact US Page"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:8
+msgid "Create Opportunity Page"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:37
+msgid "Project Name"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:41
+msgid "Enter your project name"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:47
+msgid "Category"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:49
+msgid "Enter your category"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:59
+msgid "Opportunity Type"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:61
+msgid "Enter your opportunity type"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:63
+msgid "Regular"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:64
+msgid "Bidding"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:65
+msgid "Acquisition"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:75
+msgid "Description"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:79
+msgid "Enter your project description"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:86
+msgid "Short Description"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:90
+msgid "Enter your project short description"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:97
+msgid "Start Bidding Amount"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:101, templates/template-page-create-opportunity.php:111
+msgid "Enter your start bidding amount"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:107
+msgid "Target Amount"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:117
+msgid "Project Phase"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:119
+msgid "Select your project phase"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:121
+msgid "Preparation"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:122
+msgid "Created"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:123
+msgid "Started"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:124
+msgid "Running"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:125
+msgid "Paused"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:135
+msgid "Project Start Date"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:139
+msgid "Enter your project start date"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:145
+msgid "Project Assets Amount"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:149
+msgid "Enter your project assets amount"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:155
+msgid "Project Yearly Cashflow Amount"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:159, templates/template-page-create-opportunity.php:169
+msgid "Enter your project yearly cashflow amount"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:165
+msgid "Project Yearly Net Profit Amount"
+msgstr ""
+
+#: templates/template-page-create-opportunity.php:188, templates/template-page-myaccount.php:144, templates/template-page-myaccount.php:225
+msgid "Save"
+msgstr ""
+
+#: templates/template-page-dashboard.php:8
+msgid "Dashboard Page"
+msgstr ""
+
+#: templates/template-page-dashboard.php:45
+msgid "Create New Opportunity"
+msgstr ""
+
+#: templates/template-page-forgot-password.php:8
+msgid "Forgot Password Page"
+msgstr ""
+
+#: templates/template-page-forgot-password.php:29, templates/template-page-login.php:35
+msgid "Phone Number or Email"
+msgstr ""
+
+#: templates/template-page-forgot-password.php:32
+msgid "Ex. email@gmail.com"
+msgstr ""
+
+#: templates/template-page-forgot-password.php:45
+msgid "Send"
+msgstr ""
+
+#: templates/template-page-home.php:8
+msgid "Home Page"
+msgstr ""
+
+#: templates/template-page-industry.php:8
+msgid "Industry Page"
+msgstr ""
+
+#: templates/template-page-industry.php:37
+msgid "(%s Industry Available)"
+msgstr ""
+
+#: templates/template-page-industry.php:38
+msgid "(%s Selected)"
+msgstr ""
+
+#: templates/template-page-industry.php:57
+msgid "Continue"
+msgstr ""
+
+#: templates/template-page-industry.php:83
+msgid "%s more.."
+msgstr ""
+
+#: templates/template-page-login.php:8
+msgid "Login Page"
+msgstr ""
+
+#: templates/template-page-login.php:38
+msgid "Enter you phone or email"
+msgstr ""
+
+#: templates/template-page-login.php:44, templates/template-page-registration.php:72, templates/template-page-reset-password.php:36
+msgid "Password"
+msgstr ""
+
+#: templates/template-page-login.php:47
+msgid "Enter you password"
+msgstr ""
+
+#: templates/template-page-login.php:67
+msgid "Forget Password"
+msgstr ""
+
+#: templates/template-page-login.php:80
+msgid "Login"
+msgstr ""
+
+#: templates/template-page-myaccount.php:8
+msgid "My Account Page"
+msgstr ""
+
+#: templates/template-page-myaccount.php:40
+msgid "First name"
+msgstr ""
+
+#: templates/template-page-myaccount.php:44, templates/template-page-registration.php:39
+msgid "Enter your first name"
+msgstr ""
+
+#: templates/template-page-myaccount.php:50
+msgid "Last name"
+msgstr ""
+
+#: templates/template-page-myaccount.php:54, templates/template-page-registration.php:48
+msgid "Enter your last name"
+msgstr ""
+
+#: templates/template-page-myaccount.php:60
+msgid "Phone number"
+msgstr ""
+
+#: templates/template-page-myaccount.php:64, templates/template-page-registration.php:57
+msgid "Enter your phone number"
+msgstr ""
+
+#: templates/template-page-myaccount.php:70, templates/template-page-registration.php:63, templates/template-page-registration.php:111
+msgid "Email"
+msgstr ""
+
+#: templates/template-page-myaccount.php:74, templates/template-page-registration.php:66
+msgid "Enter your email"
+msgstr ""
+
+#: templates/template-page-myaccount.php:80
+msgid "Profile language"
+msgstr ""
+
+#: templates/template-page-myaccount.php:82
+msgid "Select your language"
+msgstr ""
+
+#: templates/template-page-myaccount.php:92
+msgid "Widget list categories"
+msgstr ""
+
+#: templates/template-page-myaccount.php:95
+msgid "Select your widget"
+msgstr ""
+
+#: templates/template-page-myaccount.php:105
+msgid "Preferred categories list for opportunities"
+msgstr ""
+
+#: templates/template-page-myaccount.php:108, templates/template-page-myaccount.php:121
+msgid "Select your preferred"
+msgstr ""
+
+#: templates/template-page-myaccount.php:118
+msgid "preferred categories list for articles"
+msgstr ""
+
+#: templates/template-page-myaccount.php:187
+msgid "Current password"
+msgstr ""
+
+#: templates/template-page-myaccount.php:190
+msgid "Enter your current password"
+msgstr ""
+
+#: templates/template-page-myaccount.php:197
+msgid "New password"
+msgstr ""
+
+#: templates/template-page-myaccount.php:200
+msgid "Enter your new password"
+msgstr ""
+
+#: templates/template-page-myaccount.php:207
+msgid "Confirm new password"
+msgstr ""
+
+#: templates/template-page-myaccount.php:210
+msgid "Re-enter your new password"
+msgstr ""
+
+#: templates/template-page-registration.php:8
+msgid "Registration Page"
+msgstr ""
+
+#: templates/template-page-registration.php:36
+msgid "First Name"
+msgstr ""
+
+#: templates/template-page-registration.php:45
+msgid "Last Name"
+msgstr ""
+
+#: templates/template-page-registration.php:54, templates/template-page-registration.php:112
+msgid "Phone Number"
+msgstr ""
+
+#: templates/template-page-registration.php:75
+msgid "Enter your password"
+msgstr ""
+
+#: templates/template-page-registration.php:82, templates/template-page-reset-password.php:47
+msgid "Confirm Password"
+msgstr ""
+
+#: templates/template-page-registration.php:85
+msgid "Enter your confirm password"
+msgstr ""
+
+#: templates/template-page-registration.php:91
+msgid "User Type"
+msgstr ""
+
+#: templates/template-page-registration.php:94
+msgid "Enter your user type"
+msgstr ""
+
+#: templates/template-page-registration.php:96
+msgid "I am Owner"
+msgstr ""
+
+#: templates/template-page-registration.php:97
+msgid "I am Investor"
+msgstr ""
+
+#: templates/template-page-registration.php:106
+msgid "Account Verification Type"
+msgstr ""
+
+#: templates/template-page-registration.php:109
+msgid "Enter your verification type"
+msgstr ""
+
+#: templates/template-page-registration.php:113
+msgid "Whatsapp"
+msgstr ""
+
+#: templates/template-page-registration.php:135
+msgid "Create Account"
+msgstr ""
+
+#: templates/template-page-reset-password.php:8
+msgid "Reset Password Page"
+msgstr ""
+
+#: templates/template-page-reset-password.php:39
+msgid "Your Password"
+msgstr ""
+
+#: templates/template-page-reset-password.php:40, templates/template-page-reset-password.php:51
+msgid "Password should contain at least 1 special character"
+msgstr ""
+
+#: templates/template-page-reset-password.php:50
+msgid "Confirm Your Password"
+msgstr ""
+
+#: templates/template-page-reset-password.php:74
+msgid "Reset Password"
+msgstr ""
+
+#: templates/template-page-services.php:8
+msgid "Services Page"
+msgstr ""
+
+#: templates/template-page-verification.php:8
+msgid "Verification Page"
+msgstr ""
+
+#: templates/template-page-verification.php:107
+msgid "Verify"
+msgstr ""
