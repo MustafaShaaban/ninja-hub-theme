@@ -60,14 +60,14 @@
 
         public function enqueue_styles(): void
         {
-            $this->hooks->add_style(Nh::_DOMAIN_NAME . '-admin-style-main', Nh_Hooks::PATHS['admin']['css'] . '/style');
+            $this->hooks->add_style(Nh::$_DOMAIN_NAME . '-admin-style-main', Nh_Hooks::$_PATHS['admin']['css'] . '/style');
         }
 
         public function enqueue_scripts(): void
         {
-            $this->hooks->add_script(Nh::_DOMAIN_NAME . '-admin-script-main', Nh_Hooks::PATHS['admin']['js'] . '/main', [ 'jquery' ]);
-            $this->hooks->add_localization(Nh::_DOMAIN_NAME . '-admin-script-main', 'nhGlobals', [
-                'domain_key' => Nh::_DOMAIN_NAME,
+            $this->hooks->add_script(Nh::$_DOMAIN_NAME . '-admin-script-main', Nh_Hooks::$_PATHS['admin']['js'] . '/main', [ 'jquery' ]);
+            $this->hooks->add_localization(Nh::$_DOMAIN_NAME . '-admin-script-main', 'nhGlobals', [
+                'domain_key' => Nh::$_DOMAIN_NAME,
                 'ajaxUrl'    => admin_url('admin-ajax.php'),
             ]);
             $this->hooks->run();

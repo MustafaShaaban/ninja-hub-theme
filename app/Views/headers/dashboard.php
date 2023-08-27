@@ -52,8 +52,8 @@
                              ]
                          ], [
                              'action' => apply_filters('nhml_permalink', home_url()),
-                             'class' => Nh::_DOMAIN_NAME . '-header-search-form',
-                             'id'    => Nh::_DOMAIN_NAME . '_header_search_form'
+                             'class' => Nh::$_DOMAIN_NAME . '-header-search-form',
+                             'id'    => Nh::$_DOMAIN_NAME . '_header_search_form'
                          ]); ?>
         </div>
 

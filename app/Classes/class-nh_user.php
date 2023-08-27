@@ -413,7 +413,7 @@
                 return $error; // Return the error object.
             }
 
-            do_action(Nh::_DOMAIN_NAME . "_after_create_user", $this); // Trigger an action after user creation.
+            do_action(Nh::$_DOMAIN_NAME . "_after_create_user", $this); // Trigger an action after user creation.
 
             return $this; // Return the current user object.
         }
@@ -565,7 +565,7 @@
 
             } else {
                 // Set a default avatar if no avatar is provided.
-                $this->avatar = Nh_Hooks::PATHS['public']['img'] . '/default-profile.png';
+                $this->avatar = Nh_Hooks::$_PATHS['public']['img'] . '/default-profile.png';
             }
 
             return $error; // Return the error object.
@@ -1440,7 +1440,7 @@
         private function get_avatar(): string
         {
             $url = wp_get_attachment_image_url($this->user_meta['avatar_id'], 'thumbnail');
-            return empty($url) ? Nh_Hooks::PATHS['public']['img'] . '/default-profile.webp' : $url;
+            return empty($url) ? Nh_Hooks::$_PATHS['public']['img'] . '/default-profile.webp' : $url;
         }
 
         /**

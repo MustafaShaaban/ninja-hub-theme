@@ -87,7 +87,7 @@
                                   'class' => '',
                                   'type'  => 'nonce',
                                   'name'  => 'verification_nonce',
-                                  'value' => Nh::_DOMAIN_NAME . "_verification_form",
+                                  'value' => Nh::$_DOMAIN_NAME . "_verification_form",
                                   'order' => 30
                               ],
                               'custom-html-3'      => [
@@ -114,8 +114,8 @@
                                   'order'   => 50,
                               ],
                           ], [
-                              'class' => Nh::_DOMAIN_NAME . '-verification-form',
-                              'id'    => Nh::_DOMAIN_NAME . '_verification_form'
+                              'class' => Nh::$_DOMAIN_NAME . '-verification-form',
+                              'id'    => Nh::$_DOMAIN_NAME . '_verification_form'
                           ]);
 
         ?>

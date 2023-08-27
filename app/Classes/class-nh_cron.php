@@ -30,7 +30,7 @@
         {
             $this->hooks = new Nh_Hooks();
             $this->hooks->add_filter('cron_schedules', $this, 'nh_schedules');
-            $this->hooks->add_action(Nh::_DOMAIN_NAME . '_check_notifications', $this, 'check_notifications');
+            $this->hooks->add_action(Nh::$_DOMAIN_NAME . '_check_notifications', $this, 'check_notifications');
             $this->hooks->add_action('init', $this, 'init_schedules');
             $this->hooks->run();
         }
@@ -97,8 +97,8 @@
 
         public function init_schedules(): void
         {
-            if (!wp_next_scheduled(Nh::_DOMAIN_NAME . '_check_notifications')) {
-                wp_schedule_event(time(), 'daily', Nh::_DOMAIN_NAME . '_check_notifications'); //1644876600
+            if (!wp_next_scheduled(Nh::$_DOMAIN_NAME . '_check_notifications')) {
+                wp_schedule_event(time(), 'daily', Nh::$_DOMAIN_NAME . '_check_notifications'); //1644876600
             }
         }
 

@@ -173,8 +173,8 @@
 
             ob_start();
             ?>
-            <div class="<?= Nh::_DOMAIN_NAME ?>_form_container <?= $classes ?>">
-            <form action="<?= $input_data['action'] ?>" class="<?= Nh::_DOMAIN_NAME ?>_form <?= $input_data['class'] ?> <?= $input_data['form_class'] ?>" id="<?= $input_data['id'] ?>" <?= $input_data['attr'] ?>>
+            <div class="<?= Nh::$_DOMAIN_NAME ?>_form_container <?= $classes ?>">
+            <form action="<?= $input_data['action'] ?>" class="<?= Nh::$_DOMAIN_NAME ?>_form <?= $input_data['class'] ?> <?= $input_data['form_class'] ?>" id="<?= $input_data['id'] ?>" <?= $input_data['attr'] ?>>
             <?php
             return ob_get_clean();
         }
@@ -189,7 +189,7 @@
          * required      => ''
          * placeholder   => ''
          * class         => ''
-         * id            => default is Nh::_DOMAIN_NAME_name
+         * id            => default is Nh::$_DOMAIN_NAME_name
          * value         => ''
          * default_value => ''
          * visibility    => ''
@@ -220,7 +220,7 @@
                 'required'       => FALSE,
                 'placeholder'    => '',
                 'class'          => '',
-                'id'             => (empty($args['name'])) ? "" : Nh::_DOMAIN_NAME . '_' . $args['name'],
+                'id'             => (empty($args['name'])) ? "" : Nh::$_DOMAIN_NAME . '_' . $args['name'],
                 'value'          => '',
                 'default_value'  => '',
                 'visibility'     => '',
@@ -248,15 +248,15 @@
             ?>
 
             <?= $input_data['before_wrapper'] ?>
-            <div class="form-group <?= Nh::_DOMAIN_NAME ?>-input-wrapper <?= boolval($input_data['inline']) ? 'row' : '' ?> <?= $input_data['class'] ?>">
+            <div class="form-group <?= Nh::$_DOMAIN_NAME ?>-input-wrapper <?= boolval($input_data['inline']) ? 'row' : '' ?> <?= $input_data['class'] ?>">
                 <?= $input_data['before'] ?>
                 <?= boolval($input_data['inline']) ? '<div class="col-sm-2 ">' : '' ?>
-                <label for="<?= $input_data['id'] ?>" class="<?= Nh::_DOMAIN_NAME ?>-label"><?= $input_data['label'] ?></label>
+                <label for="<?= $input_data['id'] ?>" class="<?= Nh::$_DOMAIN_NAME ?>-label"><?= $input_data['label'] ?></label>
                 <?= boolval($input_data['inline']) ? '</div>' : '' ?>
 
                 <?= boolval($input_data['inline']) ? '<div class="col-sm-10 ">' : '' ?>
                 <input type="<?= $input_data['type'] ?>"
-                       class="form-control <?= Nh::_DOMAIN_NAME ?>-input"
+                       class="form-control <?= Nh::$_DOMAIN_NAME ?>-input"
                        id="<?= $input_data['id'] ?>"
                        name="<?= $input_data['name'] ?>"
                        value="<?= $value ?>"
@@ -358,7 +358,7 @@
          * name         => ''
          * required     => ''
          * class        => ''
-         * id           => default is Nh::_DOMAIN_NAME_name
+         * id           => default is Nh::$_DOMAIN_NAME_name
          * before       => ''
          * after        => ''
          * hint         => ''
@@ -380,7 +380,7 @@
                 'value'          => '',
                 'required'       => '',
                 'class'          => '',
-                'id'             => (empty($args['name'])) ? "" : Nh::_DOMAIN_NAME . '_' . $args['name'],
+                'id'             => (empty($args['name'])) ? "" : Nh::$_DOMAIN_NAME . '_' . $args['name'],
                 'before'         => '',
                 'after'          => '',
                 'hint'           => '',
@@ -399,15 +399,15 @@
             $input_data = array_merge($defaults, $args);
             echo $input_data['before_wrapper'];
             ?>
-            <div class="input-group <?= Nh::_DOMAIN_NAME ?>-input-wrapper <?= boolval($input_data['inline']) ? 'row' : '' ?> <?= $input_data['class'] ?>">
+            <div class="input-group <?= Nh::$_DOMAIN_NAME ?>-input-wrapper <?= boolval($input_data['inline']) ? 'row' : '' ?> <?= $input_data['class'] ?>">
                 <?= $input_data['before'] ?>
                 <?= boolval($input_data['inline']) ? '<div class="col-sm-2 ">' : '' ?>
-                <label class="<?= Nh::_DOMAIN_NAME ?>-label" for="customFile"><?= $input_data['label'] ?></label>
+                <label class="<?= Nh::$_DOMAIN_NAME ?>-label" for="customFile"><?= $input_data['label'] ?></label>
                 <?= boolval($input_data['inline']) ? '</div>' : '' ?>
 
                 <?= boolval($input_data['inline']) ? '<div class="col-sm-10 ">' : '' ?>
                 <input type="file"
-                       class="form-control <?= Nh::_DOMAIN_NAME ?>-input <?= Nh::_DOMAIN_NAME ?>-attachment-uploader"
+                       class="form-control <?= Nh::$_DOMAIN_NAME ?>-input <?= Nh::$_DOMAIN_NAME ?>-attachment-uploader"
                        id="<?= $input_data['id'] ?>"
                        name="<?= $input_data['name'] ?>"
                        aria-describedby="<?= $input_data['id'] . "_help" ?>"
@@ -443,7 +443,7 @@
          *      name'       => ''
          *      required'   => ''
          *      class'      => ''
-         *      id'         => default is Nh::_DOMAIN_NAME_name
+         *      id'         => default is Nh::$_DOMAIN_NAME_name
          *      value'      => ''
          *      before'     => ''
          *      after'      => ''
@@ -490,26 +490,26 @@
             }
 
             ?>
-            <div class="form-group <?= Nh::_DOMAIN_NAME ?>-input-wrapper <?= $input_data['class'] ?>"><?php
+            <div class="form-group <?= Nh::$_DOMAIN_NAME ?>-input-wrapper <?= $input_data['class'] ?>"><?php
             echo $input_data['before'];
 
             $count = 0;
             foreach ($input_data['choices'] as $name) {
                 if (empty($name['id'])) {
-                    $id = (empty($name['name'])) ? "" : Nh::_DOMAIN_NAME . '_' . str_replace('[]', '', $name['name']) . '_' . $count;
+                    $id = (empty($name['name'])) ? "" : Nh::$_DOMAIN_NAME . '_' . str_replace('[]', '', $name['name']) . '_' . $count;
                     $count++;
                 } else {
                     $id = $name['id'];
                 }
                 ?>
-                <div class="form-check <?= Nh::_DOMAIN_NAME ?>-input-wrapper <?= $name['class'] ?>">
+                <div class="form-check <?= Nh::$_DOMAIN_NAME ?>-input-wrapper <?= $name['class'] ?>">
                     <?= $name['before'] ?>
                     <input type="<?= $input_data['type'] ?>"
-                           class="<?= Nh::_DOMAIN_NAME ?>-checkbox"
+                           class="<?= Nh::$_DOMAIN_NAME ?>-checkbox"
                            id="<?= $id ?>"
                            name="<?= $name['name'] ?>"
                            value="<?= $name['value'] ?>" <?= $name['required'] ? 'required="required"' : '' ?> <?= $this->create_attr($name['extra_attr']) ?> <?= $name['checked'] ?>>
-                    <label for="<?= $id ?>" class="<?= Nh::_DOMAIN_NAME ?>-label"><?= $name['label'] ?></label>
+                    <label for="<?= $id ?>" class="<?= Nh::$_DOMAIN_NAME ?>-label"><?= $name['label'] ?></label>
                     <?= $name['after'] ?>
                 </div>
                 <?php
@@ -531,7 +531,7 @@
          *      label'      => ''
          *      required'   => ''
          *      class'      => ''
-         *      id'         => default is Nh::_DOMAIN_NAME_name
+         *      id'         => default is Nh::$_DOMAIN_NAME_name
          *      value'      => ''
          *      before'     => ''
          *      after'      => ''
@@ -562,7 +562,7 @@
                     [
                         'label'      => '',
                         'class'      => '',
-                        'id'         => (empty($args['choices']['name'])) ? "" : Nh::_DOMAIN_NAME . '_' . $args['choices']['name'],
+                        'id'         => (empty($args['choices']['name'])) ? "" : Nh::$_DOMAIN_NAME . '_' . $args['choices']['name'],
                         'value'      => '',
                         'before'     => '',
                         'after'      => '',
@@ -585,20 +585,20 @@
             $count = 0;
             foreach ($input_data['choices'] as $name) {
                 if (empty($name['id'])) {
-                    $id = (empty($name['name'])) ? "" : Nh::_DOMAIN_NAME . '_' . str_replace('[]', '', $name['name']) . $count;
+                    $id = (empty($name['name'])) ? "" : Nh::$_DOMAIN_NAME . '_' . str_replace('[]', '', $name['name']) . $count;
                     $count++;
                 } else {
                     $id = $name['id'];
                 }
                 ?>
-                <div class="form-check <?= Nh::_DOMAIN_NAME ?>-input-wrapper <?= $name['class'] ?>">
+                <div class="form-check <?= Nh::$_DOMAIN_NAME ?>-input-wrapper <?= $name['class'] ?>">
                     <?= $name['before'] ?>
                     <input type="<?= $input_data['type'] ?>"
-                           class="<?= Nh::_DOMAIN_NAME ?>-radio"
+                           class="<?= Nh::$_DOMAIN_NAME ?>-radio"
                            id="<?= $id ?>"
                            name="<?= $input_data['name'] ?>"
                            value="<?= $name['value'] ?>" <?= $input_data['required'] ? 'required="required"' : '' ?> <?= $this->create_attr($name['extra_attr']) ?> <?= $name['checked'] ? 'checked' : '' ?>>
-                    <label for="<?= $id ?>" class="<?= Nh::_DOMAIN_NAME ?>-label"><?= $name['label'] ?></label>
+                    <label for="<?= $id ?>" class="<?= Nh::$_DOMAIN_NAME ?>-label"><?= $name['label'] ?></label>
                     <?= $name['after'] ?>
                 </div>
                 <?php
@@ -620,7 +620,7 @@
          * name'       => ''
          * required'   => ''
          * class'      => ''
-         * id'         => default is Nh::_DOMAIN_NAME_name
+         * id'         => default is Nh::$_DOMAIN_NAME_name
          * before'     => ''
          * after'      => ''
          * checked'    => ''
@@ -640,7 +640,7 @@
                 'name'       => '',
                 'required'   => '',
                 'class'      => '',
-                'id'         => (empty($args['name'])) ? "" : Nh::_DOMAIN_NAME . '_' . $args['name'],
+                'id'         => (empty($args['name'])) ? "" : Nh::$_DOMAIN_NAME . '_' . $args['name'],
                 'before'     => '',
                 'after'      => '',
                 'checked'    => '',
@@ -652,10 +652,10 @@
 
             ?>
 
-            <div class="custom-control custom-switch <?= Nh::_DOMAIN_NAME ?>-input-wrapper <?= $input_data['class'] ?>">
+            <div class="custom-control custom-switch <?= Nh::$_DOMAIN_NAME ?>-input-wrapper <?= $input_data['class'] ?>">
                 <?= $input_data['before'] ?>
                 <input type="checkbox"
-                       class="custom-control-input <?= Nh::_DOMAIN_NAME ?>-input <?= Nh::_DOMAIN_NAME ?>-switch <?= Nh::_DOMAIN_NAME . '-' . $input_data['class'] ?>"
+                       class="custom-control-input <?= Nh::$_DOMAIN_NAME ?>-input <?= Nh::$_DOMAIN_NAME ?>-switch <?= Nh::$_DOMAIN_NAME . '-' . $input_data['class'] ?>"
                        id="<?= $input_data['id'] ?>"
                        name="<?= $input_data['name'] ?>"
                     <?= $input_data['required'] ? 'required="required"' : '' ?> <?= $this->create_attr($input_data) ?> <?= $input_data['checked'] ?>>
@@ -675,7 +675,7 @@
          * required      => ''
          * placeholder   => ''
          * class         => ''
-         * id            => default is Nh::_DOMAIN_NAME_name
+         * id            => default is Nh::$_DOMAIN_NAME_name
          * value         => ''
          * before        => ''
          * after         => ''
@@ -699,7 +699,7 @@
                 'required'     => '',
                 'placeholder'  => '',
                 'class'        => '',
-                'id'           => (empty($args['name'])) ? "" : Nh::_DOMAIN_NAME . '_' . $args['name'],
+                'id'           => (empty($args['name'])) ? "" : Nh::$_DOMAIN_NAME . '_' . $args['name'],
                 'value'        => '',
                 'before'       => '',
                 'after'        => '',
@@ -713,14 +713,14 @@
             ];
             $input_data = array_merge($defaults, $args);
             ?>
-            <div class="form-group <?= Nh::_DOMAIN_NAME ?>-input-wrapper <?= boolval($input_data['inline']) ? 'row' : '' ?> <?= $input_data['class'] ?>">
+            <div class="form-group <?= Nh::$_DOMAIN_NAME ?>-input-wrapper <?= boolval($input_data['inline']) ? 'row' : '' ?> <?= $input_data['class'] ?>">
                 <?= $input_data['before'] ?>
                 <?= boolval($input_data['inline']) ? '<div class="col-sm-2 ">' : '' ?>
-                <label for="<?= $input_data['id'] ?>" class="<?= Nh::_DOMAIN_NAME ?>-label"><?= $input_data['label'] ?></label>
+                <label for="<?= $input_data['id'] ?>" class="<?= Nh::$_DOMAIN_NAME ?>-label"><?= $input_data['label'] ?></label>
                 <?= boolval($input_data['inline']) ? '</div>' : '' ?>
 
                 <?= boolval($input_data['inline']) ? '<div class="col-sm-10 ">' : '' ?>
-                <textarea class="form-control <?= Nh::_DOMAIN_NAME ?>-textarea"
+                <textarea class="form-control <?= Nh::$_DOMAIN_NAME ?>-textarea"
                           id="<?= $input_data['id'] ?>"
                           name="<?= $input_data['name'] ?>"
                           placeholder="<?= $input_data['placeholder'] ?>"
@@ -753,7 +753,7 @@
          * default_option => ''
          * select_option  => ''
          * class          => ''
-         * id             => default is Nh::_DOMAIN_NAME_name
+         * id             => default is Nh::$_DOMAIN_NAME_name
          * before         => ''
          * after          => ''
          * multiple       => ''
@@ -776,7 +776,7 @@
                 'default_option' => '',
                 'select_option'  => [],
                 'class'          => '',
-                'id'             => (empty($args['name'])) ? "" : Nh::_DOMAIN_NAME . '_' . $args['name'],
+                'id'             => (empty($args['name'])) ? "" : Nh::$_DOMAIN_NAME . '_' . $args['name'],
                 'before'         => '',
                 'after'          => '',
                 'multiple'       => '',
@@ -788,15 +788,15 @@
             $input_data = array_merge($defaults, $args);
 
             ?>
-            <div class="form-group <?= Nh::_DOMAIN_NAME ?>-input-wrapper <?= boolval($input_data['inline']) ? 'row' : '' ?> <?= $input_data['class'] ?>">
+            <div class="form-group <?= Nh::$_DOMAIN_NAME ?>-input-wrapper <?= boolval($input_data['inline']) ? 'row' : '' ?> <?= $input_data['class'] ?>">
                 <?= $input_data['before'] ?>
                 <?= boolval($input_data['inline']) ? '<div class="col-sm-2 ">' : '' ?>
-                <label for="<?= $input_data['id'] ?>" class="<?= Nh::_DOMAIN_NAME ?>-label"><?= $input_data['label'] ?></label>
+                <label for="<?= $input_data['id'] ?>" class="<?= Nh::$_DOMAIN_NAME ?>-label"><?= $input_data['label'] ?></label>
 
                 <?= boolval($input_data['inline']) ? '</div>' : '' ?>
 
                 <?= boolval($input_data['inline']) ? '<div class="col-sm-10 ">' : '' ?>
-                <select class="form-control <?= Nh::_DOMAIN_NAME ?>-input" id="<?= $input_data['id'] ?>"
+                <select class="form-control <?= Nh::$_DOMAIN_NAME ?>-input" id="<?= $input_data['id'] ?>"
                         name="<?= $input_data['name'] ?>" <?= $this->create_attr($input_data) ?> <?= $input_data['required'] ? 'required="required"' : '' ?> <?= $input_data['multiple'] ?>>
                     <?php
                         if (empty($input_data['default_option']) && empty($input_data['select_option'])) {
@@ -886,7 +886,7 @@
             ?>
             <div class="form-group">
                 <?= $input_data['before'] ?>
-                <button class="btn <?= Nh::_DOMAIN_NAME ?>-btn <?= $input_data['class'] ?>" id="<?= $input_data['id'] ?>"
+                <button class="btn <?= Nh::$_DOMAIN_NAME ?>-btn <?= $input_data['class'] ?>" id="<?= $input_data['id'] ?>"
                         type="<?= $input_data['type'] ?>"><?= $input_data['value'] ?></button>
                 <?= $input_data['after'] ?>
             </div>

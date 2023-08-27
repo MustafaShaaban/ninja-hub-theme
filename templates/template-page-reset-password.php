@@ -38,7 +38,7 @@
                                           'required'    => TRUE,
                                           'placeholder' => __('Your Password', 'ninja'),
                                           'hint'        => __("Password should contain at least 1 special character", 'ninja'),
-                                          'after'       => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon resetCustom" data-target ="#' . Nh::_DOMAIN_NAME . '_user_password"></i>',
+                                          'after'       => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon resetCustom" data-target ="#' . Nh::$_DOMAIN_NAME . '_user_password"></i>',
                                           'order'       => 0,
                                       ],
                                       'user_password_confirm' => [
@@ -50,7 +50,7 @@
                                           'placeholder' => __('Confirm Your Password', 'ninja'),
                                           'hint'        => __("Password should contain at least 1 special character", 'ninja'),
                                           'before'      => '',
-                                          'after'       => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon reset" data-target ="#' . Nh::_DOMAIN_NAME . '_user_password_confirm"></i>',
+                                          'after'       => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon reset" data-target ="#' . Nh::$_DOMAIN_NAME . '_user_password_confirm"></i>',
                                           'order'       => 10,
                                       ],
                                       'user_key'              => [
@@ -65,7 +65,7 @@
                                           'class' => '',
                                           'type'  => 'nonce',
                                           'name'  => 'change_password_nonce',
-                                          'value' => Nh::_DOMAIN_NAME . "_change_password_form",
+                                          'value' => Nh::$_DOMAIN_NAME . "_change_password_form",
                                           'order' => 15
                                       ],
                                       'submit'                => [
@@ -78,8 +78,8 @@
                                           'order'               => 20
                                       ]
                                   ], [
-                                      'class' => Nh::_DOMAIN_NAME . '-change-password-form',
-                                      'id'    => Nh::_DOMAIN_NAME . '_change_password_form'
+                                      'class' => Nh::$_DOMAIN_NAME . '-change-password-form',
+                                      'id'    => Nh::$_DOMAIN_NAME . '_change_password_form'
                                   ]);
 
                 } else {

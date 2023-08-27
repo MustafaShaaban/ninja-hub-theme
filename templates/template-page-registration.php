@@ -73,7 +73,7 @@
                                   'name'        => 'user_password',
                                   'required'    => TRUE,
                                   'placeholder' => __('Enter your password', 'ninja'),
-                                  'before'      => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon" data-target ="#' . Nh::_DOMAIN_NAME . '_user_password"></i>',
+                                  'before'      => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon" data-target ="#' . Nh::$_DOMAIN_NAME . '_user_password"></i>',
                                   'order'       => 25,
                               ],
                               'confirm_password'   => [
@@ -83,7 +83,7 @@
                                   'name'        => 'confirm_password',
                                   'required'    => TRUE,
                                   'placeholder' => __('Enter your confirm password', 'ninja'),
-                                  'before'      => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon" data-target ="#' . Nh::_DOMAIN_NAME . '_confirm_password"></i>',
+                                  'before'      => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon" data-target ="#' . Nh::$_DOMAIN_NAME . '_confirm_password"></i>',
                                   'order'       => 30,
                               ],
                               'user_type'          => [
@@ -126,7 +126,7 @@
                                   'class' => '',
                                   'type'  => 'nonce',
                                   'name'  => 'registration_nonce',
-                                  'value' => Nh::_DOMAIN_NAME . "_registration_form",
+                                  'value' => Nh::$_DOMAIN_NAME . "_registration_form",
                                   'order' => 50
                               ],
                               'submit'             => [
@@ -139,8 +139,8 @@
                                   'order'               => 55
                               ],
                           ], [
-                              'class' => Nh::_DOMAIN_NAME . '-registration-form',
-                              'id'    => Nh::_DOMAIN_NAME . '_registration_form'
+                              'class' => Nh::$_DOMAIN_NAME . '-registration-form',
+                              'id'    => Nh::$_DOMAIN_NAME . '_registration_form'
                           ]);
         ?>
     </main><!-- #main -->

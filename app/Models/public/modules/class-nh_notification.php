@@ -83,14 +83,14 @@
         protected function actions($module_name): void
         {
             // TODO: Implement actions() method.
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_read_notifications_ajax', $this, 'read_ajax');
-            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::_DOMAIN_NAME . '_read_notifications_ajax', $this, 'read_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_clear_notifications_ajax', $this, 'clear_notifications_ajax');
-            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::_DOMAIN_NAME . '_clear_notifications_ajax', $this, 'clear_notifications_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_loadmore_notifications_ajax', $this, 'loadmore_notifications_ajax');
-            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::_DOMAIN_NAME . '_loadmore_notifications_ajax', $this, 'loadmore_notifications_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_read_new_notifications_ajax', $this, 'read_new_notifications_ajax');
-            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::_DOMAIN_NAME . '_read_new_notifications_ajax', $this, 'read_new_notifications_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_read_notifications_ajax', $this, 'read_ajax');
+            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::$_DOMAIN_NAME . '_read_notifications_ajax', $this, 'read_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_clear_notifications_ajax', $this, 'clear_notifications_ajax');
+            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::$_DOMAIN_NAME . '_clear_notifications_ajax', $this, 'clear_notifications_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_loadmore_notifications_ajax', $this, 'loadmore_notifications_ajax');
+            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::$_DOMAIN_NAME . '_loadmore_notifications_ajax', $this, 'loadmore_notifications_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_read_new_notifications_ajax', $this, 'read_new_notifications_ajax');
+            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::$_DOMAIN_NAME . '_read_new_notifications_ajax', $this, 'read_new_notifications_ajax');
         }
 
         /**
@@ -264,7 +264,7 @@
             switch ($type) {
                 case 'bidding':
                     $opportunity_obj = new Nh_Opportunity();
-                    $opportunity_id  = wpml_object_id_filter($notification->meta_data['notification_data']['project_id'], $opportunity_obj->type, FALSE, NH_lANG);
+                    $opportunity_id  = wpml_object_id_filter($notification->meta_data['notification_data']['project_id'], $opportunity_obj->type, FALSE, Nh_Init::$_NH_lANG);
                     $opportunity     = $opportunity_obj->get_by_id($opportunity_id);
 
                     $formatted->ID        = $notification->ID;

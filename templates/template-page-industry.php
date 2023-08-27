@@ -48,7 +48,7 @@
                     'class' => '',
                     'type'  => 'nonce',
                     'name'  => 'industries_nonce',
-                    'value' => Nh::_DOMAIN_NAME . "_industries_form",
+                    'value' => Nh::$_DOMAIN_NAME . "_industries_form",
                     'order' => 15
                 ],
                 'submit'           => [
@@ -62,8 +62,8 @@
                 ],
             ];
             $form_tags   = [
-                'class' => Nh::_DOMAIN_NAME . '-industries-form',
-                'id'    => Nh::_DOMAIN_NAME . '_industries_form'
+                'class' => Nh::$_DOMAIN_NAME . '-industries-form',
+                'id'    => Nh::$_DOMAIN_NAME . '_industries_form'
             ];
 
 

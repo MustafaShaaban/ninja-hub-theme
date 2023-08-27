@@ -52,18 +52,18 @@
             // TODO: Implement actions() method.
             $this->hooks->add_action('wp_login', $this, 'after_wp_login');
             $this->hooks->add_action('wp_body_close', $this, 'wp_body_close');
-            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::_DOMAIN_NAME . '_registration_ajax', $this, 'registration_ajax');
-            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::_DOMAIN_NAME . '_login_ajax', $this, 'login_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_verification_ajax', $this, 'verification_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_resendVerCode_ajax', $this, 'resendVerCode_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_authentication_ajax', $this, 'authentication_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_resendAuthCode_ajax', $this, 'resendAuthCode_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_industries_ajax', $this, 'industries_ajax');
-            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::_DOMAIN_NAME . '_forgot_password_ajax', $this, 'forgot_password_ajax');
-            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::_DOMAIN_NAME . '_change_password_ajax', $this, 'change_password_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_edit_profile_ajax', $this, 'edit_profile_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_edit_password_ajax', $this, 'edit_password_ajax');
-            $this->hooks->add_action('wp_ajax_' . Nh::_DOMAIN_NAME . '_logout_ajax', $this, 'logout_ajax');
+            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::$_DOMAIN_NAME . '_registration_ajax', $this, 'registration_ajax');
+            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::$_DOMAIN_NAME . '_login_ajax', $this, 'login_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_verification_ajax', $this, 'verification_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_resendVerCode_ajax', $this, 'resendVerCode_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_authentication_ajax', $this, 'authentication_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_resendAuthCode_ajax', $this, 'resendAuthCode_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_industries_ajax', $this, 'industries_ajax');
+            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::$_DOMAIN_NAME . '_forgot_password_ajax', $this, 'forgot_password_ajax');
+            $this->hooks->add_action('wp_ajax_nopriv_' . Nh::$_DOMAIN_NAME . '_change_password_ajax', $this, 'change_password_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_edit_profile_ajax', $this, 'edit_profile_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_edit_password_ajax', $this, 'edit_password_ajax');
+            $this->hooks->add_action('wp_ajax_' . Nh::$_DOMAIN_NAME . '_logout_ajax', $this, 'logout_ajax');
         }
 
         private function filters(): void
@@ -83,7 +83,7 @@
                 'verification',
                 'authentication',
             ])) {
-                require_once Nh_Hooks::PATHS['views'] . '/js-templates/modals/auth-verif.php';
+                require_once Nh_Hooks::$_PATHS['views'] . '/js-templates/modals/auth-verif.php';
             }
         }
 
@@ -120,7 +120,7 @@
                 new Nh_Ajax_Response(FALSE, __("Can't register with empty credentials.", 'ninja'));
             }
 
-            if (!wp_verify_nonce($form_data['registration_nonce'], Nh::_DOMAIN_NAME . "_registration_form")) {
+            if (!wp_verify_nonce($form_data['registration_nonce'], Nh::$_DOMAIN_NAME . "_registration_form")) {
                 new Nh_Ajax_Response(FALSE, __("Something went wrong!.", 'ninja'));
             }
 
@@ -234,7 +234,7 @@
                 new Nh_Ajax_Response(FALSE, __("Can't login with empty credentials.", 'ninja'));
             }
 
-            if (!wp_verify_nonce($form_data['login_nonce'], Nh::_DOMAIN_NAME . "_login_form")) {
+            if (!wp_verify_nonce($form_data['login_nonce'], Nh::$_DOMAIN_NAME . "_login_form")) {
                 new Nh_Ajax_Response(FALSE, __("Something went wrong!.", 'ninja'));
             }
 
@@ -317,7 +317,7 @@
                 new Nh_Ajax_Response(FALSE, __("invalid code.", 'ninja'));
             }
 
-            if (!wp_verify_nonce($form_data['verification_nonce'], Nh::_DOMAIN_NAME . "_verification_form")) {
+            if (!wp_verify_nonce($form_data['verification_nonce'], Nh::$_DOMAIN_NAME . "_verification_form")) {
                 new Nh_Ajax_Response(FALSE, __("Something went wrong!.", 'ninja'));
             }
 
@@ -441,7 +441,7 @@
                 new Nh_Ajax_Response(FALSE, __("invalid code.", 'ninja'));
             }
 
-            if (!wp_verify_nonce($form_data['authentication_nonce'], Nh::_DOMAIN_NAME . "_authentication_form")) {
+            if (!wp_verify_nonce($form_data['authentication_nonce'], Nh::$_DOMAIN_NAME . "_authentication_form")) {
                 new Nh_Ajax_Response(FALSE, __("Something went wrong!.", 'ninja'));
             }
 
@@ -556,7 +556,7 @@
                 new Nh_Ajax_Response(FALSE, __("Form submission can't be empty!.", 'ninja'));
             }
 
-            if (!wp_verify_nonce($form_data['industries_nonce'], Nh::_DOMAIN_NAME . "_industries_form")) {
+            if (!wp_verify_nonce($form_data['industries_nonce'], Nh::$_DOMAIN_NAME . "_industries_form")) {
                 new Nh_Ajax_Response(FALSE, __("Something went wrong!.", 'ninja'));
             }
 
@@ -609,7 +609,7 @@
                 new Nh_Ajax_Response(FALSE, __("Can't login with empty credentials.", 'ninja'));
             }
 
-            if (!wp_verify_nonce($form_data['forgot_nonce'], Nh::_DOMAIN_NAME . "_forgot_form")) {
+            if (!wp_verify_nonce($form_data['forgot_nonce'], Nh::$_DOMAIN_NAME . "_forgot_form")) {
                 new Nh_Ajax_Response(FALSE, __("Something went wrong!.", 'ninja'));
             }
 
@@ -655,7 +655,7 @@
                 new Nh_Ajax_Response(FALSE, __("Can't login with empty credentials.", 'ninja'));
             }
 
-            if (!wp_verify_nonce($form_data['change_password_nonce'], Nh::_DOMAIN_NAME . "_change_password_form")) {
+            if (!wp_verify_nonce($form_data['change_password_nonce'], Nh::$_DOMAIN_NAME . "_change_password_form")) {
                 new Nh_Ajax_Response(FALSE, __("Something went wrong!.", 'ninja'));
             }
 
@@ -720,7 +720,7 @@
                 new Nh_Ajax_Response(FALSE, __("Profile data can't be empty.", 'ninja'));
             }
 
-            if (!wp_verify_nonce($form_data['edit_profile_nonce'], Nh::_DOMAIN_NAME . "_edit_profile_form")) {
+            if (!wp_verify_nonce($form_data['edit_profile_nonce'], Nh::$_DOMAIN_NAME . "_edit_profile_form")) {
                 new Nh_Ajax_Response(FALSE, __("Something went wrong!.", 'ninja'));
             }
 
@@ -750,7 +750,7 @@
             $relative_preferred_opportunities_cat_list = $preferred_opportunities_cat_list;
             foreach ($preferred_opportunities_cat_list as $term) {
                 foreach (Nh_Public::get_available_languages() as $lang) {
-                    if ($lang['code'] !== NH_lANG) {
+                    if ($lang['code'] !== Nh_Init::$_NH_lANG) {
                         // Get the term's ID in the French language
                         $translated_term_id = wpml_object_id_filter($term, 'opportunity-category', FALSE, $lang['code']);
                         if ($translated_term_id) {
@@ -766,7 +766,7 @@
             $relative_preferred_articles_cat_list = $preferred_articles_cat_list;
             foreach ($preferred_articles_cat_list as $term) {
                 foreach (Nh_Public::get_available_languages() as $lang) {
-                    if ($lang['code'] !== NH_lANG) {
+                    if ($lang['code'] !== Nh_Init::$_NH_lANG) {
                         // Get the term's ID in the French language
                         $translated_term_id = wpml_object_id_filter($term, 'category', FALSE, $lang['code']);
                         if ($translated_term_id) {
@@ -839,7 +839,7 @@
                 new Nh_Ajax_Response(FALSE, __("Can't login with empty credentials.", 'ninja'));
             }
 
-            if (!wp_verify_nonce($form_data['edit_password_nonce'], Nh::_DOMAIN_NAME . "_edit_password_form")) {
+            if (!wp_verify_nonce($form_data['edit_password_nonce'], Nh::$_DOMAIN_NAME . "_edit_password_form")) {
                 new Nh_Ajax_Response(FALSE, __("Something went wrong!.", 'ninja'));
             }
 

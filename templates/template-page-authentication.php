@@ -87,7 +87,7 @@
                                   'class' => '',
                                   'type'  => 'nonce',
                                   'name'  => 'authentication_nonce',
-                                  'value' => Nh::_DOMAIN_NAME . "_authentication_form",
+                                  'value' => Nh::$_DOMAIN_NAME . "_authentication_form",
                                   'order' => 30
                               ],
                               'custom-html-3'      => [
@@ -114,8 +114,8 @@
                                   'order'   => 50,
                               ],
                           ], [
-                              'class' => Nh::_DOMAIN_NAME . '-authentication-form',
-                              'id'    => Nh::_DOMAIN_NAME . '_authentication_form'
+                              'class' => Nh::$_DOMAIN_NAME . '-authentication-form',
+                              'id'    => Nh::$_DOMAIN_NAME . '_authentication_form'
                           ]);
 
         ?>

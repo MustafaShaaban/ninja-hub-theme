@@ -36,7 +36,7 @@
                                   'class' => '',
                                   'type'  => 'nonce',
                                   'name'  => 'forgot_nonce',
-                                  'value' => Nh::_DOMAIN_NAME . "_forgot_form",
+                                  'value' => Nh::$_DOMAIN_NAME . "_forgot_form",
                                   'order' => 15
                               ],
                               'submit'       => [
@@ -49,8 +49,8 @@
                                   'order'               => 20
                               ]
                           ], [
-                              'class' => Nh::_DOMAIN_NAME . '-forgot-form',
-                              'id'    => Nh::_DOMAIN_NAME . '_forgot_form'
+                              'class' => Nh::$_DOMAIN_NAME . '-forgot-form',
+                              'id'    => Nh::$_DOMAIN_NAME . '_forgot_form'
                           ]);
 
         ?>

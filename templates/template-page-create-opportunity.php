@@ -178,13 +178,13 @@
                     'class' => '',
                     'type'  => 'nonce',
                     'name'  => 'create_opportunity_nonce',
-                    'value' => Nh::_DOMAIN_NAME . "_create_opportunity_form",
+                    'value' => Nh::$_DOMAIN_NAME . "_create_opportunity_form",
                     'order' => 50
                 ],
                 'submit'             => [
                     'class'               => '',
                     'type'                => 'submit',
-                    'id'                => Nh::_DOMAIN_NAME . '_create_opportunity_submit',
+                    'id'                => Nh::$_DOMAIN_NAME . '_create_opportunity_submit',
                     'value'               => __('Save', 'ninja'),
                     'before'              => '',
                     'after'               => '',
@@ -193,8 +193,8 @@
                 ],
             ];
             $form_tags   = [
-                'class' => Nh::_DOMAIN_NAME . '-create-opportunity-form',
-                'id'    => Nh::_DOMAIN_NAME . '_create_opportunity_form'
+                'class' => Nh::$_DOMAIN_NAME . '-create-opportunity-form',
+                'id'    => Nh::$_DOMAIN_NAME . '_create_opportunity_form'
             ];
             echo Nh_Forms::get_instance()
                           ->create_form($form_fields, $form_tags);

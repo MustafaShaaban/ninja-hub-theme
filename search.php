@@ -31,8 +31,8 @@
                              ]
                          ], [
                              'action' => apply_filters('nhml_permalink', home_url()),
-                             'class'  => Nh::_DOMAIN_NAME . '-search-form',
-                             'id'     => Nh::_DOMAIN_NAME . '_search_form'
+                             'class'  => Nh::$_DOMAIN_NAME . '-search-form',
+                             'id'     => Nh::$_DOMAIN_NAME . '_search_form'
                          ]); ?>
 
             <h1 class="page-title">

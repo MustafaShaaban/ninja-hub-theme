@@ -45,7 +45,7 @@
                                   'name'        => 'user_password',
                                   'required'    => TRUE,
                                   'placeholder' => __('Enter you password', 'ninja'),
-                                  'before'      => '<i class="fa fa-eye showPassIcon" data-target ="#' . Nh::_DOMAIN_NAME . '_user_password"></i>',
+                                  'before'      => '<i class="fa fa-eye showPassIcon" data-target ="#' . Nh::$_DOMAIN_NAME . '_user_password"></i>',
                                   'order'       => 10,
                               ],
                               'rememberme'    => [
@@ -71,7 +71,7 @@
                                   'class' => '',
                                   'type'  => 'nonce',
                                   'name'  => 'login_nonce',
-                                  'value' => Nh::_DOMAIN_NAME . "_login_form",
+                                  'value' => Nh::$_DOMAIN_NAME . "_login_form",
                                   'order' => 25
                               ],
                               'submit'        => [
@@ -84,8 +84,8 @@
                                   'order'               => 25
                               ],
                           ], [
-                              'class' => Nh::_DOMAIN_NAME . '-login-form',
-                              'id'    => Nh::_DOMAIN_NAME . '_login_form'
+                              'class' => Nh::$_DOMAIN_NAME . '-login-form',
+                              'id'    => Nh::$_DOMAIN_NAME . '_login_form'
                           ]);
         ?>
     </main><!-- #main -->

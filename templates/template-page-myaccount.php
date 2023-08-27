@@ -134,13 +134,13 @@
                     'class' => '',
                     'type'  => 'nonce',
                     'name'  => 'edit_profile_nonce',
-                    'value' => Nh::_DOMAIN_NAME . "_edit_profile_form",
+                    'value' => Nh::$_DOMAIN_NAME . "_edit_profile_form",
                     'order' => 50
                 ],
                 'submit'             => [
                     'class'               => '',
                     'type'                => 'submit',
-                    'id'                => Nh::_DOMAIN_NAME . '_edit_profile_submit',
+                    'id'                => Nh::$_DOMAIN_NAME . '_edit_profile_submit',
                     'value'               => __('Save', 'ninja'),
                     'before'              => '',
                     'after'               => '',
@@ -149,8 +149,8 @@
                 ],
             ];
             $form_tags   = [
-                'class' => Nh::_DOMAIN_NAME . '-edit-profile-form',
-                'id'    => Nh::_DOMAIN_NAME . '_edit_profile_form'
+                'class' => Nh::$_DOMAIN_NAME . '-edit-profile-form',
+                'id'    => Nh::$_DOMAIN_NAME . '_edit_profile_form'
             ];
 
             $languages = Nh_Public::get_available_languages();
@@ -188,7 +188,7 @@
                                   'name'        => 'current_password',
                                   'required'    => TRUE,
                                   'placeholder' => __('Enter your current password', 'ninja'),
-                                  'before'      => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon" data-target ="#' . Nh::_DOMAIN_NAME . '_current_password"></i>',
+                                  'before'      => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon" data-target ="#' . Nh::$_DOMAIN_NAME . '_current_password"></i>',
                                   'order'       => 5,
                               ],
                               'new_password'      => [
@@ -198,7 +198,7 @@
                                   'name'        => 'new_password',
                                   'required'    => TRUE,
                                   'placeholder' => __('Enter your new password', 'ninja'),
-                                  'before'      => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon" data-target ="#' . Nh::_DOMAIN_NAME . '_new_password"></i>',
+                                  'before'      => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon" data-target ="#' . Nh::$_DOMAIN_NAME . '_new_password"></i>',
                                   'order'       => 10,
                               ],
                               'confirm_new_password'   => [
@@ -208,20 +208,20 @@
                                   'name'        => 'confirm_new_password',
                                   'required'    => TRUE,
                                   'placeholder' => __('Re-enter your new password', 'ninja'),
-                                  'before'      => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon" data-target ="#' . Nh::_DOMAIN_NAME . '_confirm_new_password"></i>',
+                                  'before'      => '<i class="fa-sharp fa-solid fa-eye-slash showPassIcon" data-target ="#' . Nh::$_DOMAIN_NAME . '_confirm_new_password"></i>',
                                   'order'       => 15,
                               ],
                               'edit_password_nonce' => [
                                   'class' => '',
                                   'type'  => 'nonce',
                                   'name'  => 'edit_password_nonce',
-                                  'value' => Nh::_DOMAIN_NAME . "_edit_password_form",
+                                  'value' => Nh::$_DOMAIN_NAME . "_edit_password_form",
                                   'order' => 20
                               ],
                               'submit'             => [
                                   'class'               => '',
                                   'type'                => 'submit',
-                                  'id'                => Nh::_DOMAIN_NAME . '_edit_password_submit',
+                                  'id'                => Nh::$_DOMAIN_NAME . '_edit_password_submit',
                                   'value'               => __('Save', 'ninja'),
                                   'before'              => '',
                                   'after'               => '',
@@ -229,8 +229,8 @@
                                   'order'               => 25
                               ],
                           ], [
-                              'class' => Nh::_DOMAIN_NAME . '-edit-password-form',
-                              'id'    => Nh::_DOMAIN_NAME . '_edit_password_form'
+                              'class' => Nh::$_DOMAIN_NAME . '-edit-password-form',
+                              'id'    => Nh::$_DOMAIN_NAME . '_edit_password_form'
                           ]);
         ?>
     </main><!-- #main -->

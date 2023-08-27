@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: Medica Scope Team\n"
 "Last-Translator: Mustafa Shaaban <mushaaban@medicascopeco.com>\n"
-"POT-Creation-Date: 2023-08-14 11:19+0000\n"
+"POT-Creation-Date: 2023-07-27 17:23+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -403,44 +403,48 @@ msgstr ""
 msgid "Reach US"
 msgstr ""
 
-#: functions.php:141
+#: functions.php:151
 msgid "Default"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:152
 msgid "Dashboard Owner"
 msgstr ""
 
-#: functions.php:143
+#: functions.php:153
 msgid "Dashboard Investor"
 msgstr ""
 
-#: functions.php:144
+#: functions.php:154
 msgid "Footer"
 msgstr ""
 
-#: functions.php:145
+#: functions.php:155
 msgid "Bottom Footer"
 msgstr ""
 
-#: functions.php:146
+#: functions.php:156
 msgid "Account Login"
 msgstr ""
 
-#: functions.php:147
+#: functions.php:157
 msgid "Account Logout"
 msgstr ""
 
-#: functions.php:193
+#: functions.php:204
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:195
+#: functions.php:206
 msgid "Add widgets here."
 msgstr ""
 
-#: functions.php:224
+#: functions.php:236
 msgid "Second Logo"
+msgstr ""
+
+#: functions.php:295
+msgid "sasass"
 msgstr ""
 
 #. translators: %s: post date.

@@ -244,7 +244,7 @@
                 }
                 $this->ID = $insert;
 
-                do_action(Nh::_DOMAIN_NAME . "_after_insert_" . $this->type, $this);
+                do_action(Nh::$_DOMAIN_NAME . "_after_insert_" . $this->type, $this);
             }
 
             return $this;
@@ -287,7 +287,7 @@
                 }
 
 
-                do_action(Nh::_DOMAIN_NAME . "_after_update_" . $this->type, $this);
+                do_action(Nh::$_DOMAIN_NAME . "_after_update_" . $this->type, $this);
             }
 
             return $this;
@@ -303,7 +303,7 @@
         public function delete(bool $force_delete = FALSE): WP_Post
         {
             $delete = wp_delete_post($this->ID, $force_delete);
-            do_action(Nh::_DOMAIN_NAME . "_after_delete_" . $this->type, $this->ID);
+            do_action(Nh::$_DOMAIN_NAME . "_after_delete_" . $this->type, $this->ID);
             return $delete;
 
         }
