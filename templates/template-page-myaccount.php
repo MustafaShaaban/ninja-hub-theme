@@ -62,6 +62,7 @@
                     'value'        => $user->user_meta['phone_number'],
                     'required'    => TRUE,
                     'placeholder' => __('Enter your phone number', 'ninja'),
+                    'extra_attr' => ['disabled' => 'disable'],
                     'order'       => 15,
                 ],
                 'user_email'         => [

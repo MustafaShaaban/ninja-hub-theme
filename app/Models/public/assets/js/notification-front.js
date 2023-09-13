@@ -77,7 +77,7 @@ class NhNotificationFront extends NhNotification
 
         $(document).on('click', function (e) {
             let $this = $(e.target);
-            if ($notifications.notification_list.is(':visible') && $this.parents(".nh-notifications").length !== 1 ) {
+            if ($notifications.notification_list.is(':visible') && $this.parents(".ninja-notifications").length !== 1 ) {
                 $notifications.notification_list.hide();
             }
         })

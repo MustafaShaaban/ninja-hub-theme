@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: Medica Scope Team\n"
 "Last-Translator: Mustafa Shaaban <mushaaban@medicascopeco.com>\n"
-"POT-Creation-Date: 2023-07-27 13:26+0000\n"
+"POT-Creation-Date: 2023-09-13 22:24+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Can't register with empty credentials."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:124, app/Models/public/modules/class-nh_auth.php:238, app/Models/public/modules/class-nh_auth.php:321, app/Models/public/modules/class-nh_auth.php:445, app/Models/public/modules/class-nh_auth.php:560, app/Models/public/modules/class-nh_auth.php:613, app/Models/public/modules/class-nh_auth.php:659, app/Models/public/modules/class-nh_auth.php:724, app/Models/public/modules/class-nh_auth.php:843
+#: app/Models/public/modules/class-nh_auth.php:124, app/Models/public/modules/class-nh_auth.php:238, app/Models/public/modules/class-nh_auth.php:321, app/Models/public/modules/class-nh_auth.php:445, app/Models/public/modules/class-nh_auth.php:560, app/Models/public/modules/class-nh_auth.php:613, app/Models/public/modules/class-nh_auth.php:659, app/Models/public/modules/class-nh_auth.php:724, app/Models/public/modules/class-nh_auth.php:844
 msgid "Something went wrong!."
 msgstr ""
 
@@ -121,11 +121,11 @@ msgstr ""
 msgid "The last name field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:136, app/Models/public/modules/class-nh_auth.php:736
+#: app/Models/public/modules/class-nh_auth.php:136
 msgid "The phone number field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:140, app/Models/public/modules/class-nh_auth.php:740
+#: app/Models/public/modules/class-nh_auth.php:140, app/Models/public/modules/class-nh_auth.php:741
 msgid "The E-mail field shouldn't be empty!."
 msgstr ""
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "Your account has been created successfully, Please check your %s to activate your account"
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:234, app/Models/public/modules/class-nh_auth.php:609, app/Models/public/modules/class-nh_auth.php:655, app/Models/public/modules/class-nh_auth.php:839
+#: app/Models/public/modules/class-nh_auth.php:234, app/Models/public/modules/class-nh_auth.php:609, app/Models/public/modules/class-nh_auth.php:655, app/Models/public/modules/class-nh_auth.php:840
 msgid "Can't login with empty credentials."
 msgstr ""
 
@@ -241,11 +241,11 @@ msgstr ""
 msgid "The confirm password field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:671, app/Models/public/modules/class-nh_auth.php:859
+#: app/Models/public/modules/class-nh_auth.php:671, app/Models/public/modules/class-nh_auth.php:860
 msgid "Your password is not identical!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:675, app/Models/public/modules/class-nh_auth.php:867
+#: app/Models/public/modules/class-nh_auth.php:675, app/Models/public/modules/class-nh_auth.php:868
 msgid "Your password is not complex enough!"
 msgstr ""
 
@@ -257,31 +257,31 @@ msgstr ""
 msgid "Profile data can't be empty."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:807
+#: app/Models/public/modules/class-nh_auth.php:808
 msgid "Your profile has been updated successfully, But you need to re-login again."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:813
+#: app/Models/public/modules/class-nh_auth.php:814
 msgid "Your profile has been updated successfully"
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:847
+#: app/Models/public/modules/class-nh_auth.php:848
 msgid "The current password field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:851
+#: app/Models/public/modules/class-nh_auth.php:852
 msgid "The new password field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:855
+#: app/Models/public/modules/class-nh_auth.php:856
 msgid "The confirm new password field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:863
+#: app/Models/public/modules/class-nh_auth.php:864
 msgid "Your current password is incorrect!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:879
+#: app/Models/public/modules/class-nh_auth.php:880
 msgid "Your password has been changed successfully, But you need to re-login again."
 msgstr ""
 
@@ -403,43 +403,43 @@ msgstr ""
 msgid "Reach US"
 msgstr ""
 
-#: functions.php:151
+#: functions.php:157
 msgid "Default"
 msgstr ""
 
-#: functions.php:152
+#: functions.php:158
 msgid "Dashboard Owner"
 msgstr ""
 
-#: functions.php:153
+#: functions.php:159
 msgid "Dashboard Investor"
 msgstr ""
 
-#: functions.php:154
+#: functions.php:160
 msgid "Footer"
 msgstr ""
 
-#: functions.php:155
+#: functions.php:161
 msgid "Bottom Footer"
 msgstr ""
 
-#: functions.php:156
+#: functions.php:162
 msgid "Account Login"
 msgstr ""
 
-#: functions.php:157
+#: functions.php:163
 msgid "Account Logout"
 msgstr ""
 
-#: functions.php:204
+#: functions.php:210
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:206
+#: functions.php:212
 msgid "Add widgets here."
 msgstr ""
 
-#: functions.php:236
+#: functions.php:242
 msgid "Second Logo"
 msgstr ""
 
@@ -630,7 +630,7 @@ msgstr ""
 msgid "Project Yearly Net Profit Amount"
 msgstr ""
 
-#: templates/template-page-create-opportunity.php:188, templates/template-page-myaccount.php:144, templates/template-page-myaccount.php:225
+#: templates/template-page-create-opportunity.php:188, templates/template-page-myaccount.php:145, templates/template-page-myaccount.php:226
 msgid "Save"
 msgstr ""
 
@@ -734,63 +734,63 @@ msgstr ""
 msgid "Enter your phone number"
 msgstr ""
 
-#: templates/template-page-myaccount.php:70, templates/template-page-registration.php:63, templates/template-page-registration.php:111
+#: templates/template-page-myaccount.php:71, templates/template-page-registration.php:63, templates/template-page-registration.php:111
 msgid "Email"
 msgstr ""
 
-#: templates/template-page-myaccount.php:74, templates/template-page-registration.php:66
+#: templates/template-page-myaccount.php:75, templates/template-page-registration.php:66
 msgid "Enter your email"
 msgstr ""
 
-#: templates/template-page-myaccount.php:80
+#: templates/template-page-myaccount.php:81
 msgid "Profile language"
 msgstr ""
 
-#: templates/template-page-myaccount.php:82
+#: templates/template-page-myaccount.php:83
 msgid "Select your language"
 msgstr ""
 
-#: templates/template-page-myaccount.php:92
+#: templates/template-page-myaccount.php:93
 msgid "Widget list categories"
 msgstr ""
 
-#: templates/template-page-myaccount.php:95
+#: templates/template-page-myaccount.php:96
 msgid "Select your widget"
 msgstr ""
 
-#: templates/template-page-myaccount.php:105
+#: templates/template-page-myaccount.php:106
 msgid "Preferred categories list for opportunities"
 msgstr ""
 
-#: templates/template-page-myaccount.php:108, templates/template-page-myaccount.php:121
+#: templates/template-page-myaccount.php:109, templates/template-page-myaccount.php:122
 msgid "Select your preferred"
 msgstr ""
 
-#: templates/template-page-myaccount.php:118
+#: templates/template-page-myaccount.php:119
 msgid "preferred categories list for articles"
 msgstr ""
 
-#: templates/template-page-myaccount.php:187
+#: templates/template-page-myaccount.php:188
 msgid "Current password"
 msgstr ""
 
-#: templates/template-page-myaccount.php:190
+#: templates/template-page-myaccount.php:191
 msgid "Enter your current password"
 msgstr ""
 
-#: templates/template-page-myaccount.php:197
+#: templates/template-page-myaccount.php:198
 msgid "New password"
 msgstr ""
 
-#: templates/template-page-myaccount.php:200
+#: templates/template-page-myaccount.php:201
 msgid "Enter your new password"
 msgstr ""
 
-#: templates/template-page-myaccount.php:207
+#: templates/template-page-myaccount.php:208
 msgid "Confirm new password"
 msgstr ""
 
-#: templates/template-page-myaccount.php:210
+#: templates/template-page-myaccount.php:211
 msgid "Re-enter your new password"
 msgstr ""
 

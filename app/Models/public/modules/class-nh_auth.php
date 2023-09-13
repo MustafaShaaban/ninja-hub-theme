@@ -707,7 +707,7 @@
             $form_data                        = $_POST['data'];
             $first_name                       = sanitize_text_field($form_data['first_name']);
             $last_name                        = sanitize_text_field($form_data['last_name']);
-            $phone_number                     = sanitize_text_field($form_data['phone_number']);
+//            $phone_number                     = sanitize_text_field($form_data['phone_number']);
             $user_email                       = sanitize_text_field($form_data['user_email']);
             $site_language                    = sanitize_text_field($form_data['site_language']);
             $widget_list                      = !is_array($form_data['widget_list']) ? [] : $form_data['widget_list'];
@@ -732,9 +732,10 @@
                 new Nh_Ajax_Response(FALSE, __("The last name field is empty!.", 'ninja'));
             }
 
-            if (empty($phone_number)) {
-                new Nh_Ajax_Response(FALSE, __("The phone number field is empty!.", 'ninja'));
-            }
+            // TODO:: To be enabled in version 2
+//            if (empty($phone_number)) {
+//                new Nh_Ajax_Response(FALSE, __("The phone number field is empty!.", 'ninja'));
+//            }
 
             if (empty($user_email)) {
                 new Nh_Ajax_Response(FALSE, __("The E-mail field shouldn't be empty!.", 'ninja'));
@@ -782,7 +783,7 @@
 
 
             $current_user_obj               = Nh_User::get_current_user();
-            $current_user_obj->username     = $phone_number;
+//            $current_user_obj->username     = $phone_number;
             $current_user_obj->email        = $user_email;
             $current_user_obj->display_name = ucfirst(strtolower($first_name)) . ' ' . ucfirst(strtolower($last_name));
             $current_user_obj->first_name   = ucfirst(strtolower($first_name));
@@ -791,7 +792,7 @@
             $current_user_obj->set_user_meta('first_name', ucfirst(strtolower($first_name)));
             $current_user_obj->set_user_meta('last_name', ucfirst(strtolower($last_name)));
             $current_user_obj->set_user_meta('nickname', ucfirst(strtolower($first_name)) . ' ' . ucfirst(strtolower($last_name)));
-            $current_user_obj->set_user_meta('phone_number', $phone_number);
+//            $current_user_obj->set_user_meta('phone_number', $phone_number);
             $current_user_obj->set_user_meta('site_language', $site_language);
             $current_user_obj->profile->set_meta_data('widget_list', $widget_list);
             $current_user_obj->profile->set_meta_data('preferred_opportunities_cat_list', $relative_preferred_opportunities_cat_list);

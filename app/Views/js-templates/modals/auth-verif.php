@@ -8,7 +8,7 @@
 ?>
 
 <script type="text/template" id="nh_modal_auth_verif">
-    <div class="nh-modal modal modal-dialog-centered">
+    <div class="ninjamodal modal modal-dialog-centered">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">

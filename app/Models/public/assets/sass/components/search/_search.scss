@@ -5,21 +5,21 @@
  * @Date: 7/6/2023
  */
 
-.nh-header-search-form {
-  .nh-input-wrapper {
+.ninja-header-search-form {
+  .ninja-input-wrapper {
     position: relative;
 
     label {
       display: none;
     }
 
-    #nh_s {
+    #ninja_s {
       opacity: 0;
       width: 0;
       padding-left: 30px;
     }
 
-    .nh-header-search-icon {
+    .ninja-header-search-icon {
       cursor: pointer;
       position: absolute;
       left: 0;
@@ -30,15 +30,15 @@
 
 }
 
-.nh-search-form {
-  .nh-search-input-group {
+.ninja-search-form {
+  .ninja-search-input-group {
     position: relative;
 
-    #nh_s {
+    #ninja_s {
       padding-left: 30px;
     }
 
-    .nh-search-icon {
+    .ninja-search-icon {
       position: absolute;
       left: 0;
       bottom: 0;

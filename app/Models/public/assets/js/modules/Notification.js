@@ -93,7 +93,7 @@ class NhNotification extends Nh
                 let $temp = $(`<div class="${KEY}-notification-item ${KEY}-notification-item-load"> <div class="row"> <div class="col-sm-2"> <div class="${KEY}-notification-image"> <span></span> </div> </div> <div class="col-sm-10"> <div class="${KEY}-notification-content"> <h6></h6> <p></p> <span></span> </div> </div> </div> </div>`)
                 $(`.${KEY}-notification-item-load`).remove();
                 $el.append($temp);
-                $('.nh-notification-list').animate({ scrollTop: $('.nh-notification-list')[0].scrollHeight - 450 }, 250);
+                $('.ninja-notification-list').animate({ scrollTop: $('.ninja-notification-list')[0].scrollHeight - 450 }, 250);
             },
             success: function (res) {
                 if (res.success) {

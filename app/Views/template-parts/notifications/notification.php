@@ -18,37 +18,37 @@
     // TODO:: Create cronjob to remove old notifications
 ?>
 
-<div class="nh-notifications">
+<div class="ninjanotifications">
     <div class="bell">
-        <button class="btn nh-notification-bell" data-count="<?= $count ?>">
-            <span class="nh-notification-count"><?= $count ?></span>
+        <button class="btn ninjanotification-bell" data-count="<?= $count ?>">
+            <span class="ninjanotification-count"><?= $count ?></span>
             <i class="fa-regular fa-bell"></i>
         </button>
     </div>
-    <div class="nh-notification-list container" data-page="2" data-last="<?= $found_posts > 10 ? 0 : 1 ?>">
-        <div class="nh-notification-group-container">
+    <div class="ninjanotification-list container" data-page="2" data-last="<?= $found_posts > 10 ? 0 : 1 ?>">
+        <div class="ninjanotification-group-container">
             <?php
                 if (!empty($notifications['notifications'])) {
                     ?>
-                    <div class="nh-notification-clear-parent">
-                        <button class="btn nh-notification-clear">
+                    <div class="ninjanotification-clear-parent">
+                        <button class="btn ninjanotification-clear">
                             <?= __('clear all') ?>
                         </button>
                     </div>
-                    <div class="nh-notifications-group">
+                    <div class="ninjanotifications-group">
                         <?php
                             foreach ($notifications['notifications'] as $notification) {
                                 ?>
-                                <div class="nh-notification-item <?= $notification->new ? 'nh-new-notification' : '' ?>" data-id="<?= $notification->ID ?>">
+                                <div class="ninjanotification-item <?= $notification->new ? 'ninjanew-notification' : '' ?>" data-id="<?= $notification->ID ?>">
                                     <a href="<?= $notification->url ?>">
                                         <div class="row">
                                             <div class="col-sm-2">
-                                                <div class="nh-notification-image">
+                                                <div class="ninjanotification-image">
                                                     <img src="<?= $notification->thumbnail ?>" alt="<?= __('Notification Thumbnail', 'ninja') ?>"/>
                                                 </div>
                                             </div>
                                             <div class="col-sm-10">
-                                                <div class="nh-notification-content">
+                                                <div class="ninjanotification-content">
                                                     <h6><?= $notification->title ?></h6>
                                                     <p><?= $notification->content ?></p>
                                                     <span><?= $notification->date ?></span>

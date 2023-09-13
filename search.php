@@ -21,12 +21,12 @@
             <?= Nh_Forms::get_instance()
                          ->create_form([
                              'search' => [
-                                 'class'       => 'nh-search-input-group',
+                                 'class'       => 'ninjasearch-input-group',
                                  'type'        => 'text',
                                  'name'        => 's',
                                  'placeholder' => __('Search', 'ninja'),
                                  'before'      => '',
-                                 'after'       => '<i class="fas fa-search nh-search-icon"></i>',
+                                 'after'       => '<i class="fas fa-search ninjasearch-icon"></i>',
                                  'order'       => 0,
                              ]
                          ], [

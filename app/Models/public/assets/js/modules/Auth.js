@@ -112,7 +112,7 @@ class NhAuth extends Nh {
             success: function(res) {
                 $('input').prop('disabled', false);
                 if (res.success) {
-                    $($el).append(_.template($('#nh_modal_auth_verif').html())({
+                    $($el).append(_.template($('#ninja_modal_auth_verif').html())({
                         msg: res.msg,
                         redirect_text: res.data.redirect_text,
                         redirect_url: res.data.redirect_url,
@@ -190,7 +190,7 @@ class NhAuth extends Nh {
                 $('input').prop('disabled', false);
                 if (res.success) {
                     UiCtrl.notices($el.closest('form'), res.msg, 'success');
-                    $el.closest('form').find('.nh-resend-code-patent').attr('data-expire', res.data.expire);
+                    $el.closest('form').find('.ninja-resend-code-patent').attr('data-expire', res.data.expire);
                     that.codeCountDown();
                 } else {
                     $el.closest('form').find('.otp-digit').first().focus().select();
@@ -230,7 +230,7 @@ class NhAuth extends Nh {
                 $('input').prop('disabled', false);
                 if (res.success) {
                     UiCtrl.notices($el.closest('form'), res.msg, 'success');
-                    $el.closest('form').find('.nh-resend-code-patent').attr('data-expire', res.data.expire);
+                    $el.closest('form').find('.ninja-resend-code-patent').attr('data-expire', res.data.expire);
                     that.codeCountDown();
                 } else {
                     $el.closest('form').find('.otp-digit').first().focus().select();
@@ -364,6 +364,42 @@ class NhAuth extends Nh {
         });
     }
 
+    editPassword(formData, $el)
+    {
+        let that                       = this;
+        this.ajaxRequests.editPassword = $.ajax({
+            url: nhGlobals.ajaxUrl,
+            type: 'POST',
+            data: {
+                action: `${KEY}_edit_password_ajax`,
+                data: formData,
+            },
+            beforeSend: function () {
+                $el.find('input, button').prop('disabled', true);
+                UiCtrl.beforeSendPrepare($el);
+            },
+            success: function (res) {
+                $('input').prop('disabled', false);
+                if (res.success) {
+                    UiCtrl.notices($el, res.msg, 'success');
+                    window.location.href = res.data.redirect_url;
+                } else {
+                    UiCtrl.notices($el, res.msg);
+                }
+                that.createNewToken();
+                $el.find('input, button').prop('disabled', false);
+                UiCtrl.blockUI($el, false);
+            },
+            error: function (xhr) {
+                let errorMessage = `${xhr.status}: ${xhr.statusText}`;
+                if (xhr.statusText !== 'abort') {
+                    console.error(errorMessage);
+                }
+                that.createNewToken();
+            },
+        });
+    }
+    
     // Method for creating a new token
     createNewToken() {
         grecaptcha.ready(function() {
@@ -377,10 +413,10 @@ class NhAuth extends Nh {
     codeCountDown() {
         let that = this,
             $codeForm = this.$el.codeForm,
-            $resendCodeParent = $('.nh-resend-code-patent'),
-            $CodeCountDown = $('<span class="nh-code-count-down"></span>');
+            $resendCodeParent = $('.ninja-resend-code-patent'),
+            $CodeCountDown = $('<span class="ninjacode-count-down"></span>');
 
-        $('.nh-code-count-down').remove();
+        $('.ninja-code-count-down').remove();
         $resendCodeParent.append($CodeCountDown);
 
         if ($CodeCountDown.length > 0) {

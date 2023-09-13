@@ -30,10 +30,16 @@
         define('NH_CONFIGURATION', get_option('nh_configurations') ?: []);
     }
 
-    require_once THEME_PATH . "/app/Classes/class-nh_init.php";
-    require_once THEME_PATH . "/app/Models/public/class-nh_public.php";
-    require_once THEME_PATH . "/app/Models/admin/class-nh_admin.php";
-    require_once THEME_PATH . "/inc/template-tags.php";
+//    require_once THEME_PATH . "/app/Classes/class-nh_init.php";
+//    require_once THEME_PATH . "/app/Models/public/class-nh_public.php";
+//    require_once THEME_PATH . "/app/Models/admin/class-nh_admin.php";
+//    require_once THEME_PATH . "/inc/template-tags.php";
+
+    locate_template("app/Classes/class-nh_init.php", TRUE);
+    locate_template("app/Classes/class-tgm-plugin-activation.php", TRUE);
+    locate_template("app/Models/public/class-nh_public.php", TRUE);
+    locate_template("app/Models/admin/class-nh_admin.php", TRUE);
+    locate_template("inc/template-tags.php", TRUE);
 
     /**
      * Description...
@@ -289,4 +295,5 @@
 
     new Nh();
 
-    require_once THEME_PATH . "/inc/custom-functions.php";
+//    require_once THEME_PATH . "/inc/custom-functions.php";
+    locate_template("inc/custom-functions.php", TRUE);

@@ -41,22 +41,22 @@ class NhAuthentication extends NhAuth {
                 form: $(`#${KEY}_verification_form`),
                 parent: $(`#${KEY}_verification_form`).parent(),
                 otpDigit: $(`#${KEY}_verification_form`).find('.otp-digit input'),
-                resendCodeParent: $(`#${KEY}_verification_form`).find('.nh-resend-code-patent'),
-                resendCode: $(`#${KEY}_verification_form`).find('.nh-resend-code'),
-                CodeCountDown: $(`#${KEY}_verification_form`).find('.nh-code-count-down'),
+                resendCodeParent: $(`#${KEY}_verification_form`).find('.ninja-resend-code-patent'),
+                resendCode: $(`#${KEY}_verification_form`).find('.ninja-resend-code'),
+                CodeCountDown: $(`#${KEY}_verification_form`).find('.ninja-code-count-down'),
                 verificationSubmit: $(`#${KEY}_verification_form`).find('#verificationSubmit'),
             },
             authentication: {
                 form: $(`#${KEY}_authentication_form`),
                 parent: $(`#${KEY}_authentication_form`).parent(),
                 otpDigit: $(`#${KEY}_authentication_form`).find('.otp-digit input'),
-                resendCodeParent: $(`#${KEY}_authentication_form`).find('.nh-resend-code-patent'),
-                resendCode: $(`#${KEY}_authentication_form`).find('.nh-resend-code'),
-                CodeCountDown: $(`#${KEY}_authentication_form`).find('.nh-code-count-down'),
+                resendCodeParent: $(`#${KEY}_authentication_form`).find('.ninja-resend-code-patent'),
+                resendCode: $(`#${KEY}_authentication_form`).find('.ninja-resend-code'),
+                CodeCountDown: $(`#${KEY}_authentication_form`).find('.ninja-code-count-down'),
                 authenticationSubmit: $(`#${KEY}_authentication_form`).find('#authenticationSubmit'),
             },
             codeForm: {
-                resendCode: $('.nh-resend-code'),
+                resendCode: $('.ninja-resend-code'),
             },
             industries: {
                 form: $(`#${KEY}_industries_form`),
@@ -112,8 +112,8 @@ class NhAuthentication extends NhAuth {
             ajaxRequests  = this.ajaxRequests;
 
         // Initialize international telephone input for phone number
-        if ($('#nh_phone_number').length > 0) {
-            const input = $('#nh_phone_number')[0];
+        if ($('#ninja_phone_number').length > 0) {
+            const input = $('#ninja_phone_number')[0];
 
             window.ITIOBJ.registration = intlTelInput(input, {
                 initialCountry: 'EG',
@@ -404,8 +404,8 @@ class NhAuthentication extends NhAuth {
         // });
 
         // Initialize international telephone input for phone number
-        if ($('#nh_phone_number').length > 0) {
-            const input = $('#nh_phone_number')[0];
+        if ($('#ninja_phone_number').length > 0) {
+            const input = $('#ninja_phone_number')[0];
 
             window.ITIOBJ.editProfile = intlTelInput(input, {
                 initialCountry: 'EG',
@@ -424,7 +424,7 @@ class NhAuthentication extends NhAuth {
             e.preventDefault();
             let $this    = $(e.currentTarget),
                 formData = $this.serializeObject();
-            formData.phone_number = window.ITIOBJ.registration.getNumber().replace('+', '');
+            formData.phone_number = window.ITIOBJ.editProfile.getNumber().replace('+', '');
 
             // Abort any ongoing edit profile requests
             if (typeof ajaxRequests.editProfile !== 'undefined') {

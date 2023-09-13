@@ -5,10 +5,10 @@
  * @Date: 7/6/2023
  */
 
-.nh-notifications {
+.ninja-notifications {
   position: relative;
 
-  .nh-notification-list {
+  .ninja-notification-list {
     display: none;
     position: absolute;
     left: 0;
@@ -21,19 +21,19 @@
     border: 1px solid #CCC;
     padding: 15px 0;
 
-    .nh-notification-group-container {
+    .ninja-notification-group-container {
       height: 100%;
 
-      .nh-notification-clear-parent {
+      .ninja-notification-clear-parent {
         text-align: right;
         border-bottom: .2px solid #ccc;
         padding-bottom: 15px;
       }
 
-      .nh-notification-item {
+      .ninja-notification-item {
         padding: 10px;
 
-        .nh-notification-image {
+        .ninja-notification-image {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -56,50 +56,50 @@
         }
       }
 
-      .nh-notification-item-load {
+      .ninja-notification-item-load {
         background-color: #fff;
         width: 100%;
       }
 
-      .nh-notification-item-load p {
+      .ninja-notification-item-load p {
         width: 100%;
         height: 80px;
       }
 
-      .nh-notification-item-load span {
+      .ninja-notification-item-load span {
         display: block;
         width: 30%;
         height: 25px;
       }
 
-      .nh-notification-item-load .nh-notification-image span {
+      .ninja-notification-item-load .ninja-notification-image span {
         display: block;
         width: 100%;
         height: 35px;
       }
 
-      .nh-notification-item-load h6 {
+      .ninja-notification-item-load h6 {
         width: 75%;
         height: 25px;
       }
 
-      .nh-notification-item-load p,
-      .nh-notification-item-load span,
-      .nh-notification-item-load h6 {
+      .ninja-notification-item-load p,
+      .ninja-notification-item-load span,
+      .ninja-notification-item-load h6 {
         animation: fbLoading 1s infinite;
         border-radius: 20px;
       }
 
-      .nh-notification-item:not(:last-child) {
+      .ninja-notification-item:not(:last-child) {
         border-bottom: .2px solid #CCC;
 
       }
 
-      .nh-new-notification {
+      .ninja-new-notification {
         background-color: #EFEFEF;
       }
 
-      .nh-notification-group-empty {
+      .ninja-notification-group-empty {
         display: flex;
         width: 100%;
         height: 100%;
@@ -125,31 +125,31 @@
   }
 }
 
-.nh-notification-item-load p {
+.ninja-notification-item-load p {
   width: 100%;
   height: 80px;
 }
 
-.nh-notification-item-load span {
+.ninja-notification-item-load span {
   display: block;
   width: 30%;
   height: 25px;
 }
 
-.nh-notification-item-load .nh-notification-image span {
+.ninja-notification-item-load .ninja-notification-image span {
   display: block;
   width: 100%;
   height: 35px;
 }
 
-.nh-notification-item-load h6 {
+.ninja-notification-item-load h6 {
   width: 75%;
   height: 25px;
 }
 
-.nh-notification-item-load p,
-.nh-notification-item-load span,
-.nh-notification-item-load h6 {
+.ninja-notification-item-load p,
+.ninja-notification-item-load span,
+.ninja-notification-item-load h6 {
   animation: fbLoading 1s infinite;
   border-radius: 20px;
 }
