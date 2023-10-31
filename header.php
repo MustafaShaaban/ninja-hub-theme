@@ -26,15 +26,3 @@
         <?php wp_body_open(); ?>
 
         <div id="page" class="site">
-
-            <?php
-                if (is_page(['dashboard', 'create-opportunity'])) {
-                    get_template_part('app/Views/headers/dashboard');
-                } else {
-                    get_template_part('app/Views/headers/default');
-                }
-            ?>
-
-
-
-

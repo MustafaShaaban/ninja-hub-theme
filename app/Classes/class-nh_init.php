@@ -88,46 +88,11 @@
                 ],
                 'admin'  => [],
                 'public' => [
-                    'Auth'    => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_auth.php'
-                    ],
                     'Blog'    => [
                         'type'      => 'class',
                         'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
                         'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_blog.php'
-                    ],
-                    'Faq' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_faq.php'
-                    ],
-                    'Notification' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_notification.php'
-                    ],
-                    'Opportunity' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_opportunity.php'
-                    ],
-                    'Partner' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_partner.php'
-                    ],
-                    'Profile' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_profile.php'
-                    ],
-                    'Testimonial' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_testimonial.php'
-                    ],
+                    ]
                 ],
             ];
         }

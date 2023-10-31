@@ -1054,18 +1054,18 @@
 
                     if (!empty($subdir_name) && $subdir_name !== $desired_slug) {
                         $from_path = untrailingslashit($source);
-                        $to_path   = trailingslashit($remote_source) . $desired_slug;
+                        $to_path   = tgm_plugin_activation . phptrailingslashit($remote_source) . $desired_slug;
 
                         if (TRUE === $GLOBALS['wp_filesystem']->move($from_path, $to_path)) {
                             return trailingslashit($to_path);
                         } else {
-                            return new WP_Error('rename_failed', esc_html__('The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'tgmpa') . ' ' . esc_html__('Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'tgmpa'), [
+                            return new WP_Error('rename_failed', esc_html__('The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'tgmpa') . ' tgm_plugin_activation.php' . esc_html__('Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'tgmpa'), [
                                 'found'    => $subdir_name,
                                 'expected' => $desired_slug
                             ]);
                         }
                     } elseif (empty($subdir_name)) {
-                        return new WP_Error('packaged_wrong', esc_html__('The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'tgmpa') . ' ' . esc_html__('Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'tgmpa'), [
+                        return new WP_Error('packaged_wrong', esc_html__('The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'tgmpa') . ' tgm_plugin_activation.php' . esc_html__('Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'tgmpa'), [
                             'found'    => $subdir_name,
                             'expected' => $desired_slug
                         ]);
@@ -1222,7 +1222,7 @@
                     $line_template = '<span style="display: block; margin: 0.5em 0.5em 0 0; clear: both;">%s</span>' . "\n";
 
                     if (!current_user_can('activate_plugins') && !current_user_can('install_plugins') && !current_user_can('update_plugins')) {
-                        $rendered = esc_html($this->strings['notice_cannot_install_activate']) . ' ' . esc_html($this->strings['contact_admin']);
+                        $rendered = esc_html($this->strings['notice_cannot_install_activate']) . ' tgm_plugin_activation.php' . esc_html($this->strings['contact_admin']);
                         $rendered .= $this->create_user_action_links_for_notice(0, 0, 0, $line_template);
                     } else {
 
@@ -1247,7 +1247,7 @@
                                 'wrap_in_em'
                             ], $linked_plugins);
                             $last_plugin    = array_pop($linked_plugins); // Pop off last name to prep for readability.
-                            $imploded       = empty($linked_plugins) ? $last_plugin : (implode(', ', $linked_plugins) . ' ' . esc_html_x('and', 'plugin A *and* plugin B', 'tgmpa') . ' ' . $last_plugin);
+                            $imploded       = empty($linked_plugins) ? $last_plugin : (implode(', ', $linked_plugins) . ' tgm_plugin_activation.php' . esc_html_x('and', 'plugin A *and* plugin B', 'tgmpa') . ' ' . $last_plugin);
 
                             $rendered .= sprintf($line_template, sprintf(translate_nooped_plural($this->strings[$type], $count, 'tgmpa'), $imploded, $count));
 
@@ -3123,7 +3123,7 @@
                             'wrap_in_strong'
                         ], $plugin_names);
                         $last_plugin  = array_pop($plugin_names); // Pop off last name to prep for readability.
-                        $imploded     = empty($plugin_names) ? $last_plugin : (implode(', ', $plugin_names) . ' ' . esc_html_x('and', 'plugin A *and* plugin B', 'tgmpa') . ' ' . $last_plugin);
+                        $imploded     = empty($plugin_names) ? $last_plugin : (implode(', ', $plugin_names) . ' tgm_plugin_activation.php' . esc_html_x('and', 'plugin A *and* plugin B', 'tgmpa') . ' ' . $last_plugin);
 
                         printf( // WPCS: xss ok.
                             '<div id="message" class="updated"><p>%1$s %2$s.</p></div>', esc_html(_n('The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'tgmpa')), $imploded);

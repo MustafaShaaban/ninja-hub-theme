@@ -30,15 +30,10 @@
         define('NH_CONFIGURATION', get_option('nh_configurations') ?: []);
     }
 
-//    require_once THEME_PATH . "/app/Classes/class-nh_init.php";
-//    require_once THEME_PATH . "/app/Models/public/class-nh_public.php";
-//    require_once THEME_PATH . "/app/Models/admin/class-nh_admin.php";
-//    require_once THEME_PATH . "/inc/template-tags.php";
-
     locate_template("app/Classes/class-nh_init.php", TRUE);
-    locate_template("app/Classes/class-tgm-plugin-activation.php", TRUE);
     locate_template("app/Models/public/class-nh_public.php", TRUE);
     locate_template("app/Models/admin/class-nh_admin.php", TRUE);
+    locate_template("inc/tgm-plugin-activation.php", TRUE);
     locate_template("inc/template-tags.php", TRUE);
 
     /**
@@ -155,12 +150,8 @@
             // This theme uses wp_nav_menu() in one location.
             register_nav_menus([
                 'default-menu'            => esc_html__('Default', 'ninja'),
-                'dashboard-owner-menu'    => esc_html__('Dashboard Owner', 'ninja'),
-                'dashboard-investor-menu' => esc_html__('Dashboard Investor', 'ninja'),
                 'footer-menu'             => esc_html__('Footer', 'ninja'),
                 'bottom-footer-menu'      => esc_html__('Bottom Footer', 'ninja'),
-                'profile-menu-login'      => esc_html__('Account Login', 'ninja'),
-                'profile-menu-logout'     => esc_html__('Account Logout', 'ninja'),
             ]);
 
             /*
@@ -295,5 +286,4 @@
 
     new Nh();
 
-//    require_once THEME_PATH . "/inc/custom-functions.php";
     locate_template("inc/custom-functions.php", TRUE);

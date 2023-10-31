@@ -52,12 +52,6 @@
          */
         const ADMIN      = 'administrator';
         const CMS        = 'cmsmanager';
-        const OWNER      = 'owner';
-        const INVESTOR   = 'investor';
-        const SEO        = 'seomanager';
-        const WEBMASTER  = 'webmaster';
-        const REVIEWER   = 'reviewer';
-        const TRANSLATOR = 'translator';
         /**
          * Verification Types
          */
@@ -204,13 +198,6 @@
             foreach ($this->user_meta as $k => $meta) {
                 $this->user_meta[$meta] = '';
                 unset($this->user_meta[$k]);
-            }
-
-            // Add filter to override user avatar in users table
-            if (is_admin() && ('users.php' == $pagenow || 'profile.php' == $pagenow)) {
-                $hooks = new Nh_Hooks();
-                $hooks->add_filter('get_avatar_data', $this, 'override_user_table_avatar', 1, 2);
-                $hooks->run();
             }
         }
 
@@ -992,25 +979,6 @@
             $this->last_name  = $this->user_meta['last_name'];
             $this->nickname   = $this->user_meta['nickname'];
             $this->avatar     = $this->get_avatar();
-        }
-
-        /**
-         * Override the user table avatar
-         *
-         * @param $avatar The avatar image
-         * @param $id The user ID
-         *
-         * @version 1.0
-         * @since 1.0.0
-         * @package NinjaHub
-         * @author Mustafa Shaaban
-         */
-        public function override_user_table_avatar($avatar, $id)
-        {
-            $user          = self::get_user_by('ID', $id); // Get the user by ID
-            $avatar['url'] = $user->avatar; // Override the avatar URL
-
-            return $avatar;
         }
 
         /**
