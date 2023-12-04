@@ -59,12 +59,12 @@
                         'namespace' => 'NH\APP\HELPERS',
                         'path'      => THEME_PATH . '/app/helpers/class-nh_mail.php'
                     ],
-                    'Cryptor'          => [
+                    'Cryptor'       => [
                         'type'      => 'helper',
                         'namespace' => 'NH\APP\HELPERS',
                         'path'      => THEME_PATH . '/app/helpers/class-nh_cryptor.php'
                     ],
-                    'Cron'        => [
+                    'Cron'          => [
                         'type'      => 'class',
                         'namespace' => 'NH\APP\CLASSES',
                         'path'      => THEME_PATH . '/app/Classes/class-nh_cron.php'
@@ -88,18 +88,17 @@
                 ],
                 'admin'  => [],
                 'public' => [
-                    'Blog'    => [
+                    'Blog' => [
                         'type'      => 'class',
                         'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
                         'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_blog.php'
                     ],
-                    [
-                    'Profile'    => [
+                    'Profile' => [
                         'type'      => 'class',
                         'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
                         'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_profile.php'
                     ]
-                ],
+                ]
             ];
         }
 
