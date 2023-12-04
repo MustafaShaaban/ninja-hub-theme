@@ -92,6 +92,12 @@
                         'type'      => 'class',
                         'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
                         'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_blog.php'
+                    ],
+                    [
+                    'Profile'    => [
+                        'type'      => 'class',
+                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_profile.php'
                     ]
                 ],
             ];
