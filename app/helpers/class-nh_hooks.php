@@ -39,7 +39,7 @@
                 'js'      => THEME_URI . '/app/Models/public/js',
                 'img'     => THEME_URI . '/app/Models/public/img',
                 'images'  => THEME_URI . '/app/Models/public/assets/images',
-                'vid'     => THEME_URI . '/app/Models/public/vid',
+                'videos'     => THEME_URI . '/app/Models/public/videos',
                 'vendors' => THEME_URI . '/app/Models/public/vendors'
             ],
             'views' => THEME_PATH . '/app/Views'
@@ -221,7 +221,7 @@
         {
 
             $hooks[] = [
-                'script_name'  => $script_name,
+                'script_name'  => trim($script_name),
                 'path'         => $path,
                 'dependencies' => !empty($dependencies) ? $dependencies : [],
                 'media'        => !empty($position_media) ? $position_media : FALSE,

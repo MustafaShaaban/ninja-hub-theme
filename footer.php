@@ -9,23 +9,36 @@
      * @package NinjaHub
      */
 
+    use NH\APP\HELPERS\Nh_Hooks;
     use NH\Nh;
 
 ?>
 
-<footer class="site-top-footer">
-    <div class="top-footer">
-    </div>
-
-    <div class="bottom-footer">
-    </div>
-
-
-</footer>
+<?php
+    $dashboard = [ 'dashboard' ];
+    $account   = [
+        'account',
+        'login',
+        'registration',
+        'registration-landing',
+        'forgot-password',
+        'reset-password',
+        'verification',
+    ];
+    if (is_front_page()) {
+        get_template_part('app/Views/template-parts/footers/landing');
+    } elseif (is_page($account)) {
+        get_template_part('app/Views/template-parts/footers/account');
+    } elseif (is_page($dashboard)) {
+        get_template_part('app/Views/template-parts/footers/dashboard');
+    } else {
+        get_template_part('app/Views/template-parts/footers/default');
+    }
+?>
 
 <?php wp_body_close(); ?>
 
-</div><!-- #page -->
+</main><!-- #page -->
 
 <?php wp_footer(); ?>
 

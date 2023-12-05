@@ -33,33 +33,19 @@
          */
         const USER_DEFAULTS = [
             // User Profile ID
-            'profile_id'                    => 0,
+            'profile_id'                  => 0,
             // Profile Picture URL
-            'avatar_id'                     => 0,
-            // If verified by email
-            'email_verification_status'     => 0,
-            // If verified by phone
-            'phone_verification_status'     => 0,
+            'avatar_id'                   => 0,
             // If account verified at all
-            'account_verification_status'   => 0,
-            // If account authenticated at all
-            'account_authentication_status' => 0,
+            'account_verification_status' => 0,
             // Default user language
-            'site_language'                 => 'en'
+            'site_language'               => 'en'
         ];
         /**
          * USER ROLES
          */
-        const ADMIN      = 'administrator';
-        const CMS        = 'cmsmanager';
-        /**
-         * Verification Types
-         */
-        const VERIFICATION_TYPES = [
-            'email'    => 'email',
-            'mobile'   => 'mobile',
-            'whatsapp' => 'whatsapp',
-        ];
+        const ADMIN       = 'administrator';
+        const CMS         = 'cmsmanager';
         /**
          * NH USER INSTANCE
          *
@@ -175,11 +161,8 @@
             'nickname',
             'phone_number',
             'reset_password_key',
-            'verification_type',
             'verification_key',
             'verification_expire_date',
-            'authentication_key',
-            'authentication_expire_date',
         ];
 
         /**
@@ -192,8 +175,6 @@
          */
         public function __construct()
         {
-            global $pagenow;
-
             // Reformat class metadata
             foreach ($this->user_meta as $k => $meta) {
                 $this->user_meta[$meta] = '';
@@ -616,28 +597,18 @@
                 // Generate the forgot password data for the user.
                 $generate_forgot_data = $this->generate_forgot_password_data($user);
 
-                // Get the verification type from user meta data.
-                $verification_type = get_user_meta($user->ID, 'verification_type', TRUE);
+                // Send the forgot password email.
+                $email = Nh_Mail::init()
+                                ->to($user->user_email)
+                                ->subject('Forgot Password')
+                                ->template('forgot-password/body', [
+                                    'data' => [
+                                        'user'      => $user,
+                                        'url_query' => $generate_forgot_data['reset_link']
+                                    ]
+                                ])
+                                ->send();
 
-                if ($verification_type === Nh_User::VERIFICATION_TYPES['mobile']) {
-                    // If the verification type is mobile, send the phone OTP code.
-                    $this->send_phone_otp_code(Nh_User::VERIFICATION_TYPES['mobile'], $user->user_login);
-                } elseif ($verification_type === Nh_User::VERIFICATION_TYPES['whatsapp']) {
-                    // If the verification type is WhatsApp, send the WhatsApp OTP code.
-                    $this->send_whatsapp_otp_code(Nh_User::VERIFICATION_TYPES['whatsapp'], $user->user_login);
-                } else {
-                    // Send the forgot password email.
-                    $email = Nh_Mail::init()
-                                     ->to($user->user_email)
-                                     ->subject('Forgot Password')
-                                     ->template('forgot-password/body', [
-                                         'data' => [
-                                             'user'      => $user,
-                                             'url_query' => $generate_forgot_data['reset_link']
-                                         ]
-                                     ])
-                                     ->send();
-                }
 
             }
             return $this; // Return the current user object.
@@ -740,7 +711,7 @@
         /**
          * Check the reset code validity
          *
-         * @param $key The reset code
+         * @param $key : The reset code
          *
          * @version 1.0
          * @since 1.0.0
@@ -822,14 +793,14 @@
         {
             $error             = new WP_Error(); // Create a new WP_Error object
             $current_timestamp = time(); // Get the current Unix timestamp
-            $expire_date       = $type === 'authentication' ? $data['authentication_expire_date'] : $data['verification_expire_date'];
+            $expire_date       = $data['verification_expire_date'];
 
             if ($expire_date >= $current_timestamp) {
                 if ($data['incoming_code'] === $data['current_code']) {
                     return TRUE; // The OTP code is valid
                 } else {
                     // The OTP code is invalid
-                    $error->add('invalid_key', __("Your reset key is invalid!.", 'ninja'), [
+                    $error->add('invalid_key', __("Your key is invalid!.", 'ninja'), [
                         'status' => FALSE
                     ]);
                     return $error; // Return the WP_Error object
@@ -1050,38 +1021,20 @@
 
                 if (!$this->is_confirm()) {
                     // The account is not confirmed, send verification code
-                    $this->setup_verification('verification');
-                    $error->add('account_verification', __("Your account is pending! Please check your E-mail/Mobile/WhatsApp to activate your account.", 'ninja'), [
+                    $this->setup_verification();
+                    $error->add('account_verification', __("Your account is pending! Please check your E-mail to activate your account.", 'ninja'), [
                         'status'  => FALSE,
                         'details' => [ 'email' => $this->user_meta['account_verification_status'] ]
                     ]);
                     return $error; // Return the WP_Error object
                 }
 
-                $front_dashboard = [
-                    self::OWNER,
-                    self::INVESTOR
-                ];
-
-                if (in_array($this->role, $front_dashboard)) {
-                    $this->setup_verification('authentication');
-                }
 
                 $profile_id = get_user_meta($login->ID, 'profile_id', TRUE);
                 if (!$profile_id) {
                     // The account is disabled or blocked
                     $error->add('invalid_profile', __("This account is temporarily disabled or blocked. Please contact us.", 'ninja'), [
                         'status' => FALSE
-                    ]);
-                    return $error; // Return the WP_Error object
-                }
-                $profile_obj = new Nh_Profile();
-                $profile     = $profile_obj->get_by_id((int)$profile_id);
-                if (!isset($profile->taxonomy['industry']) || empty($profile->taxonomy['industry'])) {
-                    // The profile must have at least one industry
-                    $error->add('empty_industry', __("You have to use at least 1 industry.", 'ninja'), [
-                        'status'  => FALSE,
-                        'details' => [ 'industry' => $profile->taxonomy['industry'] ]
                     ]);
                     return $error; // Return the WP_Error object
                 }
@@ -1092,22 +1045,8 @@
 
 
         /**
-         * Description...
-         * @version 1.0
-         * @since 1.0.0
-         * @package NinjaHub
-         * @author Mustafa Shaaban
-         * @return void
-         */
-        public static function logout()
-        {
-
-        }
-
-        /**
-         * Sets up the verification process based on the given type.
+         * Sets up the verification process.
          *
-         * @param string $type The type of verification process.
          *
          * @throws \Exception
          * @return \WP_Error|bool The WP_Error object or a boolean value indicating the success of the verification setup.
@@ -1117,229 +1056,24 @@
          * @package NinjaHub
          * @author Mustafa Shaaban
          */
-        public function setup_verification(string $type): WP_Error|bool
+        public function setup_verification(): WP_Error|bool
         {
             $error = new WP_Error(); // Create a new WordPress error object.
+            // For other verification types, send the email OTP code.
+            $verification = $this->send_email_code();
 
-            if ($this->user_meta['verification_type'] === self::VERIFICATION_TYPES['mobile']) {
-                // If the verification type is mobile, send the phone OTP code.
-                $verification = $this->send_phone_otp_code($type);
-
-                if (is_wp_error($verification)) {
-                    // If sending the phone OTP code resulted in an error, add the error to the error object and return it.
-                    $error->add('mobile_error', __($verification->get_error_message(), 'ninja'), [
-                        'status'  => FALSE,
-                        'details' => [
-                            'e' => '',
-                        ]
-                    ]);
-                    return $error;
-                }
-            } elseif ($this->user_meta['verification_type'] === self::VERIFICATION_TYPES['whatsapp']) {
-                // If the verification type is WhatsApp, send the WhatsApp OTP code.
-                $verification = $this->send_whatsapp_otp_code($type);
-
-                if (is_wp_error($verification)) {
-                    // If sending the WhatsApp OTP code resulted in an error, add the error to the error object and return it.
-                    $error->add('whatsapp_error', __($verification->get_error_message(), 'ninja'), [
-                        'status'  => FALSE,
-                        'details' => [
-                            'e' => '',
-                        ]
-                    ]);
-                    return $error;
-                }
-            } else {
-                // For other verification types, send the email OTP code.
-                $verification = $this->send_email_otp_code($type);
-
-                if (!$verification) {
-                    // If sending the email OTP code failed, add the error to the error object and return it.
-                    $error->add('email_error', __("The verification code didn't send!", 'ninja'), [
-                        'status'  => FALSE,
-                        'details' => [
-                            'email_error' => 'email error',
-                        ]
-                    ]);
-                    return $error;
-                }
+            if (!$verification) {
+                // If sending the email OTP code failed, add the error to the error object and return it.
+                $error->add('email_error', __("The verification code didn't send!", 'ninja'), [
+                    'status'  => FALSE,
+                    'details' => [
+                        'email_error' => 'email error',
+                    ]
+                ]);
+                return $error;
             }
 
             return $verification; // Return the verification result.
-        }
-
-        /**
-         * Sends the phone OTP code.
-         *
-         * @param string $type The type of OTP code.
-         * @param string $to The receiver number.
-         *
-         * @return \WP_Error|bool The WP_Error object or a boolean value indicating the success of sending the OTP code.
-         *
-         * @version 1.0
-         * @since 1.0.0
-         * @package NinjaHub
-         * @author Mustafa Shaaban
-         * @throws \Exception
-         */
-        public function send_phone_otp_code(string $type, string $to = ''): WP_Error|bool
-        {
-            $error        = new WP_Error(); // Create a new WordPress error object.
-            $randomNumber = mt_rand(1000, 9999); // Generate a random OTP code.
-            $to           = empty($to) ? $this->username : $to;
-
-            if ($type === 'authentication') {
-                // If the type is authentication, send the authentication code via phone.
-                $send = $this->send_by_twilio([
-                    'to'   => '+' . $to,
-                    'from' => '+19894738633',
-                    'body' => sprintf(__('Your authentication code for NH is %s', 'ninja'), $randomNumber)
-                ]);
-
-                if (!is_wp_error($send)) {
-                    // If sending the code was successful, update the user meta data.
-                    $this->set_user_meta('account_authentication_status', 0, TRUE);
-                    $this->set_user_meta('authentication_key', $randomNumber, TRUE);
-                    $this->set_user_meta('authentication_expire_date', time() + (5 * 60), TRUE);
-                }
-            } else {
-                // If the type is verification, send the verification code via phone.
-                $send = $this->send_by_twilio([
-                    'to'   => '+' . $to,
-                    'from' => '+19894738633',
-                    'body' => sprintf(__('Your verification code for NH is %s', 'ninja'), $randomNumber)
-                ]);
-
-                if (!is_wp_error($send)) {
-                    // If sending the code was successful, update the user meta data.
-                    $this->set_user_meta('account_verification_status', 0, TRUE);
-                    $this->set_user_meta('verification_key', $randomNumber, TRUE);
-                    $this->set_user_meta('verification_expire_date', time() + (5 * 60), TRUE);
-                }
-            }
-
-            return $send; // Return the result of sending the OTP code.
-        }
-
-        /**
-         * Sends the WhatsApp OTP code.
-         *
-         * @param string $type The type of OTP code.
-         * @param string $to The receiver number.
-         *
-         * @return \stdClass|\WP_Error The stdClass object or WP_Error object indicating the success of sending the OTP code.
-         *
-         * @version 1.0
-         * @since 1.0.0
-         * @package NinjaHub
-         * @author Mustafa Shaaban
-         * @throws \Exception
-         */
-        public function send_whatsapp_otp_code(string $type, string $to = ''): \stdClass|\WP_Error
-        {
-            $error        = new WP_Error(); // Create a new WordPress error object.
-            $randomNumber = mt_rand(1000, 9999); // Generate a random OTP code.
-            $to           = empty($to) ? $this->username : $to;
-
-            if ($type === 'authentication') {
-                // If the type is authentication, send the authentication code via WhatsApp.
-                $send = $this->send_by_twilio([
-                    'to'   => 'whatsapp:+' . $to,
-                    'from' => 'whatsapp:+19894738633',
-                    'body' => sprintf(__('Your authentication code for NH is %s', 'ninja'), $randomNumber)
-                ]);
-
-                if (!is_wp_error($send)) {
-                    // If sending the code was successful, update the user meta data.
-                    $this->set_user_meta('account_authentication_status', 0, TRUE);
-                    $this->set_user_meta('authentication_key', $randomNumber, TRUE);
-                    $this->set_user_meta('authentication_expire_date', time() + (5 * 60), TRUE);
-                }
-            } else {
-                // If the type is verification, send the verification code via WhatsApp.
-                $send = $this->send_by_twilio([
-                    'to'   => 'whatsapp:+' . $to,
-                    'from' => 'whatsapp:+19894738633',
-                    'body' => sprintf(__('Your verification code for NH is %s', 'ninja'), $randomNumber)
-                ]);
-
-                if (!is_wp_error($send)) {
-                    // If sending the code was successful, update the user meta data.
-                    $this->set_user_meta('account_verification_status', 0, TRUE);
-                    $this->set_user_meta('verification_key', $randomNumber, TRUE);
-                    $this->set_user_meta('verification_expire_date', time() + (5 * 60), TRUE);
-                }
-            }
-
-            return $send; // Return the result of sending the OTP code.
-        }
-
-        /**
-         * Sends the message using Twilio.
-         *
-         * @param array $data The data required to send the message.
-         *
-         * @return \stdClass|\WP_Error The stdClass object or WP_Error object indicating the success of sending the message.
-         *
-         * @version 1.0
-         * @since 1.0.0
-         * @package NinjaHub
-         * @throws \Exception
-         */
-        private function send_by_twilio(array $data): \stdClass|\WP_Error
-        {
-            $error      = new WP_Error(); // Create a new WordPress error object.
-            $account_ID = 'AC6fd8e3d3e4b54dcfbb681ebd0fec3cec';
-            $username   = 'AC6fd8e3d3e4b54dcfbb681ebd0fec3cec';
-            $password   = '859d2d5288fd109930458ae91f2b342f';
-            $to         = $data['to'];
-            $from       = $data['from'];
-            $body       = $data['body'];
-
-            $ch = curl_init();
-
-            curl_setopt($ch, CURLOPT_URL, "https://api.twilio.com/2010-04-01/Accounts/$account_ID/Messages.json");
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_USERPWD, "$username" . ':' . "$password");
-
-            $data = [
-                'To'   => $to,
-                'From' => $from,
-                'Body' => $body
-            ];
-
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-
-            $result = curl_exec($ch);
-
-            if (curl_errno($ch)) {
-                // If there was a cURL error, add the error to the error object and return it.
-                $error->add('sending_error', __("Response Error!", 'ninja'), [
-                    'status'  => FALSE,
-                    'details' => [
-                        'details' => 'Error:' . curl_error($ch)
-                    ]
-                ]);
-                return $error;
-            }
-
-            curl_close($ch);
-
-            $response = json_decode($result);
-
-            if ($response->status === 400) {
-                // If the response status is 400, add the error to the error object and return it.
-                $error->add('sending_error', __("Response Error!", 'ninja'), [
-                    'status'  => FALSE,
-                    'details' => [
-                        'details' => $response
-                    ]
-                ]);
-                return $error;
-            }
-
-            return $response; // Return the response object.
         }
 
         /**
@@ -1354,43 +1088,27 @@
          * @package NinjaHub
          * @throws \Exception
          */
-        public function send_email_otp_code(string $type): bool
+        public function send_email_code(): bool
         {
             $randomNumber = mt_rand(1000, 9999); // Generate a random OTP code.
 
-            if ($type === 'authentication') {
-                // If the type is authentication, update the user meta data and send the authentication email.
-                $this->set_user_meta('account_authentication_status', 0, TRUE);
-                $this->set_user_meta('authentication_key', $randomNumber, TRUE);
-                $this->set_user_meta('authentication_expire_date', time() + (5 * 60), TRUE);
 
-                $email = Nh_Mail::init()
-                                 ->to($this->email)
-                                 ->subject('Welcome to Nh - Please Authenticate Your Email')
-                                 ->template('account-authentication/body', [
-                                     'data' => [
-                                         'user'   => $this,
-                                         'digits' => $randomNumber
-                                     ]
-                                 ])
-                                 ->send();
-            } else {
-                // If the type is verification, update the user meta data and send the verification email.
-                $this->set_user_meta('account_verification_status', 0, TRUE);
-                $this->set_user_meta('verification_key', $randomNumber, TRUE);
-                $this->set_user_meta('verification_expire_date', time() + (5 * 60), TRUE);
+            // If the type is verification, update the user meta data and send the verification email.
+            $this->set_user_meta('account_verification_status', 0, TRUE);
+            $this->set_user_meta('verification_key', $randomNumber, TRUE);
+            $this->set_user_meta('verification_expire_date', time() + (5 * 60), TRUE);
 
-                $email = Nh_Mail::init()
-                                 ->to($this->email)
-                                 ->subject('Welcome to Nh - Please Verify Your Email')
-                                 ->template('account-verification/body', [
-                                     'data' => [
-                                         'user'   => $this,
-                                         'digits' => $randomNumber
-                                     ]
-                                 ])
-                                 ->send();
-            }
+            $email = Nh_Mail::init()
+                            ->to($this->email)
+                            ->subject('Welcome to Nh - Please Verify Your Email')
+                            ->template('account-verification/body', [
+                                'data' => [
+                                    'user'   => $this,
+                                    'digits' => $randomNumber
+                                ]
+                            ])
+                            ->send();
+
 
             return $email; // Return the result of sending the email.
         }

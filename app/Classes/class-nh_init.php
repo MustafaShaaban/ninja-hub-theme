@@ -88,6 +88,11 @@
                 ],
                 'admin'  => [],
                 'public' => [
+                    'Auth' => [
+                        'type'      => 'class',
+                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_auth.php'
+                    ],
                     'Blog' => [
                         'type'      => 'class',
                         'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
@@ -97,6 +102,31 @@
                         'type'      => 'class',
                         'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
                         'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_profile.php'
+                    ],
+                    'Course' => [
+                        'type'      => 'class',
+                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_course.php'
+                    ],
+                    'Lesson' => [
+                        'type'      => 'class',
+                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_lesson.php'
+                    ],
+                    'Project' => [
+                        'type'      => 'class',
+                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_project.php'
+                    ],
+                    'Schedule' => [
+                        'type'      => 'class',
+                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_schedule.php'
+                    ],
+                    'Task' => [
+                        'type'      => 'class',
+                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_task.php'
                     ]
                 ]
             ];

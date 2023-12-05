@@ -11,8 +11,6 @@
 import $ from 'jquery';
 import _ from 'lodash';
 import 'jquery-validation';
-import intlTelInput from 'intl-tel-input';
-import 'intl-tel-input/build/js/utils.js';
 
 class NhValidator
 {
@@ -68,23 +66,41 @@ class NhValidator
             // let re = new RegExp(regexp);
             return this.optional(element) || re.test(value);
         }, this.phrases.phone_regex);
-        $.validator.addMethod("intlTelNumber", function(value, element, param) {
-            let iti = window.ITIOBJ[param.itiObj];
-            return this.optional(element) || iti.isValidNumber();
-        }, this.phrases.intlTelNumber);
         $.validator.addMethod('password_regex', function (value, element, regexp) {
             let re = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
             return this.optional(element) || re.test(value);
         }, this.phrases.pass_regex);
+        $.validator.addMethod('time_regex', function (value, element, regexp) {
+            let re = new RegExp(/^((1[0-2]|0?[1-9]):[0-5][0-9] (AM|PM) - (1[0-2]|0?[1-9]):[0-5][0-9] (AM|PM))$/);
+            return this.optional(element) || re.test(value);
+        }, this.phrases.time_regex);
         $.validator.addMethod('extension', function (value, element, param) {
             if (typeof param === 'string') {
                 param = param.replace(/,/g, '|');
             } else {
-                let substr = value.split('.')[1];
-                param      = substr;
+                param      = value.split('.')[1];
             }
             return this.optional(element) || value.match(new RegExp('\\.(' + param + ')$', 'i'));
         }, this.phrases.file_extension);
+        $.validator.addMethod('maxFileSize', function (value, element, param) {
+            var maxSize = param * 1024; // Convert param (in KB) to bytes
+            if (element.files && element.files.length > 0) {
+                return element.files[0].size <= maxSize;
+            }
+            return true;
+        }, this.phrases.file_max_size);
+        $.validator.addMethod("englishTextOnly", function(value, element) {
+            return this.optional(element) || /^[A-Za-z ]+$/i.test(value);
+        }, this.phrases.englishOnly);
+        $.validator.addMethod("arabicOnly", function(value, element) {
+            return this.optional(element) || /^[\u0600-\u06FF\s]+$/i.test(value);
+        }, this.phrases.arabicOnly);
+        $.validator.addMethod('fileRequired', function (value, element, param) {
+            return $(`input[name="${$(element).attr('data-target')}"]`).length > 0 && $(`input[name="${$(element).attr('data-target')}"]`).val() !== '';
+
+        }, this.phrases.default);
+
+        $(document).trigger('nh:customValidations');
     }
 
     static initAuthValidation($el, type)
@@ -109,21 +125,6 @@ class NhValidator
                     });
                 }
             },
-            industries: function () {
-                if ($el.form.length > 0) {
-                    $el.form.validate({
-                        normalizer: function (value) {
-                            return $.trim(value);
-                        },
-                        rules: {
-                            'industries': {
-                                required: true,
-                                minlength: 1
-                            },
-                        }
-                    });
-                }
-            },
             registration: function () {
                 if ($el.form.length > 0) {
                     $el.form.validate({
@@ -143,7 +144,6 @@ class NhValidator
                             },
                             phone_number: {
                                 required: true,
-                                intlTelNumber: {itiObj: 'registration'},
                                 maxlength: 50
                             },
                             user_email: {
@@ -166,33 +166,6 @@ class NhValidator
                             verification_type: {
                                 required: true
                             }
-                        },
-                    });
-                }
-            },
-            verification: function () {
-                if ($el.form.length > 0) {
-                    $el.form.validate({
-                        normalizer: function (value) {
-                            return $.trim(value);
-                        },
-                        rules: {
-                            code1: {
-                                required: true,
-                                maxlength: 1
-                            },
-                            code2: {
-                                required: true,
-                                maxlength: 1
-                            },
-                            code3: {
-                                required: true,
-                                maxlength: 1
-                            },
-                            code4: {
-                                required: true,
-                                maxlength: 1
-                            },
                         },
                     });
                 }
@@ -250,7 +223,6 @@ class NhValidator
                             },
                             phone_number: {
                                 required: true,
-                                intlTelNumber: {itiObj: 'editProfile'},
                                 maxlength: 50
                             },
                             user_email: {
@@ -274,29 +246,7 @@ class NhValidator
                         },
                     });
                 }
-            },
-            editPassword: function () {
-                if ($el.form.length > 0) {
-                    $el.form.validate({
-                        normalizer: function (value) {
-                            return $.trim(value);
-                        },
-                        rules: {
-                            current_password: {
-                                required: true,
-                            },
-                            new_password: {
-                                required: true,
-                                password_regex: true,
-                            },
-                            confirm_new_password: {
-                                required: true,
-                                equalTo: $el.new_password,
-                            },
-                        },
-                    });
-                }
-            },
+            }
         };
 
         if (_.has(forms, type)) {

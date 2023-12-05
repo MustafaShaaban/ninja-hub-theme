@@ -17,7 +17,7 @@
 ?>
 
     <main id="" class="">
-        <h1>My Account PAGE</h1>
+        <h1>My Account Page</h1>
     </main><!-- #main -->
 
 <?php get_footer();

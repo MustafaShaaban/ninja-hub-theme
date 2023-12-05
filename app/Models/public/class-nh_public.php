@@ -57,11 +57,7 @@
 
         public function enqueue_styles(): void
         {
-
             $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-fontawesome', Nh_Hooks::PATHS['public']['vendors'] . '/css/fontawesome/css/all.min', TRUE);
-            $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-itl', Nh_Hooks::PATHS['public']['vendors'] . '/css/intl-tel-input-18.1.6/css/intlTelInput.min', TRUE);
-            $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-choices', Nh_Hooks::PATHS['public']['vendors'] . '/css/choices/choices.min', TRUE);
-
             if (NH_lANG === 'ar') {
                 $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-bs5', Nh_Hooks::PATHS['public']['vendors'] . '/css/bootstrap5/bootstrap.rtl.min', TRUE);
                 $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-main', Nh_Hooks::PATHS['root']['css'] . '/style-rtl');
@@ -100,34 +96,32 @@
                     'minlength'      => __("Please enter at least {0} characters.", "nh"),
                     'max'            => __("Please enter a value less than or equal to {0}.", "nh"),
                     'min'            => __("Please enter a value greater than or equal to {0}.", "nh"),
-                    'pass_regex'     => __("Password doesn't complexity.", "nh"),
-                    'phone_regex'    => __("Please enter a valid Phone number.", "nh"),
-                    'intlTelNumber'  => __("Please enter a valid International Telephone Number.", "nh"),
-                    'email_regex'    => __("Please enter a valid email address.", "nh"),
-                    'file_extension' => __("Please upload an image with a valid extension.", "nh"),
-                    'choices_select' => __("Press to select", "nh"),
-                    'noChoicesText'  => __("'No choices to choose from'", "nh"),
+                    'pass_regex'     => __("Your password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the following: ! @ # $ % ^ & *.", "ninja"),
+                    'phone_regex'    => __("Please enter a valid Phone number.", "ninja"),
+                    'intlTelNumber'  => __("Please enter a valid International Telephone Number.", "ninja"),
+                    'email_regex'    => __("Please enter a valid email address.", "ninja"),
+                    'file_extension' => __("Please upload a file with a valid extension.", "ninja"),
+                    'file_max_size'  => __("File size must be less than {0} KB", "ninja"),
+                    'choices_select' => __("Press to select", "ninja"),
+                    'noChoicesText'  => __("'No choices to choose from'", "ninja"),
+                    'time_regex'     => __("Invalid time range format. Please use HH:mm AM/PM - HH:mm AM/PM", "ninja"),
+                    'englishOnly'   => __("Only English text is allowed.", "ninja"),
+                    'arabicOnly'   => __("Only Arabic text is allowed.", "ninja"),
                 ]
             ]);
 
-            if (is_page([
-                'dashboard',
-                'create-opportunity'
-            ])) {
-                $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-notifications', Nh_Hooks::PATHS['public']['js'] . '/notification-front');
-                $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-search', Nh_Hooks::PATHS['public']['js'] . '/search-front');
-                $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-opportunity', Nh_Hooks::PATHS['public']['js'] . '/opportunity-front');
+            if (is_front_page()) {
+                $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-home', Nh_Hooks::PATHS['public']['js'] . '/home');
             }
 
             if (is_page([
-                'my-account',
+                'account',
                 'login',
-                'industry',
-                'reset-password',
-                'forgot-password',
                 'registration',
+                'registration-landing',
+                'forgot-password',
+                'reset-password',
                 'verification',
-                'authentication',
             ])) {
                 $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-authentication', Nh_Hooks::PATHS['public']['js'] . '/authentication');
             }
@@ -143,7 +137,18 @@
             session_start();
         }
 
-        public function nhml_permalink($url)
+        /**
+         * Description...
+         *
+         * @param $url
+         *
+         * @version 1.0
+         * @since 1.0.0
+         * @package talents-spot
+         * @author Mustafa Shaaban
+         * @return string
+         */
+        public function nhml_permalink($url): string
         {
             global $user_ID, $wp;
             if (is_user_logged_in() && is_plugin_active('sitepress-multilingual-cms/sitepress.php')) {

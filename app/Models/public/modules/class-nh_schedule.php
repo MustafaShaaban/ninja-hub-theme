@@ -1,6 +1,6 @@
 <?php
     /**
-     * @Filename: class-nh_profile.php
+     * @Filename: class-nh_schedule.php
      * @Description:
      * @User: NINJA MASTER - Mustafa Shaaban
      * @Date: 5/10/2023
@@ -17,20 +17,20 @@
     /**
      * Description...
      *
-     * @class Nh_Profile
+     * @class Nh_Schedule
      * @version 1.0
      * @since 1.0.0
      * @package NinjaHub
      * @author Mustafa Shaaban
      */
-    class Nh_Profile extends Nh_Module
+    class Nh_Schedule extends Nh_Module
     {
         public array $meta_data = [];
         public array $taxonomy  = [];
 
         public function __construct()
         {
-            parent::__construct('profile');
+            parent::__construct('schedule');
         }
 
         /**

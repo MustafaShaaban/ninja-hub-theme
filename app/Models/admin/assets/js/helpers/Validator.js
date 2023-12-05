@@ -9,7 +9,6 @@
 
 // import theme 3d party modules
 import $ from 'jquery';
-import _ from 'lodash';
 import 'jquery-validation';
 
 class NhValidator
@@ -19,18 +18,6 @@ class NhValidator
         this.phrases = nhGlobals.phrases;
         this.setDefaults();
         this.addMethods();
-    }
-
-    static initAuthValidation($el, type)
-    {
-
-        let that = this;
-
-        const forms = {};
-
-        if (_.has(forms, type)) {
-            _.invoke(forms, type);
-        }
     }
 
     setDefaults()
@@ -82,15 +69,37 @@ class NhValidator
             let re = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
             return this.optional(element) || re.test(value);
         }, this.phrases.pass_regex);
+        $.validator.addMethod('time_regex', function (value, element, regexp) {
+            let re = new RegExp(/^((1[0-2]|0?[1-9]):[0-5][0-9] (AM|PM) - (1[0-2]|0?[1-9]):[0-5][0-9] (AM|PM))$/);
+            return this.optional(element) || re.test(value);
+        }, this.phrases.time_regex);
         $.validator.addMethod('extension', function (value, element, param) {
             if (typeof param === 'string') {
                 param = param.replace(/,/g, '|');
             } else {
-                let substr = value.split('.')[1];
-                param      = substr;
+                param      = value.split('.')[1];
             }
             return this.optional(element) || value.match(new RegExp('\\.(' + param + ')$', 'i'));
         }, this.phrases.file_extension);
+        $.validator.addMethod('maxFileSize', function (value, element, param) {
+            var maxSize = param * 1024; // Convert param (in KB) to bytes
+            if (element.files && element.files.length > 0) {
+                return element.files[0].size <= maxSize;
+            }
+            return true;
+        }, this.phrases.file_max_size);
+        $.validator.addMethod("englishTextOnly", function(value, element) {
+            return this.optional(element) || /^[A-Za-z ]+$/i.test(value);
+        }, this.phrases.englishOnly);
+        $.validator.addMethod("arabicOnly", function(value, element) {
+            return this.optional(element) || /^[\u0600-\u06FF\s]+$/i.test(value);
+        }, this.phrases.arabicOnly);
+        $.validator.addMethod('fileRequired', function (value, element, param) {
+            return $(`input[name="${$(element).attr('data-target')}"]`).length > 0 && $(`input[name="${$(element).attr('data-target')}"]`).val() !== '';
+
+        }, this.phrases.default);
+
+        $(document).trigger('nh:customValidations');
     }
 }
 

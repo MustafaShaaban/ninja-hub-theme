@@ -17,7 +17,7 @@
 ?>
 
     <main id="" class="">
-        <h1>Verification PAGE</h1>
+        <h1>Verification Page</h1>
     </main><!-- #main -->
 
 <?php get_footer();

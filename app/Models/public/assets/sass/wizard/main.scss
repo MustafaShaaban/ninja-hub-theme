@@ -1,0 +1,29 @@
+/**
+ * @Filename: main.scss
+ * @Description: 
+ * @User: NINJA MASTER - Mustafa Shaaban 
+ * @Date: 11/14/2023
+ */
+
+.nh-wizard-container {
+  overflow: hidden;
+
+  .nh-steps {
+    display: none;
+    position: relative;
+    top: 0;
+    left: 100vw;
+  }
+
+  .nh-step-1 {
+    left: 0
+  }
+
+  .nh-step-active {
+    display: block;
+  }
+
+  .nh-wizard-step-previous, .nh-wizard-step-finish {
+    display: none;
+  }
+}

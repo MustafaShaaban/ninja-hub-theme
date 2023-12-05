@@ -17,7 +17,7 @@
 ?>
 
     <main id="" class="">
-        <h1>Dashboard PAGE</h1>
+        <h1>Dashboard Page</h1>
     </main><!-- #main -->
 
 <?php get_footer();
