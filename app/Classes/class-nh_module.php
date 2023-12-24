@@ -217,6 +217,24 @@
             ]);
         }
 
+
+        /**
+         * Description...
+         *
+         * @param \WP_Post $post
+         * @param array    $meta_data
+         *
+         * @version 1.0
+         * @since 1.0.0
+         * @package NinjaHub
+         * @author Mustafa Shaaban
+         * @return \NH\APP\CLASSES\Nh_Post
+         */
+        public function convert(\WP_Post $post, array $meta_data = []): Nh_Module
+        {
+            return $this->assign(parent::convert($post, $this->meta_data));
+        }
+
         /**
          * Assigns the properties of a Nh_Post object to the Nh_Module object.
          *
@@ -226,23 +244,8 @@
          */
         public function assign(Nh_Post $obj): Nh_Module
         {
-            $this->ID            = $obj->ID;
-            $this->author        = $obj->author;
-            $this->type          = $obj->type;
-            $this->name          = $obj->name;
-            $this->title         = $obj->title;
-            $this->content       = $obj->content;
-            $this->excerpt       = $obj->excerpt;
-            $this->status        = $obj->status;
-            $this->parent        = $obj->parent;
-            $this->created_date  = $obj->created_date;
-            $this->modified_date = $obj->modified_date;
-            $this->thumbnail     = $obj->thumbnail;
-            $this->link          = $obj->link;
-            $this->taxonomy      = $obj->taxonomy;
-
-            foreach ($obj->meta_data as $name => $value) {
-                $this->set_meta_data($name, $value);
+            foreach($obj as $prop => $value) {
+                $this->{$prop} = $value;
             }
 
             return $this;

@@ -260,8 +260,8 @@ class NhWizardFront
 
 
                 // set new step
-                $wizard.nextStepBtn.attr('data-current', currentStep + 1).attr('data-target', targetStep + 1);
-                $wizard.previousStepBtn.attr('data-current', targetStep).attr('data-target', currentStep);
+                $wizard.nextStepBtn.attr('data-current', step_number).attr('data-target', targetStep + 1);
+                $wizard.previousStepBtn.attr('data-current', targetStep).attr('data-target', step_number);
 
                 $(document).trigger('on:shown', [
                     $(`.nh-step-${targetStep}`),
@@ -300,8 +300,8 @@ class NhWizardFront
                 }
 
                 // set new step
-                $wizard.nextStepBtn.attr('data-current', currentStep - 1).attr('data-target', currentStep);
-                $wizard.previousStepBtn.attr('data-current', currentStep - 1).attr('data-target', targetStep - 1);
+                $wizard.nextStepBtn.attr('data-current', step_number).attr('data-target', step_number + 1);
+                $wizard.previousStepBtn.attr('data-current', step_number).attr('data-target', targetStep - 1);
 
                 $(document).trigger('on:shown', [
                     $(`.nh-step-${targetStep}`),

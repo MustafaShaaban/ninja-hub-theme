@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: Medica Scope Team\n"
 "Last-Translator: Mustafa Shaaban <mushaaban@medicascopeco.com>\n"
-"POT-Creation-Date: 2023-12-05 14:59+0000\n"
+"POT-Creation-Date: 2023-12-19 16:10+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -69,47 +69,43 @@ msgstr ""
 msgid "No posts available."
 msgstr ""
 
-#: app/Classes/class-nh_module.php:280
+#: app/Classes/class-nh_module.php:265
 msgid "Successful Response!"
 msgstr ""
 
-#: app/Classes/class-nh_user.php:315, app/Classes/class-nh_user.php:411
+#: app/Classes/class-nh_user.php:313, app/Classes/class-nh_user.php:409
 msgid "Sorry, this phone number already exists!"
 msgstr ""
 
-#: app/Classes/class-nh_user.php:323
+#: app/Classes/class-nh_user.php:321
 msgid "Sorry, that email already exists!"
 msgstr ""
 
-#: app/Classes/class-nh_user.php:704, app/Classes/class-nh_user.php:697, app/Classes/class-nh_user.php:774, app/Classes/class-nh_user.php:766, app/Classes/class-nh_user.php:758, app/Classes/class-nh_user.php:750
+#: app/Classes/class-nh_user.php:702, app/Classes/class-nh_user.php:695, app/Classes/class-nh_user.php:772, app/Classes/class-nh_user.php:764, app/Classes/class-nh_user.php:756, app/Classes/class-nh_user.php:748
 msgid "Your reset key is invalid!."
 msgstr ""
 
-#: app/Classes/class-nh_user.php:742, app/Classes/class-nh_user.php:812
+#: app/Classes/class-nh_user.php:740
 msgid "Your reset key is expired."
 msgstr ""
 
-#: app/Classes/class-nh_user.php:805
-msgid "Your key is invalid!."
-msgstr ""
-
-#: app/Classes/class-nh_user.php:859
+#: app/Classes/class-nh_user.php:820
 msgid "This user does not exist!."
 msgstr ""
 
-#: app/Classes/class-nh_user.php:979, app/Classes/class-nh_user.php:994
+#: app/Classes/class-nh_user.php:940, app/Classes/class-nh_user.php:955
 msgid "Your login credentials are invalid."
 msgstr ""
 
-#: app/Classes/class-nh_user.php:1027
+#: app/Classes/class-nh_user.php:988
 msgid "Your account is pending! Please check your E-mail to activate your account."
 msgstr ""
 
-#: app/Classes/class-nh_user.php:1038
+#: app/Classes/class-nh_user.php:999
 msgid "This account is temporarily disabled or blocked. Please contact us."
 msgstr ""
 
-#: app/Classes/class-nh_user.php:1069
+#: app/Classes/class-nh_user.php:1029
 msgid "The verification code didn't send!"
 msgstr ""
 
@@ -117,164 +113,136 @@ msgstr ""
 msgid "Upload your University ID"
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:80, app/Models/public/class-nh_public.php:103
+#: app/Models/admin/class-nh_admin.php:80, app/Models/public/class-nh_public.php:99
 msgid "Your password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from the following: ! @ # $ % ^ & *."
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:81, app/Models/public/class-nh_public.php:104
+#: app/Models/admin/class-nh_admin.php:81, app/Models/public/class-nh_public.php:100
 msgid "Please enter a valid Phone number."
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:82, app/Models/public/class-nh_public.php:105
+#: app/Models/admin/class-nh_admin.php:82, app/Models/public/class-nh_public.php:101
 msgid "Please enter a valid International Telephone Number."
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:83, app/Models/public/class-nh_public.php:106
+#: app/Models/admin/class-nh_admin.php:83, app/Models/public/class-nh_public.php:102
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:84, app/Models/public/class-nh_public.php:107
+#: app/Models/admin/class-nh_admin.php:84, app/Models/public/class-nh_public.php:103
 msgid "Please upload a file with a valid extension."
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:85, app/Models/public/class-nh_public.php:108
+#: app/Models/admin/class-nh_admin.php:85, app/Models/public/class-nh_public.php:104
 msgid "File size must be less than {0} KB"
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:86, app/Models/public/class-nh_public.php:109
+#: app/Models/admin/class-nh_admin.php:86, app/Models/public/class-nh_public.php:105
 msgid "Press to select"
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:87, app/Models/public/class-nh_public.php:110
+#: app/Models/admin/class-nh_admin.php:87, app/Models/public/class-nh_public.php:106
 msgid "'No choices to choose from'"
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:88, app/Models/public/class-nh_public.php:111
+#: app/Models/admin/class-nh_admin.php:88, app/Models/public/class-nh_public.php:107
 msgid "Invalid time range format. Please use HH:mm AM/PM - HH:mm AM/PM"
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:89, app/Models/public/class-nh_public.php:112
+#: app/Models/admin/class-nh_admin.php:89, app/Models/public/class-nh_public.php:108
 msgid "Only English text is allowed."
 msgstr ""
 
-#: app/Models/admin/class-nh_admin.php:90, app/Models/public/class-nh_public.php:113
+#: app/Models/admin/class-nh_admin.php:90, app/Models/public/class-nh_public.php:109
 msgid "Only Arabic text is allowed."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:102, app/Models/public/modules/class-nh_auth.php:206, app/Models/public/modules/class-nh_auth.php:326, app/Models/public/modules/class-nh_auth.php:515, app/Models/public/modules/class-nh_auth.php:562
+#: app/Models/public/modules/class-nh_auth.php:99, app/Models/public/modules/class-nh_auth.php:197, app/Models/public/modules/class-nh_auth.php:330
 msgid "You are already logged In!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:106, app/Models/public/modules/class-nh_auth.php:210, app/Models/public/modules/class-nh_auth.php:566
+#: app/Models/public/modules/class-nh_auth.php:103
 msgid "Can't register with empty credentials."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:110, app/Models/public/modules/class-nh_auth.php:214, app/Models/public/modules/class-nh_auth.php:334, app/Models/public/modules/class-nh_auth.php:399, app/Models/public/modules/class-nh_auth.php:523, app/Models/public/modules/class-nh_auth.php:570, app/Models/public/modules/class-nh_auth.php:666
+#: app/Models/public/modules/class-nh_auth.php:107, app/Models/public/modules/class-nh_auth.php:205, app/Models/public/modules/class-nh_auth.php:270, app/Models/public/modules/class-nh_auth.php:338
 msgid "Something went wrong!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:114, app/Models/public/modules/class-nh_auth.php:218, app/Models/public/modules/class-nh_auth.php:574
+#: app/Models/public/modules/class-nh_auth.php:111
 msgid "The full name field shouldn't be empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:118, app/Models/public/modules/class-nh_auth.php:222
+#: app/Models/public/modules/class-nh_auth.php:115
 msgid "The E-mail field shouldn't be empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:125, app/Models/public/modules/class-nh_auth.php:229, app/Models/public/modules/class-nh_auth.php:578
+#: app/Models/public/modules/class-nh_auth.php:122
 msgid "The phone number field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:129, app/Models/public/modules/class-nh_auth.php:237, app/Models/public/modules/class-nh_auth.php:582
+#: app/Models/public/modules/class-nh_auth.php:126
 msgid "The school name field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:133, app/Models/public/modules/class-nh_auth.php:241, app/Models/public/modules/class-nh_auth.php:586
+#: app/Models/public/modules/class-nh_auth.php:130
 msgid "The location field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:137, app/Models/public/modules/class-nh_auth.php:590
+#: app/Models/public/modules/class-nh_auth.php:134
 msgid "The venue field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:174, app/Models/public/modules/class-nh_auth.php:300
+#: app/Models/public/modules/class-nh_auth.php:171
 msgid "Your account has been created successfully, Please check your E-mail to activate your account"
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:233
-msgid "The age field is empty!."
-msgstr ""
-
-#: app/Models/public/modules/class-nh_auth.php:245, app/Models/public/modules/class-nh_auth.php:403, app/Models/public/modules/class-nh_auth.php:594
-msgid "The password field is empty!."
-msgstr ""
-
-#: app/Models/public/modules/class-nh_auth.php:249, app/Models/public/modules/class-nh_auth.php:598
-msgid "The confirm password field shouldn't be empty!."
-msgstr ""
-
-#: app/Models/public/modules/class-nh_auth.php:253, app/Models/public/modules/class-nh_auth.php:602
-msgid "The passwords should be identical!."
-msgstr ""
-
-#: app/Models/public/modules/class-nh_auth.php:266
-msgid "Invalid player data."
-msgstr ""
-
-#: app/Models/public/modules/class-nh_auth.php:330, app/Models/public/modules/class-nh_auth.php:395, app/Models/public/modules/class-nh_auth.php:519
+#: app/Models/public/modules/class-nh_auth.php:201, app/Models/public/modules/class-nh_auth.php:266, app/Models/public/modules/class-nh_auth.php:334
 msgid "Can't login with empty credentials."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:338
+#: app/Models/public/modules/class-nh_auth.php:209
 msgid "The username field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:342
+#: app/Models/public/modules/class-nh_auth.php:213
 msgid "The password field shouldn't be empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:372
+#: app/Models/public/modules/class-nh_auth.php:243
 msgid "You have been logged in successfully."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:407
+#: app/Models/public/modules/class-nh_auth.php:274
+msgid "The password field is empty!."
+msgstr ""
+
+#: app/Models/public/modules/class-nh_auth.php:278
 msgid "The confirm password field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:411
+#: app/Models/public/modules/class-nh_auth.php:282
 msgid "Your password is not identical!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:415
+#: app/Models/public/modules/class-nh_auth.php:286
 msgid "Your password is not complex enough!"
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:430
+#: app/Models/public/modules/class-nh_auth.php:301
 msgid "Your password has been changed successfully!. you can login with your new password from <a href=\"%s\">here</a>"
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:527
+#: app/Models/public/modules/class-nh_auth.php:342
 msgid "The email field is empty!."
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:531
+#: app/Models/public/modules/class-nh_auth.php:346
 msgid "Your email address is not a valid email!"
 msgstr ""
 
-#: app/Models/public/modules/class-nh_auth.php:540
+#: app/Models/public/modules/class-nh_auth.php:355
 msgid "Email has been sent successfully!."
-msgstr ""
-
-#: app/Models/public/modules/class-nh_auth.php:640
-msgid "Your account has been verified successfully"
-msgstr ""
-
-#: app/Models/public/modules/class-nh_auth.php:662
-msgid "Can't apply with empty credentials."
-msgstr ""
-
-#: app/Models/public/modules/class-nh_auth.php:696
-msgid "Your account has been updated successfully"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers

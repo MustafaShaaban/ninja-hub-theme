@@ -14,10 +14,13 @@ import $ from 'jquery';
 import NhValidator from './helpers/Validator';
 import NhUiCtrl    from './inc/UiCtrl';
 import NhAuth      from './modules/Auth';
+import NhAjax      from './inc/Ajax';
 
 // Define a class named NhAuthentication which extends NhAuth class
-class NhAuthentication extends NhAuth {
-    constructor() {
+class NhAuthentication extends NhAuth
+{
+    constructor()
+    {
         // Call the constructor of the parent class (NhAuth)
         super();
 
@@ -42,7 +45,7 @@ class NhAuthentication extends NhAuth {
                 form: $(`#${KEY}_change_password_form`),
                 parent: $(`#${KEY}_change_password_form`).parent(),
                 user_password: $(`#${KEY}_user_password`),
-            }
+            },
         };
 
         // Call the initialization method
@@ -50,7 +53,8 @@ class NhAuthentication extends NhAuth {
     }
 
     // Perform necessary initializations
-    initialization() {
+    initialization()
+    {
         this.globalEvents();
         this.registrationFront();
         this.loginFront();
@@ -59,17 +63,18 @@ class NhAuthentication extends NhAuth {
         this.showPassword();
     }
 
-    globalEvents() {
-        $('input[type="password"]').on('copy paste', function(e){
+    globalEvents()
+    {
+        $('input[type="password"]').on('copy paste', function (e) {
             e.preventDefault();
         });
     }
 
     // Front-end code for the registration form
-    registrationFront() {
+    registrationFront()
+    {
         let that          = this,
-            $registration = this.$el.registration,
-            ajaxRequests  = this.ajaxRequests;
+            $registration = this.$el.registration;
 
         // Initialize form validation
         NhValidator.initAuthValidation($registration, 'registration');
@@ -77,26 +82,30 @@ class NhAuthentication extends NhAuth {
         // Handle form submission
         $registration.form.on('submit', $registration.parent, function (e) {
             e.preventDefault();
-            let $this             = $(e.currentTarget),
-                formData          = $this.serializeObject();
-
-            // Abort any ongoing registration requests
-            if (typeof ajaxRequests.registration !== 'undefined') {
-                ajaxRequests.registration.abort();
-            }
+            let $this    = $(e.currentTarget),
+                formData = $this.serializeObject();
 
             // Validate the form and perform registration if valid
             if ($this.valid()) {
-                that.registration(formData, $this);
+                NhAjax.createRequest($('body'), 'registration', {
+                    action: `${KEY}_registration_ajax`,
+                    data: formData,
+                });
             }
+
+            $(document).on('on:resSuccess', function (e, res, $el, requestName, data) {
+                if (requestName === 'registration') {
+                    window.location.href = res.data.redirect_url;
+                }
+            });
         });
     }
 
     // Front-end code for the login form
-    loginFront() {
+    loginFront()
+    {
         let that         = this,
-            $login       = this.$el.login,
-            ajaxRequests = this.ajaxRequests;
+            $login       = this.$el.login;
 
         // Initialize form validation
         NhValidator.initAuthValidation($login, 'login');
@@ -107,23 +116,27 @@ class NhAuthentication extends NhAuth {
             let $this    = $(e.currentTarget),
                 formData = $this.serializeObject();
 
-            // Abort any ongoing login requests
-            if (typeof ajaxRequests.login !== 'undefined') {
-                ajaxRequests.login.abort();
-            }
-
             // Validate the form and perform login if valid
             if ($this.valid()) {
-                that.login(formData, $this);
+                NhAjax.createRequest($('body'), 'login', {
+                    action: `${KEY}_login_ajax`,
+                    data: formData,
+                });
             }
+
+            $(document).on('on:resSuccess', function (e, res, $el, requestName, data) {
+                if (requestName === 'login') {
+                    window.location.href = res.data.redirect_url;
+                }
+            });
         });
     }
 
     // Front-end code for the forgot password form
-    forgotPasswordFront() {
+    forgotPasswordFront()
+    {
         let that         = this,
-            $forgot      = this.$el.forgot,
-            ajaxRequests = this.ajaxRequests;
+            $forgot      = this.$el.forgot;
 
         // Initialize form validation
         NhValidator.initAuthValidation($forgot, 'forgotPassword');
@@ -134,23 +147,27 @@ class NhAuthentication extends NhAuth {
             let $this    = $(e.currentTarget),
                 formData = $this.serializeObject();
 
-            // Abort any ongoing forgot password requests
-            if (typeof ajaxRequests.forgot !== 'undefined') {
-                ajaxRequests.forgot.abort();
-            }
-
             // Validate the form and perform forgot password request if valid
             if ($this.valid()) {
-                that.forgotPassword(formData, $this);
+                NhAjax.createRequest($('body'), 'forgot', {
+                    action: `${KEY}_forgot_password_ajax`,
+                    data: formData,
+                });
             }
+
+            $(document).on('on:resSuccess', function (e, res, $el, requestName, data) {
+                if (requestName === 'forgot') {
+                    $el[0].reset();
+                }
+            });
         });
     }
 
     // Front-end code for the change password form
-    changePasswordFront() {
+    changePasswordFront()
+    {
         let that             = this,
-            $change_password = this.$el.change_password,
-            ajaxRequests     = this.ajaxRequests;
+            $change_password = this.$el.change_password;
 
         // Initialize form validation
         NhValidator.initAuthValidation($change_password, 'change_password');
@@ -161,20 +178,26 @@ class NhAuthentication extends NhAuth {
             let $this    = $(e.currentTarget),
                 formData = $this.serializeObject();
 
-            // Abort any ongoing change password requests
-            if (typeof ajaxRequests.changePassword !== 'undefined') {
-                ajaxRequests.changePassword.abort();
-            }
-
             // Validate the form and perform change password request if valid
             if ($this.valid()) {
-                that.changePassword(formData, $this);
+                NhAjax.createRequest($('body'), 'changePassword', {
+                    action: `${KEY}_change_password_ajax`,
+                    data: formData,
+                });
             }
+
+            $(document).on('on:resSuccess', function (e, res, $el, requestName, data) {
+                if (requestName === 'changePassword') {
+                    $el[0].reset();
+                }
+            });
+
         });
     }
 
     // Show/hide password when the show password icon is clicked
-    showPassword() {
+    showPassword()
+    {
         $('.showPassIcon').on('click', function (e) {
             let $this           = $(e.currentTarget),
                 $target_element = $this.attr('data-target');

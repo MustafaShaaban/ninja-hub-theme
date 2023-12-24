@@ -22,6 +22,7 @@ class NhAuth extends Nh
         this.ajaxRequests = {};
     }
 
+    /*
     // Method for user registration
     registration(formData, $el)
     {
@@ -175,16 +176,7 @@ class NhAuth extends Nh
             },
         });
     }
-
-    // Method for creating a new token
-    createNewToken()
-    {
-        grecaptcha.ready(function () {
-            grecaptcha.execute(nhGlobals.publicKey).then(function (token) {
-                $('input[name="g-recaptcha-response"]').val(token);
-            });
-        });
-    }
+     */
 }
 
 export default NhAuth;

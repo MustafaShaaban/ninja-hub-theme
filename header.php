@@ -29,24 +29,3 @@
 
         <main id="page" class="site">
 
-            <?php
-                $dashboard = [ 'dashboard' ];
-                $account   = [
-                    'account',
-                    'login',
-                    'registration-landing',
-                    'registration',
-                    'forgot-password',
-                    'reset-password',
-                    'verification'
-                ];
-                if (is_front_page()) {
-                    get_template_part('app/Views/template-parts/headers/landing');
-                } elseif (is_page($account)) {
-                    get_template_part('app/Views/template-parts/headers/account');
-                } elseif (is_page($dashboard)) {
-                    get_template_part('app/Views/template-parts/headers/dashboard');
-                } else {
-                    get_template_part('app/Views/template-parts/headers/default');
-                }
-            ?>

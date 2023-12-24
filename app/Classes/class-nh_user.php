@@ -361,7 +361,7 @@
 
             update_user_meta($this->ID, 'profile_id', $profile->ID); // Update user meta data with the profile ID.
 
-            $this->setup_verification('verification'); // Set up user verification.
+            $this->setup_verification(); // Set up user verification.
 
             $cred = [
                 'user_login'    => $this->username,
@@ -778,43 +778,6 @@
         }
 
         /**
-         * Check the OTP code validity
-         *
-         * @param array  $data The data containing the OTP code and type
-         * @param string $type The type of OTP code (authentication or verification)
-         *
-         * @version 1.0
-         * @since 1.0.0
-         * @package NinjaHub
-         * @author Mustafa Shaaban
-         * @return bool|\WP_Error Returns true if the OTP code is valid, otherwise returns a WP_Error object
-         */
-        public static function check_otp_code(array $data, string $type): bool|WP_Error
-        {
-            $error             = new WP_Error(); // Create a new WP_Error object
-            $current_timestamp = time(); // Get the current Unix timestamp
-            $expire_date       = $data['verification_expire_date'];
-
-            if ($expire_date >= $current_timestamp) {
-                if ($data['incoming_code'] === $data['current_code']) {
-                    return TRUE; // The OTP code is valid
-                } else {
-                    // The OTP code is invalid
-                    $error->add('invalid_key', __("Your key is invalid!.", 'ninja'), [
-                        'status' => FALSE
-                    ]);
-                    return $error; // Return the WP_Error object
-                }
-            } else {
-                // The OTP code has expired
-                $error->add('expire_date', __("Your reset key is expired.", 'ninja'), [
-                    'status' => FALSE
-                ]);
-                return $error; // Return the WP_Error object
-            }
-        }
-
-        /**
          * Get user as a Nh User object
          *
          * @param \WP_User $user The WP_User object
@@ -1042,7 +1005,6 @@
 
             return $this;
         }
-
 
         /**
          * Sets up the verification process.

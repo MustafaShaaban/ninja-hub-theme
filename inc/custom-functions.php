@@ -24,7 +24,7 @@
      *
      * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
      */
-    function ninja_register_required_plugins()
+    function ninja_register_required_plugins(): void
     {
 
         $slugs = [

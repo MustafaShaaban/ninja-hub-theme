@@ -9,6 +9,7 @@
     namespace NH\APP\CLASSES;
 
     use Exception;
+    use NINJAHUB\APP\CLASSES\Ninjahub_Init;
     use stdClass;
 
     /**
@@ -20,7 +21,7 @@
      * @package NinjaHub
      * @author Mustafa Shaaban
      */
-    class Nh_Init
+    class Nh_Init extends Ninjahub_Init
     {
         /**
          * @var array
@@ -29,105 +30,32 @@
         /**
          * @var null
          */
-        private static $instance = NULL;
+        protected static $instance = NULL;
         /**
          * @var \string[][][]
          */
-        private array $class_name = [];
+        protected array $class_name = [];
 
         public function __construct()
         {
-            $this->class_name = [
-                'core'   => [
-                    'Hooks'         => [
-                        'type'      => 'helper',
-                        'namespace' => 'NH\APP\HELPERS',
-                        'path'      => THEME_PATH . '/app/helpers/class-nh_hooks.php'
-                    ],
-                    'Forms'         => [
-                        'type'      => 'helper',
-                        'namespace' => 'NH\APP\HELPERS',
-                        'path'      => THEME_PATH . '/app/helpers/class-nh_forms.php'
-                    ],
-                    'Ajax_Response' => [
-                        'type'      => 'helper',
-                        'namespace' => 'NH\APP\HELPERS',
-                        'path'      => THEME_PATH . '/app/helpers/class-nh_ajax_response.php'
-                    ],
-                    'Mail'          => [
-                        'type'      => 'helper',
-                        'namespace' => 'NH\APP\HELPERS',
-                        'path'      => THEME_PATH . '/app/helpers/class-nh_mail.php'
-                    ],
-                    'Cryptor'       => [
-                        'type'      => 'helper',
-                        'namespace' => 'NH\APP\HELPERS',
-                        'path'      => THEME_PATH . '/app/helpers/class-nh_cryptor.php'
-                    ],
-                    'Cron'          => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\CLASSES',
-                        'path'      => THEME_PATH . '/app/Classes/class-nh_cron.php'
-                    ],
-                    'Post'          => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\CLASSES',
-                        'path'      => THEME_PATH . '/app/Classes/class-nh_post.php'
-                    ],
-                    'Module'        => [
-                        'type'      => 'abstract',
-                        'namespace' => 'NH\APP\CLASSES',
-                        'path'      => THEME_PATH . '/app/Classes/class-nh_module.php'
-                    ],
-                    'User'          => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\CLASSES',
-                        'path'      => THEME_PATH . '/app/Classes/class-nh_user.php'
-                    ],
-
+            parent::__construct();
+            $this->class_name['core']  = [];
+            $this->class_name['admin']  = [];
+            $this->class_name['public'] = [
+                'Auth'    => [
+                    'type'      => 'class',
+                    'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                    'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_auth.php'
                 ],
-                'admin'  => [],
-                'public' => [
-                    'Auth' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_auth.php'
-                    ],
-                    'Blog' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_blog.php'
-                    ],
-                    'Profile' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_profile.php'
-                    ],
-                    'Course' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_course.php'
-                    ],
-                    'Lesson' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_lesson.php'
-                    ],
-                    'Project' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_project.php'
-                    ],
-                    'Schedule' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_schedule.php'
-                    ],
-                    'Task' => [
-                        'type'      => 'class',
-                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_task.php'
-                    ]
+                'Blog'    => [
+                    'type'      => 'class',
+                    'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                    'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_blog.php'
+                ],
+                'Profile' => [
+                    'type'      => 'class',
+                    'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                    'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_profile.php'
                 ]
             ];
         }
@@ -163,29 +91,33 @@
          */
         public function run($type): void
         {
-            foreach ($this->class_name[$type] as $class => $value) {
-                try {
-                    if (!file_exists($value['path'])) {
-                        throw new Exception("Your class path is invalid.");
+            echo '[FIRST]';
+
+            if (array_key_exists($type, $this->class_name)) {
+                foreach ($this->class_name[$type] as $class => $value) {
+                    try {
+                        if (!file_exists($value['path'])) {
+                            throw new Exception("Your class path is invalid.");
+                        }
+
+                        require_once $value['path'];
+
+                        if ('abstract' === $value['type'] || 'helper' === $value['type'] || 'widget' === $value['type']) {
+                            continue;
+                        }
+
+                        $class_name = $value['namespace'] . "\Nh_" . $class;
+                        $class_name .= $type === 'admin' ? "_Admin" : "";
+
+                        if (!class_exists("$class_name")) {
+                            throw new Exception("Your class is not exists.");
+                        }
+
+                        self::$obj[$class] = new $class_name();
+
+                    } catch (Exception $e) {
+                        echo "<code>" . $e->getMessage() . "</code>";
                     }
-
-                    require_once $value['path'];
-
-                    if ('abstract' === $value['type'] || 'helper' === $value['type'] || 'widget' === $value['type']) {
-                        continue;
-                    }
-
-                    $class_name = $value['namespace'] . "\Nh_" . $class;
-                    $class_name .= $type === 'admin' ? "_Admin" : "";
-
-                    if (!class_exists("$class_name")) {
-                        throw new Exception("Your class is not exists.");
-                    }
-
-                    self::$obj[$class] = new $class_name();
-
-                } catch (Exception $e) {
-                    echo "<code>" . $e->getMessage() . "</code>";
                 }
             }
         }

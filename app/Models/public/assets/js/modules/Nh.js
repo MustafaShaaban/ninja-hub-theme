@@ -34,6 +34,15 @@ class Nh
         };
     }
 
+    // Method for creating a new token
+    createNewToken()
+    {
+        grecaptcha.ready(function () {
+            grecaptcha.execute(nhGlobals.publicKey).then(function (token) {
+                $('input[name="g-recaptcha-response"]').val(token);
+            });
+        });
+    }
 }
 
 export default Nh;
