@@ -15,14 +15,18 @@
 
     get_header();
 
-    $type = isset($_GET['type']) && in_array($_GET['type'], [ 'official', 'individual', 'entrepreneur']) ? $_GET['type'] : 'official';
+    $type = isset($_GET['type']) && in_array($_GET['type'], [
+        'official',
+        'individual',
+        'entrepreneur'
+    ]) ? $_GET['type'] : 'official';
 ?>
 
     <main id="" class="">
         <h1>Registration Page</h1>
 
         <?php
-            get_template_part('app/Views/template-parts/registration/'.$type);
+            get_template_part('app/Views/template-parts/registration/' . $type);
         ?>
 
     </main><!-- #main -->

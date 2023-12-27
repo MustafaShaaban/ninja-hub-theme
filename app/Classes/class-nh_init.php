@@ -18,7 +18,7 @@
      * @class Nh_Init
      * @version 1.0
      * @since 1.0.0
-     * @package NinjaHub
+     * @package NH
      * @author Mustafa Shaaban
      */
     class Nh_Init extends Ninjahub_Init
@@ -34,28 +34,76 @@
         /**
          * @var \string[][][]
          */
-        protected array $class_name = [];
+        private array $class_name = [];
 
         public function __construct()
         {
             parent::__construct();
-            $this->class_name['core']  = [];
-            $this->class_name['admin']  = [];
-            $this->class_name['public'] = [
-                'Auth'    => [
-                    'type'      => 'class',
-                    'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                    'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_auth.php'
+            $this->class_name = [
+                'core'   => [
+//                    'Hooks'         => [
+//                        'type'      => 'helper',
+//                        'namespace' => 'NH\APP\HELPERS',
+//                        'path'      => THEME_PATH . 'app/helpers/class-nh_hooks.php'
+//                    ],
+//                    'Forms'         => [
+//                        'type'      => 'helper',
+//                        'namespace' => 'NH\APP\HELPERS',
+//                        'path'      => THEME_PATH . 'app/helpers/class-nh_forms.php'
+//                    ],
+//                    'Ajax_Response' => [
+//                        'type'      => 'helper',
+//                        'namespace' => 'NH\APP\HELPERS',
+//                        'path'      => THEME_PATH . 'app/helpers/class-nh_ajax_response.php'
+//                    ],
+//                    'Mail'          => [
+//                        'type'      => 'helper',
+//                        'namespace' => 'NH\APP\HELPERS',
+//                        'path'      => THEME_PATH . 'app/helpers/class-nh_mail.php'
+//                    ],
+//                    'Cryptor'       => [
+//                        'type'      => 'helper',
+//                        'namespace' => 'NH\APP\HELPERS',
+//                        'path'      => THEME_PATH . 'app/helpers/class-nh_cryptor.php'
+//                    ],
+//                    'Cron'          => [
+//                        'type'      => 'class',
+//                        'namespace' => 'NH\APP\CLASSES',
+//                        'path'      => THEME_PATH . 'app/Classes/class-nh_cron.php'
+//                    ],
+//                    'Post'          => [
+//                        'type'      => 'class',
+//                        'namespace' => 'NH\APP\CLASSES',
+//                        'path'      => THEME_PATH . 'app/Classes/class-nh_post.php'
+//                    ],
+//                    'Module'        => [
+//                        'type'      => 'abstract',
+//                        'namespace' => 'NH\APP\CLASSES',
+//                        'path'      => THEME_PATH . 'app/Classes/class-nh_module.php'
+//                    ],
+//                    'User'          => [
+//                        'type'      => 'class',
+//                        'namespace' => 'NH\APP\CLASSES',
+//                        'path'      => THEME_PATH . 'app/Classes/class-nh_user.php'
+//                    ],
                 ],
-                'Blog'    => [
-                    'type'      => 'class',
-                    'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                    'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_blog.php'
-                ],
-                'Profile' => [
-                    'type'      => 'class',
-                    'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
-                    'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_profile.php'
+                'admin'  => [],
+                'public' => [
+                    'Auth'    => [
+                        'type'      => 'class',
+                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_auth.php'
+                    ],
+                    'Blog'    => [
+                        'type'      => 'class',
+                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_blog.php'
+                    ],
+                    'Profile' => [
+                        'type'      => 'class',
+                        'namespace' => 'NH\APP\MODELS\FRONT\MODULES',
+                        'path'      => THEME_PATH . '/app/Models/public/modules/class-nh_profile.php'
+                    ]
                 ]
             ];
         }
@@ -91,7 +139,6 @@
          */
         public function run($type): void
         {
-            echo '[FIRST]';
 
             if (array_key_exists($type, $this->class_name)) {
                 foreach ($this->class_name[$type] as $class => $value) {

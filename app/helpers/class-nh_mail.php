@@ -127,7 +127,7 @@
          */
         public function subject(string $subject): Nh_Mail
         {
-//            $this->subject = sprintf(__('%s - %s', 'ninja'), $this->subject, $subject);
+            //            $this->subject = sprintf(__('%s - %s', 'ninja'), $this->subject, $subject);
             $this->subject = $subject;
             return $this;
         }

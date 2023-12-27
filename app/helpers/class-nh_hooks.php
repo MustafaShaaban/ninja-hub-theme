@@ -39,10 +39,10 @@
                 'js'      => THEME_URI . '/app/Models/public/js',
                 'img'     => THEME_URI . '/app/Models/public/img',
                 'images'  => THEME_URI . '/app/Models/public/assets/images',
-                'videos'     => THEME_URI . '/app/Models/public/videos',
+                'videos'  => THEME_URI . '/app/Models/public/videos',
                 'vendors' => THEME_URI . '/app/Models/public/vendors'
             ],
-            'views' => THEME_PATH . '/app/Views'
+            'views'  => THEME_PATH . '/app/Views'
         ];
         /**
          * The array of actions registered with WordPress.

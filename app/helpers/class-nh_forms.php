@@ -66,8 +66,10 @@
          * @since 1.0.0
          * @version 1.0
          * @package NinjaHub
+         *
          * @param array $form_fields An array of form fields and their properties.
          * @param array $form_tag An array of attributes for the form tag.
+         *
          * @return string The generated HTML form.
          *
          * @author Mustafa Shaaban
@@ -156,7 +158,7 @@
         public function form_start(array $args = []): string
         {
             $defaults = [
-                'action'       => '',
+                'action'     => '',
                 'attr'       => '',
                 'class'      => '',
                 'form_class' => '',

@@ -16,7 +16,7 @@
             <a href="<?= home_url() ?>"><img src="<?= Nh::get_site_logo(); ?>" alt="<?= __('Site Logo', 'ninja') ?>"></a>
         </div>
         <?php
-            if(is_user_logged_in()) {
+            if (is_user_logged_in()) {
                 ?>
                 <div class="login">
                     <a href="<?= apply_filters('nhml_permalink', get_permalink(get_page_by_path('dashboard'))); ?>" class="login-btn">لوحة التحكم</a>

@@ -25,10 +25,8 @@
      */
     class Nh_File_Uploader
     {
-        private Nh_Hooks $hooks;
-
         const MAX_SIZE_UPLOAD = 5242880;
-
+        private Nh_Hooks $hooks;
 
         public function __construct()
         {
@@ -57,11 +55,10 @@
                 'create-team',
                 'fitting-room',
             ])) {
-                $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-uploader', Nh_Hooks::PATHS['public']['js'] . '/uploader-front', [Nh::_DOMAIN_NAME . '-public-script-main']);
+                $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-uploader', Nh_Hooks::PATHS['public']['js'] . '/uploader-front', [ Nh::_DOMAIN_NAME . '-public-script-main' ]);
                 $this->hooks->add_localization(Nh::_DOMAIN_NAME . '-public-script-uploader', 'nhUploadGlobals', [
-                    'max_upload_size'  => self::MAX_SIZE_UPLOAD,
-                    'phrases'     => [
-                    ]
+                    'max_upload_size' => self::MAX_SIZE_UPLOAD,
+                    'phrases'         => []
                 ]);
 
             }
@@ -71,7 +68,7 @@
 
         public function upload(): void
         {
-            $file                          = $_FILES;
+            $file = $_FILES;
 
             if (empty($_POST['g-recaptcha-response'])) {
                 new Nh_Ajax_Response(FALSE, __('The reCaptcha verification failed. Please try again.', 'ninja'));/* the reCAPTCHA answer  */
@@ -94,11 +91,11 @@
                     'image/jpg',
                     'image/png'
                 ]);
-                
+
                 if ((!in_array($_FILES['file']['type'], $acceptable)) && (!empty($_FILES["file"]["type"]))) {
                     new Nh_Ajax_Response(FALSE, __("Invalid file type.", 'ninja'));
                 }
-                $upload     = wp_upload_bits($file['file']['name'], NULL, file_get_contents($file['file']['tmp_name']));
+                $upload = wp_upload_bits($file['file']['name'], NULL, file_get_contents($file['file']['tmp_name']));
 
 
                 if (!empty($upload['error'])) {

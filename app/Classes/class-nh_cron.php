@@ -22,9 +22,8 @@
      */
     class Nh_Cron
     {
+        const NOTIFICATIONS_LIMIT = 20;
         private Nh_Hooks $hooks;
-
-        CONST NOTIFICATIONS_LIMIT = 20;
 
         public function __construct()
         {
@@ -81,11 +80,11 @@
                         WHERE
                             p.post_type = 'notification'
                             AND p.post_status = 'publish'
-                            AND p.post_author = '".$user->ID."'
+                            AND p.post_author = '" . $user->ID . "'
                         ORDER BY
                             p.ID DESC
                         LIMIT 18446744073709551615
-                        OFFSET ".self::NOTIFICATIONS_LIMIT."
+                        OFFSET " . self::NOTIFICATIONS_LIMIT . "
                     ");
 
                     foreach ($IDs as $obj) {

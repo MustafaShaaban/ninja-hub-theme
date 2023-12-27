@@ -111,28 +111,20 @@
         }
 
         /**
-         * Magic method to get a property value.
+         * Reformat the metadata array by renaming keys.
          *
-         * @param string $name The name of the property.
+         * @param array $meta_data The metadata array to reformat.
          *
-         * @return mixed The value of the property or FALSE if the property doesn't exist.
+         * @return array The reformatted metadata array.
          */
-        public function __get($name)
+        private function reformat_metadata($meta_data): array
         {
-            return property_exists($this, $name) ? $this->{$name} : FALSE;
-        }
+            foreach ($meta_data as $k => $meta) {
+                $meta_data[$meta] = '';
+                unset($meta_data[$k]);
+            }
 
-        /**
-         * Magic method to set a property value.
-         *
-         * @param string $name The name of the property.
-         * @param mixed  $value The value to set.
-         *
-         * @return void
-         */
-        public function __set($name, $value)
-        {
-            $this->{$name} = $value;
+            return $meta_data;
         }
 
         /**
@@ -210,6 +202,31 @@
             }
 
             return $new_post;
+        }
+
+        /**
+         * Magic method to get a property value.
+         *
+         * @param string $name The name of the property.
+         *
+         * @return mixed The value of the property or FALSE if the property doesn't exist.
+         */
+        public function __get($name)
+        {
+            return property_exists($this, $name) ? $this->{$name} : FALSE;
+        }
+
+        /**
+         * Magic method to set a property value.
+         *
+         * @param string $name The name of the property.
+         * @param mixed  $value The value to set.
+         *
+         * @return void
+         */
+        public function __set($name, $value)
+        {
+            $this->{$name} = $value;
         }
 
         /**
@@ -306,23 +323,6 @@
             do_action(Nh::_DOMAIN_NAME . "_after_delete_" . $this->type, $this->ID);
             return $delete;
 
-        }
-
-        /**
-         * Reformat the metadata array by renaming keys.
-         *
-         * @param array $meta_data The metadata array to reformat.
-         *
-         * @return array The reformatted metadata array.
-         */
-        private function reformat_metadata($meta_data): array
-        {
-            foreach ($meta_data as $k => $meta) {
-                $meta_data[$meta] = '';
-                unset($meta_data[$k]);
-            }
-
-            return $meta_data;
         }
 
         /**

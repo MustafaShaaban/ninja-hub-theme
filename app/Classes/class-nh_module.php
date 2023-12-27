@@ -12,6 +12,10 @@
 
     use NH\APP\HELPERS\Nh_Ajax_Response;
     use NH\APP\HELPERS\Nh_Hooks;
+    use WP_Error;
+    use WP_Post;
+    use WP_Query;
+    use WP_Term;
 
     /**
      * The abstract class Nh_Module is the base module for NH applications.
@@ -58,21 +62,6 @@
         }
 
         /**
-         * Returns the singleton instance of the Nh_Module class.
-         *
-         * @return Nh_Module The Nh_Module instance.
-         */
-        public static function get_instance(): Nh_Module
-        {
-            $class = __CLASS__;
-            if (!self::$instance instanceof $class) {
-                self::$instance = new $class;
-            }
-
-            return self::$instance;
-        }
-
-        /**
          * Sets up the actions for the module.
          *
          * @param string $module_name The name of the module.
@@ -97,6 +86,21 @@
         abstract protected function filters(string $module_name): void;
 
         /**
+         * Returns the singleton instance of the Nh_Module class.
+         *
+         * @return Nh_Module The Nh_Module instance.
+         */
+        public static function get_instance(): Nh_Module
+        {
+            $class = __CLASS__;
+            if (!self::$instance instanceof $class) {
+                self::$instance = new $class;
+            }
+
+            return self::$instance;
+        }
+
+        /**
          * Retrieves all posts of the module.
          *
          * @param array  $status The post statuses to retrieve.
@@ -112,7 +116,7 @@
          */
         public function get_all(array $status = [ 'any' ], int $limit = 10, string $orderby = 'ID', string $order = 'DESC', array $not_in = [ '0' ]): array
         {
-            $posts     = new \WP_Query([
+            $posts    = new WP_Query([
                 "post_type"      => $this->module,
                 "post_status"    => $status,
                 "posts_per_page" => $limit,
@@ -130,6 +134,39 @@
         }
 
         /**
+         * Description...
+         *
+         * @param \WP_Post $post
+         * @param array    $meta_data
+         *
+         * @version 1.0
+         * @since 1.0.0
+         * @package NinjaHub
+         * @author Mustafa Shaaban
+         * @return \NH\APP\CLASSES\Nh_Post
+         */
+        public function convert(WP_Post $post, array $meta_data = []): Nh_Module
+        {
+            return $this->assign(parent::convert($post, $this->meta_data));
+        }
+
+        /**
+         * Assigns the properties of a Nh_Post object to the Nh_Module object.
+         *
+         * @param Nh_Post $obj The Nh_Post object to assign.
+         *
+         * @return Nh_Module The updated Nh_Module object.
+         */
+        public function assign(Nh_Post $obj): Nh_Module
+        {
+            foreach ($obj as $prop => $value) {
+                $this->{$prop} = $value;
+            }
+
+            return $this;
+        }
+
+        /**
          * Retrieves a post of the module by its ID.
          *
          * @param int $post_id The ID of the post to retrieve.
@@ -139,9 +176,9 @@
          * @package NinjaHub
          * @version 1.0
          */
-        public function get_by_id(int $post_id = 0): Nh_Post|\WP_Error
+        public function get_by_id(int $post_id = 0): Nh_Post|WP_Error
         {
-            $error = new \WP_Error();
+            $error = new WP_Error();
 
             if ($post_id <= 0) {
                 $error->add('invalid_id', __("No invalid post id", 'ninja'), [
@@ -185,7 +222,7 @@
                 return $Nh_Posts;
             }
 
-            $posts = new \WP_Query([
+            $posts = new WP_Query([
                 "post__in"    => $post_ids,
                 "post_type"   => $this->module,
                 "post_status" => $status,
@@ -208,47 +245,13 @@
          * @since 1.0.0
          * @package NinjaHub
          */
-        public function get_taxonomy_terms(string $tax_name): int|string|array|\WP_Error|\WP_Term
+        public function get_taxonomy_terms(string $tax_name): int|string|array|WP_Error|WP_Term
         {
             return get_terms([
                 'taxonomy'   => $tax_name,
                 'hide_empty' => FALSE,
                 // TODO:: Switch to TRUE on production
             ]);
-        }
-
-
-        /**
-         * Description...
-         *
-         * @param \WP_Post $post
-         * @param array    $meta_data
-         *
-         * @version 1.0
-         * @since 1.0.0
-         * @package NinjaHub
-         * @author Mustafa Shaaban
-         * @return \NH\APP\CLASSES\Nh_Post
-         */
-        public function convert(\WP_Post $post, array $meta_data = []): Nh_Module
-        {
-            return $this->assign(parent::convert($post, $this->meta_data));
-        }
-
-        /**
-         * Assigns the properties of a Nh_Post object to the Nh_Module object.
-         *
-         * @param Nh_Post $obj The Nh_Post object to assign.
-         *
-         * @return Nh_Module The updated Nh_Module object.
-         */
-        public function assign(Nh_Post $obj): Nh_Module
-        {
-            foreach($obj as $prop => $value) {
-                $this->{$prop} = $value;
-            }
-
-            return $this;
         }
 
         /**
@@ -302,7 +305,7 @@
          */
         public function load_more(array $status = [ 'any' ], int $page = 1, int $limit = 10, string $order = 'DESC', array $author = []): array
         {
-            $posts     = new \WP_Query([
+            $posts = new WP_Query([
                 "post_type"      => $this->module,
                 "post_status"    => $status,
                 "posts_per_page" => $limit,

@@ -9,8 +9,8 @@
     namespace NH\APP\MODELS\FRONT;
 
     use NH\APP\CLASSES\Nh_Init;
-    use NH\APP\HELPERS\Nh_Hooks;
     use NH\Nh;
+    use NINJAHUB\APP\HELPERS\Ninjahub_Hooks;
 
     /**
      * Description...
@@ -24,14 +24,14 @@
     class Nh_Public
     {
         /**
-         * @var \NH\APP\HELPERS\Nh_Hooks
+         * @var \NINJAHUB\APP\HELPERS\Ninjahub_Hooks
          */
-        private Nh_Hooks $hooks;
+        private Ninjahub_Hooks $hooks;
 
         /**
-         * @param \NH\APP\HELPERS\Nh_Hooks $hooks
+         * @param \NINJAHUB\APP\HELPERS\Ninjahub_Hooks $hooks
          */
-        public function __construct(Nh_Hooks $hooks)
+        public function __construct(Ninjahub_Hooks $hooks)
         {
             $this->hooks = $hooks;
             $this->actions();
@@ -57,13 +57,13 @@
 
         public function enqueue_styles(): void
         {
-            $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-fontawesome', Nh_Hooks::PATHS['public']['vendors'] . '/css/fontawesome/css/all.min', TRUE);
+            $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-fontawesome', Ninjahub_Hooks::PATHS['public']['vendors'] . '/css/fontawesome/css/all.min', TRUE);
             if (NH_lANG === 'ar') {
-                $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-bs5', Nh_Hooks::PATHS['public']['vendors'] . '/css/bootstrap5/bootstrap.rtl.min', TRUE);
-                $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-main', Nh_Hooks::PATHS['root']['css'] . '/style-rtl');
+                $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-bs5', Ninjahub_Hooks::PATHS['public']['vendors'] . '/css/bootstrap5/bootstrap.rtl.min', TRUE);
+                $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-main', Ninjahub_Hooks::PATHS['root']['css'] . '/style-rtl');
             } else {
-                $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-bs5', Nh_Hooks::PATHS['public']['vendors'] . '/css/bootstrap5/bootstrap.min', TRUE);
-                $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-main', Nh_Hooks::PATHS['root']['css'] . '/style');
+                $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-bs5', Ninjahub_Hooks::PATHS['public']['vendors'] . '/css/bootstrap5/bootstrap.min', TRUE);
+                $this->hooks->add_style(Nh::_DOMAIN_NAME . '-public-style-main', Ninjahub_Hooks::PATHS['root']['css'] . '/style');
             }
 
             $this->hooks->run();
@@ -73,11 +73,11 @@
         {
             global $gglcptch_options;
 
-            $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-bs5', Nh_Hooks::PATHS['public']['vendors'] . '/js/bootstrap5/bootstrap.min', [
+            $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-bs5', Ninjahub_Hooks::PATHS['public']['vendors'] . '/js/bootstrap5/bootstrap.min', [
                 'jquery'
             ], Nh::_VERSION, NULL, TRUE);
 
-            $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-main', Nh_Hooks::PATHS['public']['js'] . '/main', [
+            $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-main', Ninjahub_Hooks::PATHS['public']['js'] . '/main', [
                 'jquery',
                 Nh::_DOMAIN_NAME . '-public-script-bs5'
             ]);
@@ -111,7 +111,7 @@
             ]);
 
             if (is_front_page()) {
-                $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-home', Nh_Hooks::PATHS['public']['js'] . '/home');
+                $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-home', Ninjahub_Hooks::PATHS['public']['js'] . '/home');
             }
 
             if (is_page([
@@ -123,7 +123,7 @@
                 'reset-password',
                 'verification',
             ])) {
-                $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-authentication', Nh_Hooks::PATHS['public']['js'] . '/authentication');
+                $this->hooks->add_script(Nh::_DOMAIN_NAME . '-public-script-authentication', Ninjahub_Hooks::PATHS['public']['js'] . '/authentication');
             }
 
             $this->hooks->run();

@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: Medica Scope Team\n"
 "Last-Translator: Mustafa Shaaban <mushaaban@medicascopeco.com>\n"
-"POT-Creation-Date: 2023-12-19 16:10+0000\n"
+"POT-Creation-Date: 2023-12-24 23:26+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -33,83 +33,83 @@ msgstr ""
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
-#: app/Classes/class-nh_file_uploader.php:77, app/Classes/class-nh_file_uploader.php:141
+#: app/Classes/class-nh_file_uploader.php:74, app/Classes/class-nh_file_uploader.php:138
 msgid "The reCaptcha verification failed. Please try again."
 msgstr ""
 
-#: app/Classes/class-nh_file_uploader.php:132
+#: app/Classes/class-nh_file_uploader.php:129
 msgid "Can't upload empty file"
 msgstr ""
 
-#: app/Classes/class-nh_file_uploader.php:89
+#: app/Classes/class-nh_file_uploader.php:86
 msgid "File too large. File must be less than 5 megabytes."
 msgstr ""
 
-#: app/Classes/class-nh_file_uploader.php:99
+#: app/Classes/class-nh_file_uploader.php:96
 msgid "Invalid file type."
 msgstr ""
 
-#: app/Classes/class-nh_file_uploader.php:128
+#: app/Classes/class-nh_file_uploader.php:125
 msgid "Attachment has been uploaded successfully."
 msgstr ""
 
-#: app/Classes/class-nh_file_uploader.php:155
+#: app/Classes/class-nh_file_uploader.php:152
 msgid "Attachment has been removed successfully"
 msgstr ""
 
-#: app/Classes/class-nh_file_uploader.php:153
+#: app/Classes/class-nh_file_uploader.php:150
 msgid "Can't remove attachment"
 msgstr ""
 
-#: app/Classes/class-nh_module.php:147
+#: app/Classes/class-nh_module.php:184
 msgid "No invalid post id"
 msgstr ""
 
-#: app/Classes/class-nh_module.php:159
+#: app/Classes/class-nh_module.php:196
 msgid "No posts available."
 msgstr ""
 
-#: app/Classes/class-nh_module.php:265
+#: app/Classes/class-nh_module.php:286
 msgid "Successful Response!"
 msgstr ""
 
-#: app/Classes/class-nh_user.php:313, app/Classes/class-nh_user.php:409
+#: app/Classes/class-nh_user.php:400, app/Classes/class-nh_user.php:683
 msgid "Sorry, this phone number already exists!"
 msgstr ""
 
-#: app/Classes/class-nh_user.php:321
+#: app/Classes/class-nh_user.php:408
 msgid "Sorry, that email already exists!"
 msgstr ""
 
-#: app/Classes/class-nh_user.php:702, app/Classes/class-nh_user.php:695, app/Classes/class-nh_user.php:772, app/Classes/class-nh_user.php:764, app/Classes/class-nh_user.php:756, app/Classes/class-nh_user.php:748
-msgid "Your reset key is invalid!."
-msgstr ""
-
-#: app/Classes/class-nh_user.php:740
-msgid "Your reset key is expired."
-msgstr ""
-
-#: app/Classes/class-nh_user.php:820
-msgid "This user does not exist!."
-msgstr ""
-
-#: app/Classes/class-nh_user.php:940, app/Classes/class-nh_user.php:955
-msgid "Your login credentials are invalid."
-msgstr ""
-
-#: app/Classes/class-nh_user.php:988
-msgid "Your account is pending! Please check your E-mail to activate your account."
-msgstr ""
-
-#: app/Classes/class-nh_user.php:999
-msgid "This account is temporarily disabled or blocked. Please contact us."
-msgstr ""
-
-#: app/Classes/class-nh_user.php:1029
+#: app/Classes/class-nh_user.php:614
 msgid "The verification code didn't send!"
 msgstr ""
 
-#: app/helpers/class-nh_forms.php:419
+#: app/Classes/class-nh_user.php:858, app/Classes/class-nh_user.php:851, app/Classes/class-nh_user.php:927, app/Classes/class-nh_user.php:919, app/Classes/class-nh_user.php:911, app/Classes/class-nh_user.php:903
+msgid "Your reset key is invalid!."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:895
+msgid "Your reset key is expired."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:956
+msgid "This user does not exist!."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:989, app/Classes/class-nh_user.php:1004
+msgid "Your login credentials are invalid."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:1037
+msgid "Your account is pending! Please check your E-mail to activate your account."
+msgstr ""
+
+#: app/Classes/class-nh_user.php:1048
+msgid "This account is temporarily disabled or blocked. Please contact us."
+msgstr ""
+
+#: app/helpers/class-nh_forms.php:421
 msgid "Upload your University ID"
 msgstr ""
 
@@ -313,30 +313,6 @@ msgstr ""
 
 #: comments.php:58
 msgid "Comments are closed."
-msgstr ""
-
-#: functions.php:155
-msgid "Default"
-msgstr ""
-
-#: functions.php:156
-msgid "Footer"
-msgstr ""
-
-#: functions.php:157
-msgid "Bottom Footer"
-msgstr ""
-
-#: functions.php:204
-msgid "Sidebar"
-msgstr ""
-
-#: functions.php:206
-msgid "Add widgets here."
-msgstr ""
-
-#: functions.php:236
-msgid "Second Logo"
 msgstr ""
 
 #. translators: %s: post date.

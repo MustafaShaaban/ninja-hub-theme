@@ -79,6 +79,19 @@
                 'force_activation' => TRUE,
                 'external_url'     => 'https://github.com/MustafaShaaban/ninja-hub-theme-settings',
                 // If set, overrides default API URL and points to an external URL.
+            ],
+            [
+                'name'             => 'NinjaHub Core',
+                // The plugin name.
+                'slug'             => 'ninjahub-core',
+                // The plugin slug (typically the folder name).
+                'source'           => 'https://github.com/MustafaShaaban/ninjahub-core/archive/refs/heads/main.zip',
+                // The plugin source.
+                'required'         => TRUE,
+                // If false, the plugin is only 'recommended' instead of required.
+                'force_activation' => TRUE,
+                'external_url'     => 'https://github.com/MustafaShaaban/ninjahub-core',
+                // If set, overrides default API URL and points to an external URL.
             ]
         ];
 

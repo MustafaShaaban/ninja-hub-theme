@@ -731,22 +731,22 @@
                 }
 
                 $args = apply_filters('tgmpa_admin_menu_args', [
-                        'parent_slug' => $this->parent_slug,
-                        // Parent Menu slug.
-                        'page_title'  => $this->strings['page_title'],
-                        // Page title.
-                        'menu_title'  => $this->strings['menu_title'],
-                        // Menu title.
-                        'capability'  => $this->capability,
-                        // Capability.
-                        'menu_slug'   => $this->menu,
-                        // Menu slug.
-                        'function'    => [
-                            $this,
-                            'install_plugins_page'
-                        ],
-                        // Callback.
-                    ]);
+                    'parent_slug' => $this->parent_slug,
+                    // Parent Menu slug.
+                    'page_title'  => $this->strings['page_title'],
+                    // Page title.
+                    'menu_title'  => $this->strings['menu_title'],
+                    // Menu title.
+                    'capability'  => $this->capability,
+                    // Capability.
+                    'menu_slug'   => $this->menu,
+                    // Menu slug.
+                    'function'    => [
+                        $this,
+                        'install_plugins_page'
+                    ],
+                    // Callback.
+                ]);
 
                 $this->add_admin_menu($args);
             }
@@ -856,9 +856,9 @@
 
                     // Pass necessary information via URL if WP_Filesystem is needed.
                     $url = wp_nonce_url(add_query_arg([
-                                'plugin'                 => urlencode($slug),
-                                'tgmpa-' . $install_type => $install_type . '-plugin',
-                            ], $this->get_tgmpa_url()), 'tgmpa-' . $install_type, 'tgmpa-nonce');
+                        'plugin'                 => urlencode($slug),
+                        'tgmpa-' . $install_type => $install_type . '-plugin',
+                    ], $this->get_tgmpa_url()), 'tgmpa-' . $install_type, 'tgmpa-nonce');
 
                     $method = ''; // Leave blank so WP_Filesystem can populate it as necessary.
 
@@ -881,9 +881,9 @@
                     $api           = (FALSE !== $api) ? $api : NULL;
 
                     $url = add_query_arg([
-                            'action' => $install_type . '-plugin',
-                            'plugin' => urlencode($slug),
-                        ], 'update.php');
+                        'action' => $install_type . '-plugin',
+                        'plugin' => urlencode($slug),
+                    ], 'update.php');
 
                     if (!class_exists('Plugin_Upgrader', FALSE)) {
                         require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
@@ -1733,12 +1733,12 @@
                     $link = sprintf('<a href="%1$s" target="_blank">%2$s</a>', esc_url($this->plugins[$slug]['external_url']), esc_html($this->plugins[$slug]['name']));
                 } elseif ('repo' === $this->plugins[$slug]['source_type']) {
                     $url = add_query_arg([
-                            'tab'       => 'plugin-information',
-                            'plugin'    => urlencode($slug),
-                            'TB_iframe' => 'true',
-                            'width'     => '640',
-                            'height'    => '500',
-                        ], self_admin_url('plugin-install.php'));
+                        'tab'       => 'plugin-information',
+                        'plugin'    => urlencode($slug),
+                        'TB_iframe' => 'true',
+                        'width'     => '640',
+                        'height'    => '500',
+                    ], self_admin_url('plugin-install.php'));
 
                     $link = sprintf('<a href="%1$s" class="thickbox">%2$s</a>', esc_url($url), esc_html($this->plugins[$slug]['name']));
                 } else {
@@ -1810,8 +1810,8 @@
                         $parent = 'admin.php';
                     }
                     $url = add_query_arg([
-                            'page' => urlencode($this->menu),
-                        ], self_admin_url($parent));
+                        'page' => urlencode($this->menu),
+                    ], self_admin_url($parent));
                 }
 
                 return $url;
@@ -1832,8 +1832,8 @@
             public function get_tgmpa_status_url($status)
             {
                 return add_query_arg([
-                        'plugin_status' => urlencode($status),
-                    ], $this->get_tgmpa_url());
+                    'plugin_status' => urlencode($status),
+                ], $this->get_tgmpa_url());
             }
 
             /**
@@ -2301,10 +2301,10 @@
                 ]);
 
                 parent::__construct([
-                        'singular' => 'plugin',
-                        'plural'   => 'plugins',
-                        'ajax'     => FALSE,
-                    ]);
+                    'singular' => 'plugin',
+                    'plural'   => 'plugins',
+                    'ajax'     => FALSE,
+                ]);
 
                 if (isset($_REQUEST['plugin_status']) && in_array($_REQUEST['plugin_status'], [
                         'install',
@@ -2795,9 +2795,9 @@
                 // Create the actual links.
                 foreach ($actions as $action => $text) {
                     $nonce_url = wp_nonce_url(add_query_arg([
-                                'plugin'           => urlencode($item['slug']),
-                                'tgmpa-' . $action => $action . '-plugin',
-                            ], $this->tgmpa->get_tgmpa_url()), 'tgmpa-' . $action, 'tgmpa-nonce');
+                        'plugin'           => urlencode($item['slug']),
+                        'tgmpa-' . $action => $action . '-plugin',
+                    ], $this->tgmpa->get_tgmpa_url()), 'tgmpa-' . $action, 'tgmpa-nonce');
 
                     $action_links[$action] = sprintf('<a href="%1$s">' . esc_html($text) . '</a>', // $text contains the second placeholder.
                         esc_url($nonce_url), '<span class="screen-reader-text">' . esc_html($item['sanitized_plugin']) . '</span>');
@@ -3036,11 +3036,11 @@
 
                     // Create a new instance of TGMPA_Bulk_Installer.
                     $installer = new TGMPA_Bulk_Installer(new TGMPA_Bulk_Installer_Skin([
-                                'url'          => esc_url_raw($this->tgmpa->get_tgmpa_url()),
-                                'nonce'        => 'bulk-' . $this->_args['plural'],
-                                'names'        => $names,
-                                'install_type' => $install_type,
-                            ]));
+                        'url'          => esc_url_raw($this->tgmpa->get_tgmpa_url()),
+                        'nonce'        => 'bulk-' . $this->_args['plural'],
+                        'names'        => $names,
+                        'install_type' => $install_type,
+                    ]));
 
                     // Wrap the install process with the appropriate HTML.
                     echo '<div class="tgmpa">', '<h2 style="font-size: 23px; font-weight: 400; line-height: 29px; margin: 0; padding: 9px 15px 4px 0;">', esc_html(get_admin_page_title()), '</h2>
@@ -3484,17 +3484,17 @@
 							*/
 
                                 $result = $this->run([
-                                        'package'           => $plugin,
-                                        // [TGMPA + ] adjusted.
-                                        'destination'       => WP_PLUGIN_DIR,
-                                        'clear_destination' => FALSE,
-                                        // [TGMPA + ] adjusted.
-                                        'clear_working'     => TRUE,
-                                        'is_multi'          => TRUE,
-                                        'hook_extra'        => [
-                                            'plugin' => $plugin,
-                                        ],
-                                    ]);
+                                    'package'           => $plugin,
+                                    // [TGMPA + ] adjusted.
+                                    'destination'       => WP_PLUGIN_DIR,
+                                    'clear_destination' => FALSE,
+                                    // [TGMPA + ] adjusted.
+                                    'clear_working'     => TRUE,
+                                    'is_multi'          => TRUE,
+                                    'hook_extra'        => [
+                                        'plugin' => $plugin,
+                                    ],
+                                ]);
 
                                 $results[$plugin] = $this->result;
 

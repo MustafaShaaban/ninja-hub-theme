@@ -8,8 +8,6 @@
 
     namespace NH\APP\HELPERS;
 
-    use Exception;
-
     /**
      * Description...
      *

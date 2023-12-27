@@ -1,7 +1,5 @@
 <?php
 
-    use NH\APP\HELPERS\Nh_Hooks;
-
     /**
      * @Filename: header.php
      * @Description:
